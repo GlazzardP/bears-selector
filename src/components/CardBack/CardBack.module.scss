@@ -1,0 +1,52 @@
+// @import "../../variables.scss";
+
+.cardBack {
+  color: white;
+  height: 350px;
+  width: 250px;
+  border-radius: 5%;
+  border: none;
+  position: relative;
+
+  .baseCard {
+    color: white;
+    height: 350px;
+    width: 250px;
+    border-radius: 5%;
+    // position: relative;
+    margin: auto;
+    background-color: rgb(226, 53, 48);
+    // padding: 15px;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      opacity: 0.6;
+    }
+  }
+
+  .cardBody {
+    top: 0;
+    position: absolute;
+    height: 350px;
+    width: 250px;
+    padding: 5px;
+    // border: solid green 2px;
+
+    .coreSkills,
+    .specialistSkills {
+      display: grid;
+      grid-template-columns: auto auto;
+
+      p {
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    .playerButtons {
+      margin: auto;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,155 @@
+// @import "../../variables.scss";
+
+.cardFront {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .baseCard {
+    color: white;
+    height: 350px;
+    width: 250px;
+    border-radius: 5%;
+    position: relative;
+
+    // border: solid black 2px;
+    background-color: blue;
+    // background-color: rgb(18, 18, 84);
+
+    margin: auto;
+
+    .bottomCard {
+      height: 100%;
+      width: 100%;
+      // border: solid pink 2px;
+      border-radius: 5%;
+
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        opacity: 0.3;
+      }
+    }
+
+    .lowerCard {
+      top: 0;
+      height: 100%;
+      width: 100%;
+
+      border-radius: 5%;
+      position: absolute;
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+
+        margin: 0 auto;
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 60px;
+      }
+    }
+
+    .middleCard {
+      bottom: 0;
+      height: 40%;
+      width: 100%;
+
+      border-radius: 5%;
+      position: absolute;
+
+      background: rgb(2, 0, 36);
+      background: linear-gradient(
+        360deg,
+        rgba(2, 0, 36, 1) 36%,
+        rgba(9, 9, 121, 1) 55%,
+        rgba(0, 149, 255, 0.24273459383753504) 71%
+      );
+    }
+
+    .topCard {
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 5%;
+      position: absolute;
+
+      .topCardOrganise {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .season {
+          height: 10%;
+          display: flex;
+          justify-content: space-between;
+          align-content: center;
+          padding: 10px;
+
+          div {
+            // border: solid red 2px;
+
+            p {
+              font-weight: 900;
+              //   background-color: red;
+              //   border-radius: 50%;
+              //   height: 25px;
+              //   width: 25px;
+              text-decoration: underline;
+            }
+            img {
+              border-radius: 50%;
+              height: 25px;
+              width: 25px;
+            }
+          }
+
+          .seasonYear {
+            // border: solid pink 2px;
+            transform: rotate(90deg);
+            margin-top: 30px;
+            margin-left: -10px;
+          }
+        }
+
+        .playerDetails {
+          bottom: 0;
+          // background-color: red;
+
+          .playerDetailsName {
+            text-align: center;
+          }
+
+          .playerDetailsInfo {
+            display: flex;
+            justify-content: center;
+
+            div {
+              padding: 0 10px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+
+              p {
+                text-align: center;
+              }
+            }
+
+            // .selectDrop {
+            //   border: solid red 2px;
+            //   background-color: red;
+            // }
+          }
+
+          .playerButtons {
+            margin: auto;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
