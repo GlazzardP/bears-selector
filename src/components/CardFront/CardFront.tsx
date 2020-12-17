@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import styles from "./CardFront.module.scss";
-import bearsLogo from "../../assetts/images/1200px-Bristol_Bears_logo.svg.png";
+import bearsLogo from "../../assets/images/1200px-Bristol_Bears_logo.svg.png";
+
+import Button from "../../components/Button";
 
 import { IPlayer } from "../../data/data";
+// impor {ButtonProps} from "../../"
 
 interface CardFrontProps {
   player: IPlayer;
+  // addPlayerToTeam: () => Array<object>;
+  // currentTeam: Array<object>
+  // addPlayerToTeam:
+  // currentTeam
+  // btnText: string;
+  // btnImg: string;
+  // handleClick: () => any;
 }
 
 const CardFront: React.FC<CardFrontProps> = ({ player }) => {
-  // const CardFront = () => {
-  const [playerPosition, setPlayerPosition] = useState(7);
-  const [flag, setFlag] = useState("Bear");
-  const [position, setPosition] = useState(null);
+  const [position, setPosition] = useState(player.positionNum[0]);
 
   console.log(position);
 
@@ -25,7 +32,7 @@ const CardFront: React.FC<CardFrontProps> = ({ player }) => {
   };
 
   const playerPositionJsx = player.positionNum.map((number) => {
-    return <option value={`number`}>{number}</option>;
+    return <option value={number}>{number}</option>;
   });
 
   // const flagJsx = () => {
@@ -53,7 +60,7 @@ const CardFront: React.FC<CardFrontProps> = ({ player }) => {
               <p className={styles.seasonYear}>2020/21</p>
               <div>
                 <p>88</p>
-                <img src={player.flag} alt="Flag" />
+                <img src={player.flag} alt="Players National Flag" />
               </div>
             </div>
             <div className={styles.playerDetails}>
@@ -72,9 +79,6 @@ const CardFront: React.FC<CardFrontProps> = ({ player }) => {
                   <label>Position:</label>
                   <select name="position" id="position" onChange={handleChange}>
                     {playerPositionJsx}
-                    {/* <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option> */}
                   </select>
                 </div>
                 <div>
@@ -82,8 +86,13 @@ const CardFront: React.FC<CardFrontProps> = ({ player }) => {
                   <p>{player.playerHeight}cm</p>
                 </div>
               </div>
-              <div className={styles.playerButtons}>
+              <div
+                className={styles.playerButtons}
+                onClick={(e) => stopEventPropagation(e)}
+              >
+                {/* <Button btnText="Pick"/> */}
                 <button onClick={() => alert(`Picked ${position}`)}>
+                  {/* <button onClick={() => addPlayerToTeam(currentTeam[position - 1])} > */}
                   Pick
                 </button>
               </div>

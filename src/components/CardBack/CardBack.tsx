@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./CardBack.module.scss";
-import bearsLogo from "../../assetts/images/1200px-Bristol_Bears_logo.svg.png";
+import bearsLogo from "../../assets/images/1200px-Bristol_Bears_logo.svg.png";
+
 import { IPlayer } from "../../data/data";
 
 interface CardBackProps {
@@ -10,19 +11,29 @@ interface CardBackProps {
 const CardBack: React.FC<CardBackProps> = ({ player }) => {
   console.log(player);
 
-
-const CardBack = () => {
+  // const CardBack = () => {
   const stopEventPropagation = (e: any) => {
     e.stopPropagation();
   };
+
+  const kickingJsx = player.kicking ? <p>Kicking: {player.kicking}</p> : "";
+  const lineoutJsx = player.lineOut ? <p>lineout: {player.lineOut}</p> : "";
+  const scrummagingJsx = player.scrummaging ? (
+    <p>scrummaging: {player.scrummaging}</p>
+  ) : (
+    ""
+  );
+
+  // condition ? exprIfTrue : exprIfFalse
+
   return (
     <section className={styles.cardBack}>
       <div className={styles.baseCard}>
         <img src={bearsLogo} alt="Bristol Bears" />
       </div>
       <section className={styles.cardBody}>
-      <h2>{player.playerName}</h2>
-      <p>{player.position}</p>
+        <h2>{player.playerName}</h2>
+        <p>{player.position}</p>
         <h4>Core</h4>
         <div className={styles.coreSkills}>
           <p>Strength: {player.strength}</p>
@@ -34,9 +45,12 @@ const CardBack = () => {
         </div>
         <h4>Specialist</h4>
         <div className={styles.specialistSkills}>
-          <p>Kicking: 88</p>
-          <p>Scrummaging: 88</p>
-          <p>Line Out: 88</p>
+          {/* <p>Kicking: {player.kicking}</p> */}
+          {kickingJsx}
+          {scrummagingJsx}
+          {/* <p>Scrummaging: {player.scrummaging}</p> */}
+          {lineoutJsx}
+          {/* <p>Line Out: {player.lineOut}</p> */}
         </div>
 
         <div

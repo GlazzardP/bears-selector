@@ -10,6 +10,9 @@ import { IPlayer } from "../../data/data";
 
 interface CardProps {
   player: IPlayer;
+  // addPlayerToTeam: () => Array<object>;
+  // currentTeam: Array<object>
+  // currentTeam
   // armadillo: number;
 }
 
@@ -28,9 +31,14 @@ const Card: React.FC<CardProps> = ({ player }) => {
       >
         <div className={styles.front}>
           <CardFront player={player}></CardFront>
+          {/* <CardFront player={player} addPlayerToTeam={addPlayerToTeam} currentTeam={currentTeam}></CardFront> */}
+
         </div>
         <div className={styles.back}>
-          <CardBack player={player}></CardBack>
+          <CardBack player={player} ></CardBack>     
+         {/* <CardBack player={player} addPlayerToTeam={addPlayerToTeam} currentTeam={currentTeam}></CardBack> */}
+
+
         </div>
       </section>
     </>
