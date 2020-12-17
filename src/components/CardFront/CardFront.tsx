@@ -9,6 +9,8 @@ import { IPlayer } from "../../data/data";
 
 interface CardFrontProps {
   player: IPlayer;
+  setPlayer: (player: IPlayer) => void;
+  // position: number;
   // addPlayerToTeam: () => Array<object>;
   // currentTeam: Array<object>
   // addPlayerToTeam:
@@ -18,8 +20,8 @@ interface CardFrontProps {
   // handleClick: () => any;
 }
 
-const CardFront: React.FC<CardFrontProps> = ({ player }) => {
-  const [position, setPosition] = useState(player.positionNum[0]);
+const CardFront: React.FC<CardFrontProps> = ({ player, setPlayer }) => {
+  const [position, setPosition] = useState();
 
   console.log(position);
 
@@ -90,11 +92,8 @@ const CardFront: React.FC<CardFrontProps> = ({ player }) => {
                 className={styles.playerButtons}
                 onClick={(e) => stopEventPropagation(e)}
               >
-                {/* <Button btnText="Pick"/> */}
-                <button onClick={() => alert(`Picked ${position}`)}>
-                  {/* <button onClick={() => addPlayerToTeam(currentTeam[position - 1])} > */}
-                  Pick
-                </button>
+                {/* <button onClick={() => alert(`Picked ${position}`)}> */}
+                <button onClick={() => setPlayer(player)}>Pick</button>
               </div>
             </div>
           </div>

@@ -10,13 +10,13 @@ import { IPlayer } from "../../data/data";
 
 interface CardProps {
   player: IPlayer;
-  // addPlayerToTeam: () => Array<object>;
+  setPlayer: (player: IPlayer) => void;
   // currentTeam: Array<object>
   // currentTeam
   // armadillo: number;
 }
 
-const Card: React.FC<CardProps> = ({ player }) => {
+const Card: React.FC<CardProps> = ({ player, setPlayer }) => {
   console.log(player);
 
   const [isFaceUp, flipCard] = useState(true);
@@ -30,15 +30,12 @@ const Card: React.FC<CardProps> = ({ player }) => {
         onClick={() => flipCard(!isFaceUp)}
       >
         <div className={styles.front}>
-          <CardFront player={player}></CardFront>
-          {/* <CardFront player={player} addPlayerToTeam={addPlayerToTeam} currentTeam={currentTeam}></CardFront> */}
-
+          {/* <CardFront player={player}></CardFront> */}
+          <CardFront player={player} setPlayer={setPlayer}></CardFront>
         </div>
         <div className={styles.back}>
-          <CardBack player={player} ></CardBack>     
-         {/* <CardBack player={player} addPlayerToTeam={addPlayerToTeam} currentTeam={currentTeam}></CardBack> */}
-
-
+          <CardBack player={player}></CardBack>
+          {/* <CardBack player={player} addPlayerToTeam={addPlayerToTeam} currentTeam={currentTeam}></CardBack> */}
         </div>
       </section>
     </>

@@ -1,28 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+// .App {
+//   background-color: rgb(19, 29, 41);
+// }
+
 .Cards {
   display: grid;
   grid-template-columns: auto;
 }
 
-.team { 
-margin: auto;
+.team {
+  margin: auto;
   border: solid red 2px;
   max-width: 90vw;
   display: grid;
   grid-template-columns: auto auto;
   // grid-auto-rows: auto;
-
-
 }
-
-
 
 @media only screen and (min-width: 768px) {
-    .Cards {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-column-gap: 5px;
-
+  .Cards {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 5px;
+  }
 }
-
-}
-
