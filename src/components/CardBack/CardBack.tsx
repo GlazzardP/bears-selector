@@ -2,19 +2,26 @@ import React from "react";
 import styles from "./CardBack.module.scss";
 import bearsLogo from "../../assets/images/1200px-Bristol_Bears_logo.svg.png";
 
+import Button from "../Button";
+
 import { IPlayer } from "../../data/data";
 
 interface CardBackProps {
   player: IPlayer;
+  // setPlayer: (player: IPlayer) => void;
 }
 
 const CardBack: React.FC<CardBackProps> = ({ player }) => {
-  console.log(player);
+  // console.log(player);
 
   // const CardBack = () => {
   const stopEventPropagation = (e: any) => {
     e.stopPropagation();
   };
+
+  // const handleChange = (e: any) => {
+  //   setPosition(e.target.value);
+  // };
 
   const kickingJsx = player.kicking ? <p>Kicking: {player.kicking}</p> : "";
   const lineoutJsx = player.lineOut ? <p>lineout: {player.lineOut}</p> : "";
@@ -45,19 +52,18 @@ const CardBack: React.FC<CardBackProps> = ({ player }) => {
         </div>
         <h4>Specialist</h4>
         <div className={styles.specialistSkills}>
-          {/* <p>Kicking: {player.kicking}</p> */}
           {kickingJsx}
           {scrummagingJsx}
-          {/* <p>Scrummaging: {player.scrummaging}</p> */}
           {lineoutJsx}
-          {/* <p>Line Out: {player.lineOut}</p> */}
         </div>
 
         <div
           className={styles.playerButtons}
           onClick={(e) => stopEventPropagation(e)}
         >
-          <button onClick={() => alert("Picked")}>Pick</button>
+          {/* <button onClick={() => setPlayer(player)}>Pick</button> */}
+          {/* <button onClick={alert("picked")}>Pick</button> */}
+          {/* <Button btnText="Pick" handleClick={setPlayer} /> */}
         </div>
       </section>
     </section>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./CardFront.module.scss";
 import bearsLogo from "../../assets/images/1200px-Bristol_Bears_logo.svg.png";
+import { useId } from "react-id-generator";
 
 import Button from "../../components/Button";
 
@@ -10,6 +11,8 @@ import { IPlayer } from "../../data/data";
 interface CardFrontProps {
   player: IPlayer;
   setPlayer: (player: IPlayer) => void;
+  // position: number;
+  // setPosition: (player: IPlayer) => number;
   // position: number;
   // addPlayerToTeam: () => Array<object>;
   // currentTeam: Array<object>
@@ -21,30 +24,30 @@ interface CardFrontProps {
 }
 
 const CardFront: React.FC<CardFrontProps> = ({ player, setPlayer }) => {
-  const [position, setPosition] = useState();
+  const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
 
-  console.log(position);
+  const [position, setPosition] = useState<number>(player.positionNum[0]);
+  const [htmlId] = useId();
+
+  // console.log(position);
 
   const stopEventPropagation = (e: any) => {
     e.stopPropagation();
   };
 
-  const handleChange = (event: any) => {
-    setPosition(event.target.value);
+  const handleChange = (e: any) => {
+    setPosition(e.target.value);
   };
 
   const playerPositionJsx = player.positionNum.map((number) => {
-    return <option value={number}>{number}</option>;
+    console.log(player.playerName);
+
+    return (
+      <option key={htmlId + number} value={number}>
+        {number}
+      </option>
+    );
   });
-
-  // const flagJsx = () => {
-  //   if (player.nationality == "England") {
-  //     setFlag('England')
-  //   } else if (player.nationality == "New Zealand"){
-  //     setFlag('England')
-
-  //   }
-  // };
 
   return (
     <div className={styles.cardFront}>

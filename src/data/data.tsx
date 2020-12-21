@@ -125,7 +125,7 @@ const NAdeolokun: IPlayer = {
   playerImg: AdeolokunImg,
   playerHeight: 190,
   playerAge: 30,
-  position: "Winger",
+  position: "Back Row",
   positionNum: [11, 14],
   strength: 78,
   fitness: 88,
@@ -291,7 +291,7 @@ const JDun: IPlayer = {
 };
 
 const MEadie: IPlayer = {
-  playerName: "James Dun",
+  playerName: "Mitch Eadie",
   nationality: "England",
   flag: England,
   playerImg: EadieImg,
@@ -900,7 +900,7 @@ const JWoolmore: IPlayer = {
 
 const players: IPlayer[] = [
   SLuatua,
-  HThacker,
+  // HThacker,
   NAdeolokun,
   JAfoa,
   JArmstrong,
@@ -922,7 +922,7 @@ const players: IPlayer[] = [
   TKessell,
   MLahiff,
   ALeiua,
-  SLuatua,
+  // SLuatua,
   MMalins,
   PMccabe,
   LMorahan,

@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
+
 import styles from "./App.module.scss";
 // import Header2 from "./assetts/variables.scss";
-import RugbyBall from "./assetts/images/rugby.svg";
-import Button from "./components/Button";
+// import RugbyBall from "./assetts/images/rugby.svg";
+// import Button from "./components/Button";
 import Card from "./components/Card";
 import SelectedPlayers from "./components/SelectedPlayers";
 // import Steven from "./assetts/images/steven-luatua_30-removebg-preview.png";
 import Navbar from "./components/Navbar";
 
 import players, { IPlayer } from "./data/data";
+import DummyPlayer from "./data/data";
 
 // interface CardProps {
 //   player: object;
@@ -17,25 +18,39 @@ import players, { IPlayer } from "./data/data";
 
 function App() {
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
-
-  useEffect(() => {
-    console.log(currentTeam);
-  }, [currentTeam]);
-
-  // const selectedPlayers = currentTeam.map((player) => player.playerName);
-  // const filteredPlayers = players
-  //   .filter((player) => !selectedPlayers.includes(player.playerName))
-  //   .filter((player) => player.position == positionFilter);
+  // const [showPlayers, setShowPlayers] = useState<IPlayer[]>([]);
 
   const setPlayer = (player: IPlayer) => {
-    addPlayerToTeam([...currentTeam, player]);
+    if (currentTeam.includes(player)) {
+      return alert("This player is already selected.");
+      // return console.log("foo");
+    } else if (currentTeam.length >= 14) {
+      return alert("You have a full team already.");
+    } else {
+      addPlayerToTeam([...currentTeam, player]);
+    }
   };
 
-  // const setPlayer = (player: IPlayer) => {
-  //   let team = [...currentTeam];
-  //   team = team.splice(player.positionNum[0], 1, player);
-  //   addPlayerToTeam(team);
-  // };
+  const getAvailablePlayers = () => {
+    const teamPlayers = players;
+
+    const newTeamPlayers = teamPlayers.map((player) => {
+      if (!currentTeam.includes(player)) {
+        return (
+          <div className={styles.Cards}>
+            <Card
+              key={player.playerName}
+              player={player}
+              setPlayer={setPlayer}
+            />
+          </div>
+        );
+      } else if (currentTeam.length >= 14) {
+        console.log("You've already selected 15 players.");
+      }
+    });
+    return newTeamPlayers;
+  };
 
   return (
     <section className={styles.App}>
@@ -43,14 +58,7 @@ function App() {
       <section className={styles.team}>
         <SelectedPlayers currentTeam={currentTeam} />
       </section>
-
-      {/* <Button btnText="Button" btnImg="/assetts/images/rugby.svg" /> */}
-      <div className={styles.Cards}>
-        {players.map((player) => {
-          // return <Card player={player} />;
-          return <Card player={player} setPlayer={setPlayer} />;
-        })}
-      </div>
+      {getAvailablePlayers()}
     </section>
   );
 }

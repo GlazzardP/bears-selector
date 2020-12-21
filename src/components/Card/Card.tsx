@@ -11,6 +11,8 @@ import { IPlayer } from "../../data/data";
 interface CardProps {
   player: IPlayer;
   setPlayer: (player: IPlayer) => void;
+  // position: number;
+  // setPosition: (player: IPlayer) => number;
   // currentTeam: Array<object>
   // currentTeam
   // armadillo: number;
@@ -20,6 +22,8 @@ const Card: React.FC<CardProps> = ({ player, setPlayer }) => {
   console.log(player);
 
   const [isFaceUp, flipCard] = useState(true);
+
+  // const [position, setPosition] = useState<number>(player.positionNum[0]);
 
   const rotateClass = isFaceUp ? "" : styles.faceDown;
 
@@ -31,7 +35,11 @@ const Card: React.FC<CardProps> = ({ player, setPlayer }) => {
       >
         <div className={styles.front}>
           {/* <CardFront player={player}></CardFront> */}
-          <CardFront player={player} setPlayer={setPlayer}></CardFront>
+          <CardFront
+            player={player}
+            setPlayer={setPlayer}
+            // setPosition={setPosition}
+          ></CardFront>
         </div>
         <div className={styles.back}>
           <CardBack player={player}></CardBack>
