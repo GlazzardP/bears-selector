@@ -74,19 +74,25 @@ const SelectedPlayer: React.FC<ISelectedPlayerProps> = ({
   //   return firstLetter;
   // };
 
+  const getSurname = (playerObj: IPlayer)  => { 
+    const surname = playerObj.playerName.split(" ")[1]
+    return surname
+  }
+
   return (
-    <>
+    <section className={styles.selectedTeam}>
       {/* {printSelectedPlayers()} */}
       {currentTeam.map((playerObj) => {
         return (
           <div className={styles.SelectedPlayer}>
             <img src={close} alt="Unselect Player" />
             <p>{playerObj.positionNum[0]}</p>
-            <p>{playerObj.playerName.split(" ")}</p>
+            <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(playerObj)}`}</p>
+
           </div>
         );
       })}
-    </>
+    </section>
   );
 };
 

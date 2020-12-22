@@ -45,6 +45,9 @@ const CardFront: React.FC<CardFrontProps> = ({
     setPosition(e.target.value);
   };
 
+  const totalScoreJsx = player.attacking + player.defending + player.experience + player.fitness + player.passing + player.speed + player.strength;
+  const averageScoreJsx = totalScoreJsx/7; 
+
   const playerPositionJsx = player.positionNum.map((number) => {
     // console.log(player.playerName);
 
@@ -74,7 +77,7 @@ const CardFront: React.FC<CardFrontProps> = ({
             <div className={styles.season}>
               <p className={styles.seasonYear}>2020/21</p>
               <div>
-                <p>88</p>
+                <p>{Math.round(averageScoreJsx)}</p>
                 <img src={player.flag} alt="Players National Flag" />
               </div>
             </div>

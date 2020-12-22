@@ -6,14 +6,6 @@
 }
 
 .App {
-  .team {
-    margin: auto;
-    border: solid red 2px;
-    max-width: 90vw;
-    display: grid;
-    grid-template-columns: auto auto;
-    // grid-auto-rows: auto;
-  }
   .allCards {
     display: grid;
     grid-template-columns: auto;
@@ -22,9 +14,21 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .App {
   .allCards {
-    display: inline-grid;
+    display: grid;
     grid-template-columns: auto auto;
     border: solid blue 3px;
   }
+}
+}
+
+@media only screen and (min-width: 1024px) {
+  .App {
+  .allCards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    border: solid blue 3px;
+  }
+}
 }
