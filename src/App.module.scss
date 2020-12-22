@@ -5,28 +5,26 @@
   font-family: "Roboto", sans-serif;
 }
 
-// .App {
-//   background-color: rgb(19, 29, 41);
-// }
-
-.Cards {
-  display: grid;
-  grid-template-columns: auto;
-}
-
-.team {
-  margin: auto;
-  border: solid red 2px;
-  max-width: 90vw;
-  display: grid;
-  grid-template-columns: auto auto;
-  // grid-auto-rows: auto;
+.App {
+  .team {
+    margin: auto;
+    border: solid red 2px;
+    max-width: 90vw;
+    display: grid;
+    grid-template-columns: auto auto;
+    // grid-auto-rows: auto;
+  }
+  .allCards {
+    display: grid;
+    grid-template-columns: auto;
+    border: solid pink 3px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  .Cards {
-    display: grid;
+  .allCards {
+    display: inline-grid;
     grid-template-columns: auto auto;
-    grid-column-gap: 5px;
+    border: solid blue 3px;
   }
 }

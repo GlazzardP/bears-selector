@@ -11,6 +11,8 @@ import { IPlayer } from "../../data/data";
 interface CardFrontProps {
   player: IPlayer;
   setPlayer: (player: IPlayer) => void;
+  // updateTeam: (playerObj: IPlayer) => void;
+
   // position: number;
   // setPosition: (player: IPlayer) => number;
   // position: number;
@@ -23,7 +25,11 @@ interface CardFrontProps {
   // handleClick: () => any;
 }
 
-const CardFront: React.FC<CardFrontProps> = ({ player, setPlayer }) => {
+const CardFront: React.FC<CardFrontProps> = ({
+  player,
+  setPlayer,
+  // updateTeam,
+}) => {
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
 
   const [position, setPosition] = useState<number>(player.positionNum[0]);
@@ -40,10 +46,14 @@ const CardFront: React.FC<CardFrontProps> = ({ player, setPlayer }) => {
   };
 
   const playerPositionJsx = player.positionNum.map((number) => {
-    console.log(player.playerName);
+    // console.log(player.playerName);
 
     return (
-      <option key={htmlId + number} value={number}>
+      <option
+        key={htmlId + number}
+        value={number}
+        className={styles.selectOption}
+      >
         {number}
       </option>
     );
@@ -71,6 +81,7 @@ const CardFront: React.FC<CardFrontProps> = ({ player, setPlayer }) => {
             <div className={styles.playerDetails}>
               <div className={styles.playerDetailsName}>
                 <h2>{player.playerName}</h2>
+                <p>{player.position}</p>
               </div>
               <div className={styles.playerDetailsInfo}>
                 <div>
@@ -82,13 +93,19 @@ const CardFront: React.FC<CardFrontProps> = ({ player, setPlayer }) => {
                   onClick={(e) => stopEventPropagation(e)}
                 >
                   <label>Position:</label>
-                  <select name="position" id="position" onChange={handleChange}>
+                  <select
+                    name="position"
+                    id="position"
+                    onChange={handleChange}
+                    className={styles.positionSelect}
+                  >
                     {playerPositionJsx}
                   </select>
                 </div>
                 <div>
                   <p>Height</p>
                   <p>{player.playerHeight}cm</p>
+                  {/* <p>{position}</p> */}
                 </div>
               </div>
               <div
@@ -97,6 +114,7 @@ const CardFront: React.FC<CardFrontProps> = ({ player, setPlayer }) => {
               >
                 {/* <button onClick={() => alert(`Picked ${position}`)}> */}
                 <button onClick={() => setPlayer(player)}>Pick</button>
+                {/* <button onClick={() => updateTeam(playerObj)}>Pick</button> */}
               </div>
             </div>
           </div>

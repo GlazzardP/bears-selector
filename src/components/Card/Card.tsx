@@ -11,6 +11,8 @@ import { IPlayer } from "../../data/data";
 interface CardProps {
   player: IPlayer;
   setPlayer: (player: IPlayer) => void;
+  // updateTeam: (playerObj: IPlayer) => void;
+  // unselectPlayer: (player: IPlayer) => ;
   // position: number;
   // setPosition: (player: IPlayer) => number;
   // currentTeam: Array<object>
@@ -19,9 +21,9 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ player, setPlayer }) => {
-  console.log(player);
+  // console.log(player);
 
-  const [isFaceUp, flipCard] = useState(true);
+  const [isFaceUp, flipCard] = useState<boolean>(true);
 
   // const [position, setPosition] = useState<number>(player.positionNum[0]);
 
@@ -38,6 +40,7 @@ const Card: React.FC<CardProps> = ({ player, setPlayer }) => {
           <CardFront
             player={player}
             setPlayer={setPlayer}
+            // updateTeam={updateTeam}
             // setPosition={setPosition}
           ></CardFront>
         </div>
