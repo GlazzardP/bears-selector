@@ -13,6 +13,14 @@
       display: grid;
       grid-template-columns: auto;
       // border: solid pink 3px;
+
+      .filter { 
+        display: flex;
+        img { 
+          height: 50px;
+          width: 50px;
+        }
+      }
     }
 
     .Pitch {
@@ -21,7 +29,7 @@
 
     .teamScore { 
       padding: 0 20px;
-      height: 5vh;
+      height: 7.5vh;
       background-color: $navy;
       width: 100vw;
 

@@ -14,11 +14,14 @@ import DummyPlayer from "./data/data";
 import Button from "./components/Button";
 
 
+import filter from "./assets/images/filter.svg"
+
 function App() {
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
   // const [showPlayers, setShowPlayers] = useState<IPlayer[]>([]);
   // const [chosenPosition, setChosenPosition] = useState<number>(1);
   const [updatedTeam, setUpdatedTeam] = useState<IPlayer[]>([]);
+  const [positionFiltered, setFilteredPosition] = useState<string>("")
 
   console.log(currentTeam);
 
@@ -85,6 +88,13 @@ function App() {
     return surname;
   };
 
+  const handleChange = (e: any) => {
+    setFilteredPosition(e.target.value);
+  };
+
+  console.log(positionFiltered);
+  
+
   return (
     <section className={styles.App}>
       <Navbar />
@@ -97,8 +107,22 @@ function App() {
         />
       </section>
       <section className={styles.main}>
-        <section className={styles.allCards}>{getAvailablePlayers()}</section>
+        <section className={styles.allCards}>
+          <div className={styles.filter}>
+            <img src={filter} alt="Filter Players" />Filter Players</div>   
+            <select name="position"
+                    id="position"
+                    onChange={handleChange}>
+              <option value="Prop">Prop</option>
+              <option value="Hooker">Hooker</option>
+              <option value="Second Row">Second</option>
+              <option value="Back Row">Back</option>
+              <option value="Scrum Half">Scrum</option>
 
+            </select>
+          {getAvailablePlayers()}
+       
+        </section>
         <section className={styles.Pitch}>
           <div className={styles.PitchImage}>
           <div className={styles.frontRow}>
