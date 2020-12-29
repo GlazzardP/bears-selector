@@ -8,7 +8,7 @@ const Navbar = () => {
     <section className={styles.Navbar}>
       <h1>Bristol Bears Team Selector</h1>
       <Button btnText="Log in" />
-      <Button btnText="Submit" />
+      {/* <Button btnText="Submit" /> */}
     </section>
   );
 };

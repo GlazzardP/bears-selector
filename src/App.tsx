@@ -11,6 +11,8 @@ import Navbar from "./components/Navbar";
 
 import players, { initialTeam, IPlayer } from "./data/data";
 import DummyPlayer from "./data/data";
+import Button from "./components/Button";
+
 
 function App() {
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
@@ -30,6 +32,16 @@ function App() {
   //   teamAlreadySelected[playerObj.positionNum[0] - 1] = playerObj;
   //   addPlayerToTeam(teamAlreadySelected);
   // };
+
+  // const submitButtonJsx = if(currentTeam.length == 14) {
+  //   return (   
+  //     <Button btnText="Submit" handleClick={() => alert('Clicked')}/>
+  //     )
+  //   } else {
+  //     return ( 
+  //       ""
+  //     )
+  //   }
 
   const setPlayer = (player: IPlayer) => {
     if (currentTeam.includes(player)) {
@@ -88,6 +100,7 @@ function App() {
         <section className={styles.allCards}>{getAvailablePlayers()}</section>
 
         <section className={styles.Pitch}>
+          <div className={styles.PitchImage}>
           <div className={styles.frontRow}>
             {currentTeam.slice(0, 3).map((playerObj) => (
               <div className={styles.ShirtPlayer} key={playerObj.playerName}>
@@ -122,7 +135,25 @@ function App() {
               </div>
             ))}
           </div>
+          </div>
+
         </section>
+        <div className={styles.teamScore}>
+          <div>          
+            <p>Defense: 85</p>
+            <p>Defense: 85</p>
+            <p>Attacking: 85</p>
+            <p>Fitness: 85</p>
+            <p>Experience: 85</p>  </div>
+     
+
+          <div>     
+             {currentTeam.length > 14 &&
+                <Button btnText="Submit team" handleClick={() => alert('Submit team')}/>
+            }
+          </div>
+
+        </div>
       </section>
     </section>
   );
