@@ -6,29 +6,68 @@
 }
 
 .App {
-  .allCards {
-    display: grid;
-    grid-template-columns: auto;
-    border: solid pink 3px;
+  .main {
+    .allCards {
+      display: grid;
+      grid-template-columns: auto;
+      // border: solid pink 3px;
+    }
+
+    .Pitch {
+      display: none;
+    }
   }
 }
 
 @media only screen and (min-width: 768px) {
   .App {
-  .allCards {
-    display: grid;
-    grid-template-columns: auto auto;
-    border: solid blue 3px;
+    .main {
+      .allCards {
+        display: grid;
+        grid-template-columns: auto auto;
+        // border: solid blue 3px;
+      }
+      .Pitch {
+        display: none;
+      }
+    }
   }
-}
 }
 
 @media only screen and (min-width: 1024px) {
   .App {
-  .allCards {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    border: solid blue 3px;
+    .main {
+      display: flex;
+      flex-direction: row;
+
+      .allCards {
+        display: grid;
+        grid-template-columns: auto auto;
+        // border: solid blue 3px;
+        width: 50vw;
+        // position: absolute;
+      }
+      .Pitch {
+        // position: sticky;
+        border-left: solid black 2px;
+        border-bottom: solid black 2px;
+
+        display: unset;
+        background-image: url(./assets/images/Rugby_union_pitch.svg);
+        height: 85vh;
+        width: 50vw;
+        // border: solid blue 3px;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        .frontRow,
+        .secondRow,
+        .backRow {
+          display: flex;
+          margin: auto;
+          // border: solid red 2px;
+        }
+      }
+    }
   }
-}
 }

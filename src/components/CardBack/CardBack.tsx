@@ -8,10 +8,10 @@ import { IPlayer } from "../../data/data";
 
 interface CardBackProps {
   player: IPlayer;
-  // setPlayer: (player: IPlayer) => void;
+  setPlayer: (player: IPlayer) => void;
 }
 
-const CardBack: React.FC<CardBackProps> = ({ player }) => {
+const CardBack: React.FC<CardBackProps> = ({ player, setPlayer }) => {
   // console.log(player);
 
   // const CardBack = () => {
@@ -63,7 +63,7 @@ const CardBack: React.FC<CardBackProps> = ({ player }) => {
         >
           {/* <button onClick={() => setPlayer(player)}>Pick</button> */}
           {/* <button onClick={alert("picked")}>Pick</button> */}
-          {/* <Button btnText="Pick" handleClick={setPlayer} /> */}
+          <button onClick={() => setPlayer(player)}>Pick</button>
         </div>
       </section>
     </section>

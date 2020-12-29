@@ -1,10 +1,13 @@
-.Button { 
-    border: none;
-    background-color: rgb(62, 219, 247);
-    color: white;
-    height: 50px;
-    width: fit-content;
-    padding: 10px 20px;
-    font-size: 20px;
-    border-radius: 5%;
+.Button {
+  border: none;
+  background-color: rgb(62, 219, 247);
+  color: white;
+  width: 100px;
+  //   min-width: fit-content;
+  //   min-width: calc(fit-content + 100px);
+
+  padding: 10px 0;
+  margin: 10px;
+  font-size: 15px;
+  border-radius: 5%;
 }

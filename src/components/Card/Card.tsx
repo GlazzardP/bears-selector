@@ -45,7 +45,7 @@ const Card: React.FC<CardProps> = ({ player, setPlayer }) => {
           ></CardFront>
         </div>
         <div className={styles.back}>
-          <CardBack player={player}></CardBack>
+          <CardBack player={player} setPlayer={setPlayer}></CardBack>
           {/* <CardBack player={player} addPlayerToTeam={addPlayerToTeam} currentTeam={currentTeam}></CardBack> */}
         </div>
       </section>

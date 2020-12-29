@@ -1,4 +1,9 @@
+@import "../../assets/variables.scss";
+
 .Navbar {
   width: 100%;
   border: solid black 2px;
+  display: flex;
+  background-color: $navy;
+  color: $suspensionPink;
 }

@@ -1,8 +1,9 @@
-$suspensionPink: rgb(236,60,101);
+$suspensionPink: rgb(236, 60, 101);
+$navy: rgb(18, 18, 84);
 
 @mixin Header2 {
-    color: red;
-    font-size: 50px;
-    font-weight: bold;
-    border: 1px solid blue;
-  }
+  color: red;
+  font-size: 50px;
+  font-weight: bold;
+  border: 1px solid blue;
+}

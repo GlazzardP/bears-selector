@@ -1,12 +1,13 @@
-// @import "../../variables.scss";
+@import "../../assets/variables.scss";
 
 .cardBack {
-  color: white;
+  color: $suspensionPink;
   height: 350px;
   width: 250px;
   border-radius: 5%;
   border: none;
   position: relative;
+  font-weight: 700;
 
   .baseCard {
     color: white;
@@ -15,7 +16,8 @@
     border-radius: 5%;
     // position: relative;
     margin: auto;
-    background-color: rgb(226, 53, 48);
+    // background-color: rgb(226, 53, 48);
+    background-color: black;
     // padding: 15px;
 
     img {
@@ -47,7 +49,7 @@
     .playerButtons {
       margin: auto;
       text-align: center;
-      border: solid red 2px;
+      // border: solid red 2px;
       height: 50px;
       padding: 5px;
 

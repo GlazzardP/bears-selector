@@ -38,7 +38,7 @@ function App() {
       //   return alert("You have a full team already.");
       // } else {
     } else if (currentTeam.length > 14) {
-      alert("Full Team");
+      alert("You've already got a full team.");
     } else {
       addPlayerToTeam([...currentTeam, player]);
     }
@@ -68,6 +68,11 @@ function App() {
     return newTeamPlayers;
   };
 
+  const getSurname = (playerObj: IPlayer) => {
+    const surname = playerObj.playerName.split(" ")[1];
+    return surname;
+  };
+
   return (
     <section className={styles.App}>
       <Navbar />
@@ -79,8 +84,46 @@ function App() {
           // player={player}
         />
       </section>
+      <section className={styles.main}>
+        <section className={styles.allCards}>{getAvailablePlayers()}</section>
 
-      <section className={styles.allCards}>{getAvailablePlayers()}</section>
+        <section className={styles.Pitch}>
+          <div className={styles.frontRow}>
+            {currentTeam.slice(0, 3).map((playerObj) => (
+              <div className={styles.ShirtPlayer} key={playerObj.playerName}>
+                <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
+                  playerObj
+                )}`}</p>
+
+                {/* <p>{playerObj.playerName}</p> */}
+                <p>{playerObj.positionNum[0]}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.secondRow}>
+            {currentTeam.slice(3, 5).map((playerObj) => (
+              <div className={styles.ShirtPlayer}>
+                <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
+                  playerObj
+                )}`}</p>
+                <p>{playerObj.positionNum[0]}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.backRow}>
+            {currentTeam.slice(5, 15).map((playerObj) => (
+              <div className={styles.ShirtPlayer}>
+                <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
+                  playerObj
+                )}`}</p>
+                <p>{playerObj.positionNum[0]}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </section>
     </section>
   );
 }
