@@ -7,7 +7,7 @@ import ByrneImg from "../assets/images/PlayerProfile/bryan-byrne_23-removebg-pre
 import CaponImg from "../assets/images/PlayerProfile/will-capon_15-removebg-preview.png";
 import CookImg from "../assets/images/PlayerProfile/chris-cook_09-removebg-preview.png";
 import DunImg from "../assets/images/PlayerProfile/james-dun_07-removebg-preview.png";
-import EadieImg from "../assets/images/PlayerProfile/james-dun_07-removebg-preview.png";
+import EadieImg from "../assets/images/PlayerProfile/mitch-eadie_21-removebg-preview.png";
 import EarlImg from "../assets/images/PlayerProfile/ben-earl_49-removebg-preview.png";
 import EdenImg from "../assets/images/PlayerProfile/tiff-eden_04-removebg-preview.png";
 import FrickerImg from "../assets/images/PlayerProfile/toby-fricker_02-removebg-preview.png";

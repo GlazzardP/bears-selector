@@ -15,6 +15,8 @@ import Button from "./components/Button";
 
 
 import filter from "./assets/images/filter.svg"
+import dropDown from "./assets/images/arrow-down-sign-to-navigate.svg"
+
 
 function App() {
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
@@ -92,7 +94,45 @@ function App() {
     setFilteredPosition(e.target.value);
   };
 
-  console.log(positionFiltered);
+  const teamDefenseScoreJsx = () => { 
+    const teamDefenseScore = currentTeam.map((player) => {
+    return ( 
+      player.defending
+  )})
+    }
+
+
+  const filterPlayer = ( ) => { 
+    const teamPlayers = players;
+
+    const newTeamPlayers = teamPlayers.map((player) => {
+      if (!currentTeam.includes(player) && positionFiltered === player.position ) { // Need to change this so if any number within positionNum array matches, the player will show
+        return (
+
+          <Card
+            key={player.playerName}
+            player={player}
+            setPlayer={setPlayer}
+          />
+
+        );
+
+      } else if (currentTeam.length >= 14) {
+        console.log("You've already selected 15 players.");
+      }
+    });
+    return newTeamPlayers;
+  }
+
+
+
+  const experimentalFilterFunc = (positionFiltered: string) => { 
+    if (positionFiltered === "") { 
+      return getAvailablePlayers();
+    } else { 
+      return filterPlayer()
+    }
+  }
   
 
   return (
@@ -107,20 +147,30 @@ function App() {
         />
       </section>
       <section className={styles.main}>
-        <section className={styles.allCards}>
-          <div className={styles.filter}>
-            <img src={filter} alt="Filter Players" />Filter Players</div>   
-            <select name="position"
+      <div className={styles.tempClass}>       
+             <select name="position"
                     id="position"
                     onChange={handleChange}>
+              {/* <option value="All">All</option> */}
+
               <option value="Prop">Prop</option>
               <option value="Hooker">Hooker</option>
-              <option value="Second Row">Second</option>
-              <option value="Back Row">Back</option>
-              <option value="Scrum Half">Scrum</option>
-
+              <option value="Second Row">Second Row</option>
+              <option value="Back Row">Back Row</option>
+              <option value="Scrum Half">Scrum Half</option>
+              <option value="Fly Half">Fly Half</option>
+              <option value="Centre">Centre</option>
+              <option value="Wing">Wing</option>
+              <option value="Full Back">Full Back</option>
             </select>
-          {getAvailablePlayers()}
+          </div>
+        <section className={styles.allCards}>
+
+
+
+          {/* <div className={styles.cards}>   */}
+            {experimentalFilterFunc(positionFiltered)}
+          {/* </div> */}
        
         </section>
         <section className={styles.Pitch}>

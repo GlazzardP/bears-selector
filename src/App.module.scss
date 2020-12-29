@@ -13,14 +13,11 @@
       display: grid;
       grid-template-columns: auto;
       // border: solid pink 3px;
-
-      .filter { 
-        display: flex;
-        img { 
-          height: 50px;
-          width: 50px;
-        }
-      }
+    }
+    .tempClass { 
+      width: 100vw;
+      // border: solid red 2px;
+      height:  fit-content
     }
 
     .Pitch {
@@ -54,10 +51,18 @@
 @media only screen and (min-width: 768px) {
   .App {
     .main {
+
+      .tempClass { 
+        width: 100vw;
+        border: solid red 2px;
+        height:  fit-content
+      }
       .allCards {
         display: grid;
         grid-template-columns: auto auto;
         // border: solid blue 3px;
+
+
       
     }
 
@@ -89,7 +94,7 @@
   .App {
     .main {
       position: relative;
-      border: solid yellow 3px;
+      // border: solid yellow 3px;
 
       display: flex;
       flex-direction: row;
@@ -98,13 +103,23 @@
 
         position:absolute;
         left: 0;
-        top: 10vh;
+        top: 12vh;
         display: grid;
-        grid-template-columns: auto auto;
+        grid-template-columns: auto auto auto;
         // border: solid yellow 3px;
         width: 50vw;
         // position: absolute;
       }
+
+      .tempClass { 
+        width: 50vw;
+        position: absolute;
+        left: 0;
+        top: 10vh;
+        // border: solid red 2px;
+        height:  fit-content
+      }
+
       .Pitch {
         display: unset;
         position: fixed;
