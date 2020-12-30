@@ -13,17 +13,15 @@ import players, { initialTeam, IPlayer } from "./data/data";
 import DummyPlayer from "./data/data";
 import Button from "./components/Button";
 
-
-import filter from "./assets/images/filter.svg"
-import dropDown from "./assets/images/arrow-down-sign-to-navigate.svg"
-
+import filter from "./assets/images/filter.svg";
+import dropDown from "./assets/images/arrow-down-sign-to-navigate.svg";
 
 function App() {
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
   // const [showPlayers, setShowPlayers] = useState<IPlayer[]>([]);
   // const [chosenPosition, setChosenPosition] = useState<number>(1);
   const [updatedTeam, setUpdatedTeam] = useState<IPlayer[]>([]);
-  const [positionFiltered, setFilteredPosition] = useState<string>("")
+  const [positionFiltered, setFilteredPosition] = useState<string>("");
 
   console.log(currentTeam);
 
@@ -39,11 +37,11 @@ function App() {
   // };
 
   // const submitButtonJsx = if(currentTeam.length == 14) {
-  //   return (   
+  //   return (
   //     <Button btnText="Submit" handleClick={() => alert('Clicked')}/>
   //     )
   //   } else {
-  //     return ( 
+  //     return (
   //       ""
   //     )
   //   }
@@ -94,46 +92,62 @@ function App() {
     setFilteredPosition(e.target.value);
   };
 
-  const teamDefenseScoreJsx = () => { 
+  const teamDefenseScoreJsx = () => {
     const teamDefenseScore = currentTeam.map((player) => {
-    return ( 
-      player.defending
-  )})
-    }
+      return player.defending;
+    });
+  };
 
+  // const getSumJsx = (type) => {
+  //   const currentTeamArray = currentTeam.filter((playerObj) => {
+  //     return playerObj.hasOwnProperty(type);
+  //   });
+  //   let attackArray = currentTeamArray.map((playerObj) => playerObj[type]);
 
-  const filterPlayer = ( ) => { 
+  //   let attackSum = attackArray.reduce((accumulator, currentValue) => {
+  //     return accumulator + currentValue;
+  //   }, 0);
+  //   return Math.floor(attackSum / currentTeamArray.length) || 0;
+  // };
+
+  const getTeamScoreJsx = (type: any) => {
+    const currentTeamArray = currentTeam.filter((playerObj) => {
+      return playerObj.hasOwnProperty(type);
+    });
+    let attackArray = currentTeamArray.map((playerObj: any) => playerObj[type]);
+
+    let attackSum = attackArray.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0);
+    return Math.floor(attackSum / currentTeamArray.length) || 0;
+  };
+
+  const filterPlayer = () => {
     const teamPlayers = players;
 
     const newTeamPlayers = teamPlayers.map((player) => {
-      if (!currentTeam.includes(player) && positionFiltered === player.position ) { // Need to change this so if any number within positionNum array matches, the player will show
+      if (
+        !currentTeam.includes(player) &&
+        positionFiltered === player.position
+      ) {
+        // Need to change this so if any number within positionNum array matches, the player will show
         return (
-
-          <Card
-            key={player.playerName}
-            player={player}
-            setPlayer={setPlayer}
-          />
-
+          <Card key={player.playerName} player={player} setPlayer={setPlayer} />
         );
-
       } else if (currentTeam.length >= 14) {
         console.log("You've already selected 15 players.");
       }
     });
     return newTeamPlayers;
-  }
+  };
 
-
-
-  const experimentalFilterFunc = (positionFiltered: string) => { 
-    if (positionFiltered === "") { 
+  const experimentalFilterFunc = (positionFiltered: string) => {
+    if (positionFiltered === "") {
       return getAvailablePlayers();
-    } else { 
-      return filterPlayer()
+    } else {
+      return filterPlayer();
     }
-  }
-  
+  };
 
   return (
     <section className={styles.App}>
@@ -147,86 +161,125 @@ function App() {
         />
       </section>
       <section className={styles.main}>
-      <div className={styles.tempClass}>       
-             <select name="position"
-                    id="position"
-                    onChange={handleChange}>
-              {/* <option value="All">All</option> */}
+        <div className={styles.tempClass}>
+          <select name="position" id="position" onChange={handleChange}>
+            {/* <option value="All">All</option> */}
 
-              <option value="Prop">Prop</option>
-              <option value="Hooker">Hooker</option>
-              <option value="Second Row">Second Row</option>
-              <option value="Back Row">Back Row</option>
-              <option value="Scrum Half">Scrum Half</option>
-              <option value="Fly Half">Fly Half</option>
-              <option value="Centre">Centre</option>
-              <option value="Wing">Wing</option>
-              <option value="Full Back">Full Back</option>
-            </select>
-          </div>
+            <option value="Prop">Prop</option>
+            <option value="Hooker">Hooker</option>
+            <option value="Second Row">Second Row</option>
+            <option value="Back Row">Back Row</option>
+            <option value="Scrum Half">Scrum Half</option>
+            <option value="Fly Half">Fly Half</option>
+            <option value="Centre">Centre</option>
+            <option value="Wing">Wing</option>
+            <option value="Full Back">Full Back</option>
+          </select>
+        </div>
         <section className={styles.allCards}>
-
-
-
           {/* <div className={styles.cards}>   */}
-            {experimentalFilterFunc(positionFiltered)}
+          {experimentalFilterFunc(positionFiltered)}
           {/* </div> */}
-       
         </section>
         <section className={styles.Pitch}>
           <div className={styles.PitchImage}>
-          <div className={styles.frontRow}>
-            {currentTeam.slice(0, 3).map((playerObj) => (
-              <div className={styles.ShirtPlayer} key={playerObj.playerName}>
-                <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
-                  playerObj
-                )}`}</p>
+            <div className={styles.frontRow}>
+              {currentTeam.slice(0, 3).map((playerObj) => (
+                <div className={styles.ShirtPlayer} key={playerObj.playerName}>
+                  <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
+                    playerObj
+                  )}`}</p>
 
-                {/* <p>{playerObj.playerName}</p> */}
-                <p>{playerObj.positionNum[0]}</p>
-              </div>
-            ))}
-          </div>
+                  {/* <p>{playerObj.playerName}</p> */}
+                  <p>{playerObj.positionNum[0]}</p>
+                </div>
+              ))}
+            </div>
 
-          <div className={styles.secondRow}>
-            {currentTeam.slice(3, 5).map((playerObj) => (
-              <div className={styles.ShirtPlayer}>
-                <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
-                  playerObj
-                )}`}</p>
-                <p>{playerObj.positionNum[0]}</p>
-              </div>
-            ))}
-          </div>
+            <div className={styles.secondRow}>
+              {currentTeam.slice(3, 5).map((playerObj) => (
+                <div className={styles.ShirtPlayer}>
+                  <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
+                    playerObj
+                  )}`}</p>
+                  <p>{playerObj.positionNum[0]}</p>
+                </div>
+              ))}
+            </div>
 
-          <div className={styles.backRow}>
-            {currentTeam.slice(5, 15).map((playerObj) => (
-              <div className={styles.ShirtPlayer}>
-                <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
-                  playerObj
-                )}`}</p>
-                <p>{playerObj.positionNum[0]}</p>
-              </div>
-            ))}
-          </div>
-          </div>
+            <div className={styles.backRow}>
+              {currentTeam.slice(5, 8).map((playerObj) => (
+                <div className={styles.ShirtPlayer}>
+                  <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
+                    playerObj
+                  )}`}</p>
+                  <p>{playerObj.positionNum[0]}</p>
+                </div>
+              ))}
+            </div>
 
+            <div className={styles.scrumHalf}>
+              {currentTeam.slice(8, 9).map((playerObj) => (
+                <div className={styles.ShirtPlayer}>
+                  <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
+                    playerObj
+                  )}`}</p>
+                  <p>{playerObj.positionNum[0]}</p>
+                </div>
+              ))}
+            </div>
+            <div className={styles.flyHalf}>
+              {currentTeam.slice(9, 10).map((playerObj) => (
+                <div className={styles.ShirtPlayer}>
+                  <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
+                    playerObj
+                  )}`}</p>
+                  <p>{playerObj.positionNum[0]}</p>
+                </div>
+              ))}
+            </div>
+            <div className={styles.centre}>
+              {currentTeam.slice(10, 12).map((playerObj) => (
+                <div className={styles.ShirtPlayer}>
+                  <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
+                    playerObj
+                  )}`}</p>
+                  <p>{playerObj.positionNum[0]}</p>
+                </div>
+              ))}
+            </div>
+            <div className={styles.wings}>
+              {currentTeam.slice(12, 15).map((playerObj) => (
+                <div className={styles.ShirtPlayer}>
+                  <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
+                    playerObj
+                  )}`}</p>
+                  <p>{playerObj.positionNum[0]}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
         <div className={styles.teamScore}>
-          <div>          
-            <p>Defense: 85</p>
-            <p>Defense: 85</p>
-            <p>Attacking: 85</p>
-            <p>Fitness: 85</p>
-            <p>Experience: 85</p>  </div>
-     
-
-          <div>     
-             {currentTeam.length > 14 &&
-                <Button btnText="Submit team" handleClick={() => alert('Submit team')}/>
-            }
+          <div>
+            <p>Defense: {getTeamScoreJsx("defending")} %</p>
+            <p>Tackling: {getTeamScoreJsx("tackling")} %</p>
+            <p>Strength: {getTeamScoreJsx("strength")} %</p>
+            <p>Fitness: {getTeamScoreJsx("fitness")} %</p>
+            <p>Speed: {getTeamScoreJsx("speed")} %</p>
+            <p>Passing: {getTeamScoreJsx("passing")} %</p>
+            <p>Attack: {getTeamScoreJsx("attacking")} %</p>
+            <p>Experience: {getTeamScoreJsx("experience")} %</p>
           </div>
 
+          <div>
+            {currentTeam.length > 14 && (
+              <Button
+                btnText="Submit team"
+                handleClick={() => alert("Submit team")}
+              />
+            )}
+          </div>
         </div>
       </section>
     </section>

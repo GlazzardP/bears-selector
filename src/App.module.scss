@@ -14,17 +14,17 @@
       grid-template-columns: auto;
       // border: solid pink 3px;
     }
-    .tempClass { 
+    .tempClass {
       width: 100vw;
       // border: solid red 2px;
-      height:  fit-content
+      height: fit-content;
     }
 
     .Pitch {
       display: none;
     }
 
-    .teamScore { 
+    .teamScore {
       padding: 0 20px;
       height: 7.5vh;
       background-color: $navy;
@@ -37,10 +37,10 @@
       display: flex;
       justify-content: space-between;
 
-      div { 
+      div {
         display: flex;
 
-        p { 
+        p {
           padding: 5px;
         }
       }
@@ -51,41 +51,37 @@
 @media only screen and (min-width: 768px) {
   .App {
     .main {
-
-      .tempClass { 
+      .tempClass {
         width: 100vw;
         border: solid red 2px;
-        height:  fit-content
+        height: fit-content;
       }
       .allCards {
         display: grid;
         grid-template-columns: auto auto;
         // border: solid blue 3px;
+      }
 
+      .teamScore {
+        padding: 0 20px;
+        height: 5vh;
+        background-color: $navy;
+        width: 100vw;
 
-      
-    }
-
-    .teamScore { 
-      padding: 0 20px;
-      height: 5vh;
-      background-color: $navy;
-      width: 100vw;
-
-      bottom: 0;
-      position: fixed;
-      color: pink;
-      display: flex;
-      justify-content: space-between;
-
-      div { 
+        bottom: 0;
+        position: fixed;
+        color: pink;
         display: flex;
+        justify-content: space-between;
 
-        p { 
-          padding: 5px;
+        div {
+          display: flex;
+
+          p {
+            padding: 5px;
+          }
         }
       }
-    }
     }
   }
 }
@@ -100,24 +96,23 @@
       flex-direction: row;
 
       .allCards {
-
-        position:absolute;
+        position: absolute;
         left: 0;
         top: 12vh;
         display: grid;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: auto auto;
         // border: solid yellow 3px;
         width: 50vw;
         // position: absolute;
       }
 
-      .tempClass { 
+      .tempClass {
         width: 50vw;
         position: absolute;
         left: 0;
         top: 10vh;
         // border: solid red 2px;
-        height:  fit-content
+        height: fit-content;
       }
 
       .Pitch {
@@ -130,8 +125,6 @@
         // border: blue 2px solid;
         border-left: solid black 2px;
 
-
-
         .PitchImage {
           position: absolute;
           margin-left: 5vw;
@@ -140,45 +133,73 @@
           // padding-left: 20px;
           height: 85%;
           width: 40vw;
-          
+
           background-image: url(./assets/images/Rugby_union_pitch.svg);
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
-  
-          .frontRow,
-          .secondRow,
+
+          .frontRow {
+            display: flex;
+            margin: auto;
+            border: solid red 2px;
+            width: 40%;
+          }
+          .secondRow {
+            display: flex;
+            margin: auto;
+            border: solid blue 2px;
+            width: 25%;
+          }
           .backRow {
             display: flex;
             margin: auto;
-            // border: solid red 2px;
-
+            border: solid yellow 2px;
+            // background-color: red;
+            width: 40%;
+          }
+          .scrumHalf {
+            display: flex;
+            margin: auto;
+            border: solid yellow 2px;
+            // background-color: red;
+            width: 40%;
+          }
+          .flyHalf {
+            display: flex;
+            margin: auto;
+            border: solid yellow 2px;
+            // background-color: red;
+            width: 40%;
+          }
+          .centre {
+            display: flex;
+            margin: auto;
+            border: solid yellow 2px;
+            // background-color: red;
+            width: 40%;
+          }
+          .wings {
+            display: flex;
+            margin: auto;
+            border: solid yellow 2px;
+            // background-color: red;
+            width: 40%;
+          }
         }
-
-        }
-      }   
-
+      }
     }
-    // .teamScore { 
-    //   padding: 0 20px;
-    //   height: 5vh;
-    //   background-color: $navy;
-    //   width: 50vw;
-    //   display: flex;
-    //   bottom: 0;
-    //   right: 0;
-    //   position: absolute;
-    //   color: pink;
-    //   display: flex;
-    //   justify-content: space-between;
-
-    //   div { 
-    //     display: flex;
-
-    //     p { 
-    //       padding: 5px;
-    //     }
-    //   }
-    // }
   }
 }
+
+// @media only screen and (min-width: 1400px) {
+//   .App {
+//     .main {
+//       position: relative;
+
+//       .allCards {
+//         grid-template-columns: auto auto auto;
+//       }
+//     }
+//   }
+// }
