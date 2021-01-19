@@ -9,16 +9,98 @@
 
 .App {
   .main {
-    .allCards {
-      display: grid;
-      grid-template-columns: auto;
-      // border: solid pink 3px;
-    }
+
     .tempClass {
       width: 100vw;
       // border: solid red 2px;
       height: fit-content;
+      margin: 5px 0;
+      padding: 5px 0;
+      z-index: 10;
+
+      .accordionDivHolder { 
+        width: 95%;
+        // border: deeppink solid 2px;
+        margin: auto;
+
+        .accordionWrapper {
+          & + * {
+            margin-top: 0.5em;
+      
+          }
+        }
+        
+        .accordionItem {
+          overflow: hidden;
+          transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+          height: auto;
+          max-height: 9999px;
+          background-color: blanchedalmond;
+        }
+        
+        .accordionItem.collapsed {
+          max-height: 0;
+          transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+      
+        }
+        
+        .accordionTitle {
+          font-weight: 600;
+          cursor: pointer;
+          color: #666;
+          padding: 0.5em 1.5em;
+          border: solid 1px #ccc;
+          border-radius: 1.5em;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      
+        
+          &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid currentColor;
+          }
+        
+          &:hover,
+          &.open {
+            color: black;
+          //   background-color: red;
+      
+          }
+        
+          &.open {
+            &::after {
+              content: "";
+              border-top: 0;
+              border-bottom: 5px solid;
+              // background-color: deeppink;
+      
+            }
+          }
+        }
+        
+        .accordionContent {
+          padding: 1em 1.5em;
+              // background-color: deeppink;
+      
+        }
+        
+      }
+
     }
+    .allCards {
+      display: grid;
+      grid-template-columns: auto;
+      // border: solid pink 3px;
+      padding-bottom: 75px;
+      margin-top: 25px;
+      position: sticky;
+    }
+
 
     .Pitch {
       display: none;
@@ -53,7 +135,7 @@
     .main {
       .tempClass {
         width: 100vw;
-        border: solid red 2px;
+        // border: solid red 2px;
         height: fit-content;
       }
       .allCards {
@@ -70,11 +152,12 @@
 
         bottom: 0;
         position: fixed;
-        color: pink;
+        color: $suspensionPink;
         display: flex;
         justify-content: space-between;
 
         div {
+          margin: auto 0;
           display: flex;
 
           p {
@@ -115,6 +198,11 @@
         height: fit-content;
       }
 
+      .teamScore { 
+        padding: 0 50px;
+
+      }
+
       .Pitch {
         display: unset;
         position: fixed;
@@ -138,53 +226,185 @@
           background-repeat: no-repeat;
           background-position: center;
           background-size: cover;
+          padding: 80px;
+
+
+          .team { 
+            // border: solid red 2px;
+            padding: 20px 50px 20px 20px;
+          }
 
           .frontRow {
             display: flex;
             margin: auto;
-            border: solid red 2px;
-            width: 40%;
+            // border: deeppink solid 2px;
+            margin-right: 250px;
+            // justify-content: flex-end;
+            // border: solid red 2px;
+            width: 60%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
           }
           .secondRow {
             display: flex;
-            margin: auto;
-            border: solid blue 2px;
-            width: 25%;
+            margin: auto;       
+            // border: deeppink solid 2px;
+            margin-right: 270px;
+            // border: solid blue 2px;
+            width: 35%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
           }
           .backRow {
             display: flex;
             margin: auto;
-            border: solid yellow 2px;
+            // border: deeppink solid 2px;
+            margin-right: 280px;
+            // border: solid yellow 2px;
             // background-color: red;
-            width: 40%;
+            width: 50%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
           }
           .scrumHalf {
             display: flex;
             margin: auto;
-            border: solid yellow 2px;
+            // border: deeppink solid 2px;
+            margin-right: 200px;
+            // border: solid yellow 2px;
             // background-color: red;
+            padding-left: 20px;
             width: 40%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
           }
+
           .flyHalf {
             display: flex;
             margin: auto;
-            border: solid yellow 2px;
+            // border: deeppink solid 2px;
+            margin-right: 150px;
+            // border: solid yellow 2px;
             // background-color: red;
+            padding-left: 30px;
+
             width: 40%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
+
           }
+
           .centre {
             display: flex;
             margin: auto;
-            border: solid yellow 2px;
+            // border: deeppink solid 2px;
+            justify-content: space-between;
+            // margin-right: 50px;
+            // border: solid yellow 2px;
             // background-color: red;
-            width: 40%;
+            width: 50%;
+            transform: rotate(10deg);
+            padding-left: 100px;
+          
+              div { 
+                transform: rotate(-10deg);
+
+              }
+
+              .shirtNumber { 
+                text-align: center;
+                // border: deepskyblue solid 2px;
+                margin: 0 auto;
+  
+              }
+  
+              p  {
+                width: fit-content;
+                padding: 5px;
+                // border: deeppink solid 2px;
+              }
+
           }
+
           .wings {
             display: flex;
             margin: auto;
-            border: solid yellow 2px;
+            // border: deeppink solid 2px;
+            margin-right: 250px;
+            margin-top: 50px;
+            justify-content: space-between;
+            // border: solid yellow 2px;
             // background-color: red;
-            width: 40%;
+            width: 100%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
+
           }
         }
       }
@@ -192,14 +412,14 @@
   }
 }
 
-// @media only screen and (min-width: 1400px) {
-//   .App {
-//     .main {
-//       position: relative;
+@media only screen and (min-width: 1400px) {
+  .App {
+    .main {
+      position: relative;
 
-//       .allCards {
-//         grid-template-columns: auto auto auto;
-//       }
-//     }
-//   }
-// }
+      .allCards {
+        grid-template-columns: auto auto auto;
+      }
+    }
+  }
+}

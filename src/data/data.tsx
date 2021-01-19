@@ -103,8 +103,8 @@ export interface IPlayer {
 }
 
 const DummyPlayer: IPlayer = {
-  playerName: "",
-  nationality: "",
+  playerName: "Dummy",
+  nationality: "Dummy",
   flag: England,
   playerImg: LuatuaImg,
   playerHeight: 188,

@@ -1,29 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+// import firebase from "./firebase";
+// import provider from "./firebase";
 
 import styles from "./App.module.scss";
-// import Header2 from "./assetts/variables.scss";
-// import RugbyBall from "./assetts/images/rugby.svg";
-// import Button from "./components/Button";
+
 import Card from "./components/Card";
 import SelectedPlayers from "./components/SelectedPlayers";
-// import Steven from "./assetts/images/steven-luatua_30-removebg-preview.png";
 import Navbar from "./components/Navbar";
 
-import players, { initialTeam, IPlayer } from "./data/data";
-import DummyPlayer from "./data/data";
+import players, { IPlayer } from "./data/data";
+// import DummyPlayer from "./data/data";
 import Button from "./components/Button";
+// import Accordion from "./components/Accordion";
 
-import filter from "./assets/images/filter.svg";
-import dropDown from "./assets/images/arrow-down-sign-to-navigate.svg";
+// import filter from "./assets/images/filter.svg";
+// import dropDown from "./assets/images/arrow-down-sign-to-navigate.svg";
+
+// interface iAppProps {
+//   // player: IPlayer;
+//   // setPlayer: (player: IPlayer) => void;
+//   chosenPosition: number;
+
+// }
 
 function App() {
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
-  // const [showPlayers, setShowPlayers] = useState<IPlayer[]>([]);
-  // const [chosenPosition, setChosenPosition] = useState<number>(1);
-  const [updatedTeam, setUpdatedTeam] = useState<IPlayer[]>([]);
+  // const [updatedTeam, setUpdatedTeam] = useState<IPlayer[]>([]);
   const [positionFiltered, setFilteredPosition] = useState<string>("");
+  const [playerHeight, setPlayerH] = useState<number>();
 
-  console.log(currentTeam);
+  const [isOpen, setOpen] = useState(false);
+
+
+
+  // console.log(currentTeam);
 
   // const unselectPlayer = (currentTeam: IPlayer[]) => {
   //   const updatedTeam = currentTeam.splice(position, 1);
@@ -49,16 +59,12 @@ function App() {
   const setPlayer = (player: IPlayer) => {
     if (currentTeam.includes(player)) {
       return alert("This player is already selected.");
-      // } else if (currentTeam.length > 14) {
-      //   return alert("You have a full team already.");
-      // } else {
     } else if (currentTeam.length > 14) {
       alert("You've already got a full team.");
     } else {
       addPlayerToTeam([...currentTeam, player]);
     }
-    // const teamAlreadySelected = [...currentTeam];
-    // addPlayerToTeam(teamAlreadySelected[player.positionNum[0]]);
+    return currentTeam; // Was working without this return ?? 
   };
 
   const getAvailablePlayers = () => {
@@ -67,14 +73,13 @@ function App() {
     const newTeamPlayers = teamPlayers.map((player) => {
       if (!currentTeam.includes(player)) {
         return (
-          // <div className={styles.Cards}>
           <Card
             key={player.playerName}
             player={player}
             setPlayer={setPlayer}
-            // updateTeam={updateTeam}
+            // chosenPosition={chosenPosition}
           />
-          // </div>
+
         );
       } else if (currentTeam.length >= 14) {
         console.log("You've already selected 15 players.");
@@ -88,38 +93,24 @@ function App() {
     return surname;
   };
 
-  const handleChange = (e: any) => {
+  const setFilterPosition = (e: any) => {
     setFilteredPosition(e.target.value);
   };
 
-  const teamDefenseScoreJsx = () => {
-    const teamDefenseScore = currentTeam.map((player) => {
-      return player.defending;
-    });
+  const setPlayerHeight = (e: any) => {
+    setPlayerH(e.target.value);
   };
-
-  // const getSumJsx = (type) => {
-  //   const currentTeamArray = currentTeam.filter((playerObj) => {
-  //     return playerObj.hasOwnProperty(type);
-  //   });
-  //   let attackArray = currentTeamArray.map((playerObj) => playerObj[type]);
-
-  //   let attackSum = attackArray.reduce((accumulator, currentValue) => {
-  //     return accumulator + currentValue;
-  //   }, 0);
-  //   return Math.floor(attackSum / currentTeamArray.length) || 0;
-  // };
 
   const getTeamScoreJsx = (type: any) => {
     const currentTeamArray = currentTeam.filter((playerObj) => {
       return playerObj.hasOwnProperty(type);
     });
-    let attackArray = currentTeamArray.map((playerObj: any) => playerObj[type]);
+    let scoreArray = currentTeamArray.map((playerObj: any) => playerObj[type]);
 
-    let attackSum = attackArray.reduce((accumulator, currentValue) => {
+    let scoreSum = scoreArray.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
     }, 0);
-    return Math.floor(attackSum / currentTeamArray.length) || 0;
+    return Math.floor(scoreSum / currentTeamArray.length) || 0;
   };
 
   const filterPlayer = () => {
@@ -149,6 +140,12 @@ function App() {
     }
   };
 
+
+  // const signIn = () => { 
+  //   firebase.auth().onAuthStateChanged(provider)
+  // }
+
+
   return (
     <section className={styles.App}>
       <Navbar />
@@ -162,9 +159,58 @@ function App() {
       </section>
       <section className={styles.main}>
         <div className={styles.tempClass}>
-          <select name="position" id="position" onChange={handleChange}>
-            {/* <option value="All">All</option> */}
+          <div className={styles.accordionDivHolder}>
 
+          <div className={styles.accordionWrapper}>
+      
+            <div
+              className={`${styles.accordionTitle} ${isOpen ? styles.open : ""}`}
+              onClick={() => setOpen(!isOpen)}
+              >
+                Filter Options
+              {/* {title} */}
+            </div>
+            <div className={`${styles.accordionItem} ${!isOpen ? styles.collapsed : ""}`}>
+              <div className={styles.accordionContent}>
+              <label>Position</label>
+              <select name="position" id="position" onChange={setFilterPosition}>
+
+                <option value="Position">Position</option>
+                <option value="Prop">Prop</option>
+                <option value="Hooker">Hooker</option>
+                <option value="Second Row">Second Row</option>
+                <option value="Back Row">Back Row</option>
+                <option value="Scrum Half">Scrum Half</option>
+                <option value="Fly Half">Fly Half</option>
+                <option value="Centre">Centre</option>
+                <option value="Wing">Wing</option>
+                <option value="Full Back">Full Back</option>
+              </select>
+
+              <div>
+                <label>
+                  Height
+                </label>
+                <input type="number" id="height" name="height" min="50" max="210" placeholder="cm" onChange={setPlayerHeight}/>
+                <input type="number" id="height" name="height" min="50" max="210" placeholder="cm"/>
+              </div>
+
+              <div>
+
+
+              </div>
+
+
+
+
+              </div>
+            </div>
+          </div>   
+            {/* <Accordion title="Filter Players" children="Position" /> */}
+
+          </div>
+
+          {/* <select name="position" id="position" onChange={handleChange}>
             <option value="Prop">Prop</option>
             <option value="Hooker">Hooker</option>
             <option value="Second Row">Second Row</option>
@@ -174,24 +220,28 @@ function App() {
             <option value="Centre">Centre</option>
             <option value="Wing">Wing</option>
             <option value="Full Back">Full Back</option>
-          </select>
+          </select> */}
         </div>
         <section className={styles.allCards}>
           {/* <div className={styles.cards}>   */}
+
           {experimentalFilterFunc(positionFiltered)}
           {/* </div> */}
         </section>
         <section className={styles.Pitch}>
           <div className={styles.PitchImage}>
+            <div className={styles.team}>
             <div className={styles.frontRow}>
               {currentTeam.slice(0, 3).map((playerObj) => (
                 <div className={styles.ShirtPlayer} key={playerObj.playerName}>
+                  <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
 
                   {/* <p>{playerObj.playerName}</p> */}
-                  <p>{playerObj.positionNum[0]}</p>
+                  {/* <p>{playerObj.positionNum[0]}</p> */}
+                  {/* <p>{chosenPosition}</p> */}
                 </div>
               ))}
             </div>
@@ -199,10 +249,12 @@ function App() {
             <div className={styles.secondRow}>
               {currentTeam.slice(3, 5).map((playerObj) => (
                 <div className={styles.ShirtPlayer}>
+                 <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
+
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  <p>{playerObj.positionNum[0]}</p>
+                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
             </div>
@@ -210,10 +262,12 @@ function App() {
             <div className={styles.backRow}>
               {currentTeam.slice(5, 8).map((playerObj) => (
                 <div className={styles.ShirtPlayer}>
+                  <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
+
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  <p>{playerObj.positionNum[0]}</p>
+                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
             </div>
@@ -221,42 +275,50 @@ function App() {
             <div className={styles.scrumHalf}>
               {currentTeam.slice(8, 9).map((playerObj) => (
                 <div className={styles.ShirtPlayer}>
+                  <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  <p>{playerObj.positionNum[0]}</p>
+                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
             </div>
             <div className={styles.flyHalf}>
               {currentTeam.slice(9, 10).map((playerObj) => (
                 <div className={styles.ShirtPlayer}>
+                  <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
+
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  <p>{playerObj.positionNum[0]}</p>
+                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
             </div>
             <div className={styles.centre}>
               {currentTeam.slice(10, 12).map((playerObj) => (
                 <div className={styles.ShirtPlayer}>
+                 <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
+
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  <p>{playerObj.positionNum[0]}</p>
+                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
             </div>
             <div className={styles.wings}>
               {currentTeam.slice(12, 15).map((playerObj) => (
                 <div className={styles.ShirtPlayer}>
+                   <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
+
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  <p>{playerObj.positionNum[0]}</p>
+                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
+            </div>
             </div>
           </div>
         </section>
@@ -271,6 +333,8 @@ function App() {
             <p>Attack: {getTeamScoreJsx("attacking")} %</p>
             <p>Experience: {getTeamScoreJsx("experience")} %</p>
           </div>
+                    {/* <button onClick={() => signIn()}>Sign IN</button> */}
+                    <button>Sign IN</button>
 
           <div>
             {currentTeam.length > 14 && (

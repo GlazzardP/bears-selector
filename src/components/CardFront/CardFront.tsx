@@ -11,6 +11,7 @@ import { IPlayer } from "../../data/data";
 interface CardFrontProps {
   player: IPlayer;
   setPlayer: (player: IPlayer) => void;
+  // chosenPosition: number;
   // updateTeam: (playerObj: IPlayer) => void;
 
   // position: number;
@@ -28,11 +29,12 @@ interface CardFrontProps {
 const CardFront: React.FC<CardFrontProps> = ({
   player,
   setPlayer,
+  // chosenPosition
   // updateTeam,
 }) => {
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
 
-  const [position, setPosition] = useState<number>(player.positionNum[0]);
+  const [chosenPosition, setChosenPosition] = useState<number>(player.positionNum[0]);
   const [htmlId] = useId();
 
   // console.log(position);
@@ -42,7 +44,7 @@ const CardFront: React.FC<CardFrontProps> = ({
   };
 
   const handleChange = (e: any) => {
-    setPosition(e.target.value);
+    setChosenPosition(e.target.value);
   };
 
   const totalScoreJsx = player.attacking + player.defending + player.experience + player.fitness + player.passing + player.speed + player.strength;
@@ -115,7 +117,7 @@ const CardFront: React.FC<CardFrontProps> = ({
                 className={styles.playerButtons}
                 onClick={(e) => stopEventPropagation(e)}
               >
-                {/* <button onClick={() => alert(`Picked ${position}`)}> */}
+                <button onClick={() => alert(`Picked ${chosenPosition}`)}>{chosenPosition} Evidence</button>
                 <button onClick={() => setPlayer(player)}>Pick</button>
                 {/* <button onClick={() => updateTeam(playerObj)}>Pick</button> */}
               </div>

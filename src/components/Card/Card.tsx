@@ -11,6 +11,7 @@ import { IPlayer } from "../../data/data";
 interface CardProps {
   player: IPlayer;
   setPlayer: (player: IPlayer) => void;
+  // chosenPosition: number;
   // updateTeam: (playerObj: IPlayer) => void;
   // unselectPlayer: (player: IPlayer) => ;
   // position: number;
@@ -40,9 +41,10 @@ const Card: React.FC<CardProps> = ({ player, setPlayer }) => {
           <CardFront
             player={player}
             setPlayer={setPlayer}
+            // chosenPosition={chosenPosition}
             // updateTeam={updateTeam}
             // setPosition={setPosition}
-          ></CardFront>
+          /> 
         </div>
         <div className={styles.back}>
           <CardBack player={player} setPlayer={setPlayer}></CardBack>
