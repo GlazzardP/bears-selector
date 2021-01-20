@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import players, { IPlayer } from "./data/data";
 // import DummyPlayer from "./data/data";
 import Button from "./components/Button";
+import { stringify } from "querystring";
 // import Accordion from "./components/Accordion";
 
 // import filter from "./assets/images/filter.svg";
@@ -26,14 +27,15 @@ import Button from "./components/Button";
 function App() {
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
   // const [updatedTeam, setUpdatedTeam] = useState<IPlayer[]>([]);
+  const [playerFilter, setPlayerFilterChoices] =useState<any>({})
   const [positionFiltered, setFilteredPosition] = useState<string>("");
   const [playerHeight, setPlayerH] = useState<number>();
 
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState<boolean>(false);
 
 
 
-  // console.log(currentTeam);
+  console.log(playerFilter);
 
   // const unselectPlayer = (currentTeam: IPlayer[]) => {
   //   const updatedTeam = currentTeam.splice(position, 1);
@@ -93,13 +95,14 @@ function App() {
     return surname;
   };
 
-  const setFilterPosition = (e: any) => {
-    setFilteredPosition(e.target.value);
-  };
+  // const handleChange = (e: any) => {
+  //   setPlayerFilterChoices({...playerFilter, "": e.target.value})
+  //   // setFilteredPosition(e.target.value);
+  // };
 
-  const setPlayerHeight = (e: any) => {
-    setPlayerH(e.target.value);
-  };
+  // const setPlayerHeight = (e: any) => {
+  //   setPlayerH(e.target.value);
+  // };
 
   const getTeamScoreJsx = (type: any) => {
     const currentTeamArray = currentTeam.filter((playerObj) => {
@@ -141,6 +144,8 @@ function App() {
   };
 
 
+
+
   // const signIn = () => { 
   //   firebase.auth().onAuthStateChanged(provider)
   // }
@@ -173,7 +178,7 @@ function App() {
             <div className={`${styles.accordionItem} ${!isOpen ? styles.collapsed : ""}`}>
               <div className={styles.accordionContent}>
               <label>Position</label>
-              <select name="position" id="position" onChange={setFilterPosition}>
+              <select name="position" id="position" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "position": event.target.value})}}>
 
                 <option value="Position">Position</option>
                 <option value="Prop">Prop</option>
@@ -189,14 +194,40 @@ function App() {
 
               <div>
                 <label>
-                  Height
+                  Min-height
                 </label>
-                <input type="number" id="height" name="height" min="50" max="210" placeholder="cm" onChange={setPlayerHeight}/>
-                <input type="number" id="height" name="height" min="50" max="210" placeholder="cm"/>
+                <input type="number" id="height" name="height" min="50" max="210" placeholder="cm" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "minHeight": event.target.value})}}/>
+                <label>
+                  Max-height
+                </label>
+                <input type="number" id="height" name="height" min="50" max="210" placeholder="cm" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "maxHeight": event.target.value})}}/>
               </div>
 
               <div>
 
+              <div>
+                <label>Defence</label>
+                <input type="number" id="defence" name="defence" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "defence": event.target.value})}}/>
+
+              </div>
+
+              <div>
+                <label>Attack</label>
+                <input type="number" id="attack" name="attack" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "attack": event.target.value})}}/>
+
+              </div>
+
+              <div>
+                <label>Fitness</label>
+                <input type="number" id="fitness" name="fitness" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "fitness": event.target.value})}}/>
+
+              </div>
+
+              <div>
+                <label>Kicking</label>
+                <input type="number" id="kicking" name="kicking" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "kicking": event.target.value})}}/>
+
+              </div>
 
               </div>
 
