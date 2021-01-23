@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import firebase from "./firebase";
 // import provider from "./firebase";
 
@@ -11,7 +11,9 @@ import Navbar from "./components/Navbar";
 import players, { IPlayer } from "./data/data";
 // import DummyPlayer from "./data/data";
 import Button from "./components/Button";
-import { stringify } from "querystring";
+
+
+import submitSvg from "./assets/images/Icons/enter-arrow.svg";
 // import Accordion from "./components/Accordion";
 
 // import filter from "./assets/images/filter.svg";
@@ -30,6 +32,7 @@ function App() {
   const [playerFilter, setPlayerFilterChoices] =useState<any>({})
   const [positionFiltered, setFilteredPosition] = useState<string>("");
   const [playerHeight, setPlayerH] = useState<number>();
+  // const [availablePlayers, setAvailablePlayersRedundant] =useState<IPlayer[]>([])
 
   const [isOpen, setOpen] = useState<boolean>(false);
 
@@ -69,40 +72,11 @@ function App() {
     return currentTeam; // Was working without this return ?? 
   };
 
-  const getAvailablePlayers = () => {
-    const teamPlayers = players;
-
-    const newTeamPlayers = teamPlayers.map((player) => {
-      if (!currentTeam.includes(player)) {
-        return (
-          <Card
-            key={player.playerName}
-            player={player}
-            setPlayer={setPlayer}
-            // chosenPosition={chosenPosition}
-          />
-
-        );
-      } else if (currentTeam.length >= 14) {
-        console.log("You've already selected 15 players.");
-      }
-    });
-    return newTeamPlayers;
-  };
 
   const getSurname = (playerObj: IPlayer) => {
     const surname = playerObj.playerName.split(" ")[1];
     return surname;
   };
-
-  // const handleChange = (e: any) => {
-  //   setPlayerFilterChoices({...playerFilter, "": e.target.value})
-  //   // setFilteredPosition(e.target.value);
-  // };
-
-  // const setPlayerHeight = (e: any) => {
-  //   setPlayerH(e.target.value);
-  // };
 
   const getTeamScoreJsx = (type: any) => {
     const currentTeamArray = currentTeam.filter((playerObj) => {
@@ -116,32 +90,76 @@ function App() {
     return Math.floor(scoreSum / currentTeamArray.length) || 0;
   };
 
-  const filterPlayer = () => {
-    const teamPlayers = players;
+  // useEffect(() => {
+  //   // Update the document title using the browser API
+  //   getAvailablePlayers()
 
-    const newTeamPlayers = teamPlayers.map((player) => {
+  // }, [playerFilter]);
+
+  // const getFilteredAvailablePlayers = () => { 
+  //   availablePlayers.map((player) => { 
+  //     if (Object.entries(playerFilter.position).length !== 0 && playerFilter.position === "Second Row"){ 
+  //       return ( 
+  //         <Card
+  //         key={player.playerName}
+  //         player={player}
+  //         setPlayer={setPlayer}
+  //       />
+  //       )
+  //     }
+  //   })
+
+  // }
+
+
+  const getAvailablePlayers = () => {
+    // const teamPlayers = players;
+
+    const availablePlayers = players.map((player) => {
       if (
-        !currentTeam.includes(player) &&
-        positionFiltered === player.position
+        !currentTeam.includes(player) && 
+      Object.entries(playerFilter).length === 0
       ) {
-        // Need to change this so if any number within positionNum array matches, the player will show
         return (
-          <Card key={player.playerName} player={player} setPlayer={setPlayer} />
+          <Card
+            key={player.playerName}
+            player={player}
+            setPlayer={setPlayer}
+          />
+          // console.log('foo')
         );
+
+      } else if (
+        !currentTeam.includes(player) &&  // They are not in the team
+        Object.entries(playerFilter).length !== 0 && // Any filter has been set
+        playerFilter.position === player.position && // Position is the same  users choice
+        playerFilter.minHeight <= player.playerHeight && // Height is the same or greater than users choice
+        playerFilter.maxHeight >= player.playerHeight && // Height is the less than or equal than users choice
+        playerFilter.defence <= player.defending// Defending is as required
+        // getFilteredAvailablePlayers()
+      ) { 
+        return ( 
+          <Card
+          key={player.playerName}
+          player={player}
+          setPlayer={setPlayer}
+        />
+        )
+          // console.log('barOne');
       } else if (currentTeam.length >= 14) {
         console.log("You've already selected 15 players.");
       }
     });
-    return newTeamPlayers;
+    return availablePlayers;
   };
 
-  const experimentalFilterFunc = (positionFiltered: string) => {
-    if (positionFiltered === "") {
-      return getAvailablePlayers();
-    } else {
-      return filterPlayer();
-    }
-  };
+  // const experimentalFilterFunc = (player: string) => {
+  //   if (playerFilter.position === "") {
+  //     return getAvailablePlayers();
+  //   } else {
+  //     return filterPlayer();
+  //   }
+  // };
 
 
 
@@ -177,29 +195,29 @@ function App() {
             </div>
             <div className={`${styles.accordionItem} ${!isOpen ? styles.collapsed : ""}`}>
               <div className={styles.accordionContent}>
-              <label>Position</label>
-              <select name="position" id="position" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "position": event.target.value})}}>
+              <div>
 
-                <option value="Position">Position</option>
-                <option value="Prop">Prop</option>
-                <option value="Hooker">Hooker</option>
-                <option value="Second Row">Second Row</option>
-                <option value="Back Row">Back Row</option>
-                <option value="Scrum Half">Scrum Half</option>
-                <option value="Fly Half">Fly Half</option>
-                <option value="Centre">Centre</option>
-                <option value="Wing">Wing</option>
-                <option value="Full Back">Full Back</option>
-              </select>
+                <label>Position</label>
+                <select name="position" id="position" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "position": event.target.value})}}>
+    
+                  {/* <option value="Position">Position</option> */}
+                  <option value="Prop" label="Prop">Prop</option>
+                  <option value="Hooker" label="Hooker">Hooker</option>
+                  <option value="Second Row" label="Secon Row">Second Row</option>
+                  <option value="Back Row" label="Back Row">Back Row</option>
+                  <option value="Scrum Half" label="Scrum Half">Scrum Half</option>
+                  <option value="Fly Half" label="Fly Half">Fly Half</option>
+                  <option value="Centre" label="Centre">Centre</option>
+                  <option value="Wing" label="Wing">Wing</option>
+                  <option value="Full Back" label="Full Back">Full Back</option>
+                </select>
+              </div>
+
 
               <div>
-                <label>
-                  Min-height
-                </label>
+                <label>Min-height </label>
                 <input type="number" id="height" name="height" min="50" max="210" placeholder="cm" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "minHeight": event.target.value})}}/>
-                <label>
-                  Max-height
-                </label>
+                <label>Max-height </label>
                 <input type="number" id="height" name="height" min="50" max="210" placeholder="cm" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "maxHeight": event.target.value})}}/>
               </div>
 
@@ -229,6 +247,8 @@ function App() {
 
               </div>
 
+              <button onClick={() => {getAvailablePlayers()}}>Update Players</button>
+
               </div>
 
 
@@ -237,7 +257,7 @@ function App() {
               </div>
             </div>
           </div>   
-            {/* <Accordion title="Filter Players" children="Position" /> */}
+
 
           </div>
 
@@ -256,7 +276,7 @@ function App() {
         <section className={styles.allCards}>
           {/* <div className={styles.cards}>   */}
 
-          {experimentalFilterFunc(positionFiltered)}
+          {getAvailablePlayers()}
           {/* </div> */}
         </section>
         <section className={styles.Pitch}>
@@ -365,11 +385,12 @@ function App() {
             <p>Experience: {getTeamScoreJsx("experience")} %</p>
           </div>
                     {/* <button onClick={() => signIn()}>Sign IN</button> */}
-                    <button>Sign IN</button>
+
 
           <div>
             {currentTeam.length > 14 && (
               <Button
+                btnImg={submitSvg}
                 btnText="Submit team"
                 handleClick={() => alert("Submit team")}
               />

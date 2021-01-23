@@ -1,4 +1,4 @@
-// @import "../../variables.scss";
+@import "../../assets/variables.scss";
 
 .cardFront {
   * {
@@ -173,6 +173,18 @@
           .playerButtons {
             margin: auto;
             text-align: center;
+            border: solid red 2px;
+
+
+            .selectButton { 
+              // border: blue solid 2px;
+              border: none;
+              border-radius: 10px;
+              background-color: $suspensionPink;
+              width: 20%;
+              margin: 10px auto;
+              cursor: pointer;
+            }
           }
         }
       }

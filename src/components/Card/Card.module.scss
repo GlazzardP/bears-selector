@@ -5,8 +5,10 @@
   width: 250px;
   //   border: solid black 3px;
   backface-visibility: hidden;
-  background-color: white;
+  // background-color: white;
   position: absolute;
+  // border-radius: 5%;
+
 
   &:hover {
 
@@ -20,9 +22,15 @@
   transition: transform 1s;
   transform-style: preserve-3d;
     // perspective: 600px;
+  border-radius: 5%;
+
   position: relative;
   z-index: 0;
   margin: 10px auto;
+  // box-shadow: 5px 5px 5px 5px #888888;
+  // box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+    // box-shadow: 0 0 20px #333;
 
   &.faceDown {
     transform: rotateY(180deg);
@@ -36,6 +44,10 @@
     @extend %card;
     transform: rotateY(180deg);
   }
+}
+.playerCard:hover { 
+  box-shadow: 0 0 20px #333;
+
 }
 
 @media only screen and (min-width: 768px) {

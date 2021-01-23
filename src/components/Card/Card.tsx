@@ -31,7 +31,7 @@ const Card: React.FC<CardProps> = ({ player, setPlayer }) => {
   const rotateClass = isFaceUp ? "" : styles.faceDown;
 
   return (
-    <>
+    // <>
       <section
         className={`${styles.playerCard} ${rotateClass}`}
         onClick={() => flipCard(!isFaceUp)}
@@ -51,7 +51,7 @@ const Card: React.FC<CardProps> = ({ player, setPlayer }) => {
           {/* <CardBack player={player} addPlayerToTeam={addPlayerToTeam} currentTeam={currentTeam}></CardBack> */}
         </div>
       </section>
-    </>
+    // </>
   );
 };
 

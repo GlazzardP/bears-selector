@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({ btnText, btnImg }) => {
       className={styles.Button}
       // onClick={handleClick}
     >
-      <img src={btnImg} />
+      <img src={btnImg} alt="Button Icon" />
       {btnText}
     </button>
   );

@@ -85,7 +85,7 @@ const CardFront: React.FC<CardFrontProps> = ({
             </div>
             <div className={styles.playerDetails}>
               <div className={styles.playerDetailsName}>
-                <h2>{player.playerName}</h2>
+                <p>{player.playerName}</p>
                 <p>{player.position}</p>
               </div>
               <div className={styles.playerDetailsInfo}>
@@ -117,8 +117,8 @@ const CardFront: React.FC<CardFrontProps> = ({
                 className={styles.playerButtons}
                 onClick={(e) => stopEventPropagation(e)}
               >
-                <button onClick={() => alert(`Picked ${chosenPosition}`)}>{chosenPosition} Evidence</button>
-                <button onClick={() => setPlayer(player)}>Pick</button>
+                {/* <button onClick={() => alert(`Picked ${chosenPosition}`)}>{chosenPosition} Evidence</button> */}
+                <button className={styles.selectButton} onClick={() => setPlayer(player)}>Pick</button>
                 {/* <button onClick={() => updateTeam(playerObj)}>Pick</button> */}
               </div>
             </div>
