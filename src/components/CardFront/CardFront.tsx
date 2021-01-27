@@ -110,7 +110,6 @@ const CardFront: React.FC<CardFrontProps> = ({
                 <div>
                   <p>Height</p>
                   <p>{player.playerHeight}cm</p>
-                  {/* <p>{position}</p> */}
                 </div>
               </div>
               <div

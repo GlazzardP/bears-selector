@@ -102,8 +102,8 @@ export interface IPlayer {
   lineOut?: number;
 }
 
-const DummyPlayer: IPlayer = {
-  playerName: "Dummy",
+export const DummyPlayer: IPlayer = {
+  playerName: "Dummy Player",
   nationality: "Dummy",
   flag: England,
   playerImg: LuatuaImg,
@@ -123,7 +123,7 @@ const DummyPlayer: IPlayer = {
   lineOut: 88,
 };
 
-const NAdeolokun: IPlayer = {
+export const NAdeolokun: IPlayer = {
   playerName: "Niyi Adeolokun",
   nationality: "Ireland",
   flag: Ireland,
@@ -532,7 +532,7 @@ const SLuatua: IPlayer = {
   flag: NewZealand,
   playerImg: LuatuaImg,
   playerHeight: 187,
-  playerAge: 30,
+  playerAge: 29,
   position: "Back Row",
   positionNum: [6, 7, 8],
   strength: 88,
@@ -551,8 +551,8 @@ const MMalins: IPlayer = {
   flag: England,
   playerImg: MalinsImg,
   playerHeight: 187,
-  playerAge: 30,
-  position: "Fullback",
+  playerAge: 23,
+  position: "Full Back",
   positionNum: [10, 12, 13, 15],
   strength: 88,
   fitness: 78,
@@ -627,7 +627,7 @@ const POconner: IPlayer = {
   flag: England,
   playerImg: OconnerImg,
   playerHeight: 184,
-  playerAge: 30,
+  playerAge: 23,
   position: "Centre",
   positionNum: [12, 13, 15],
   strength: 88,
@@ -665,7 +665,7 @@ const SPiatau: IPlayer = {
   flag: Tonga,
   playerImg: SPiatauImg,
   playerHeight: 187,
-  playerAge: 30,
+  playerAge: 34,
   position: "Centre",
   positionNum: [12, 13],
   strength: 88,
@@ -684,7 +684,7 @@ const CPowell: IPlayer = {
   flag: England,
   playerImg: PowellImg,
   playerHeight: 187,
-  playerAge: 30,
+  playerAge: 19,
   position: "Wing",
   positionNum: [11, 14],
   strength: 88,
@@ -703,7 +703,7 @@ const HPurdy: IPlayer = {
   flag: England,
   playerImg: PurdyImg,
   playerHeight: 187,
-  playerAge: 30,
+  playerAge: 25,
   position: "Wing",
   positionNum: [11, 14],
   strength: 88,
@@ -722,7 +722,7 @@ const SRadradra: IPlayer = {
   flag: Fiji,
   playerImg: RadradraImg,
   playerHeight: 187,
-  playerAge: 30,
+  playerAge: 28,
   position: "Centre",
   positionNum: [12, 13, 14],
   strength: 88,
@@ -760,7 +760,7 @@ const CSheedy: IPlayer = {
   flag: Wales,
   playerImg: SheedyImg,
   playerHeight: 178,
-  playerAge: 30,
+  playerAge: 26,
   position: "Fly Half",
   positionNum: [10],
   strength: 88,
@@ -779,7 +779,7 @@ const KSinckler: IPlayer = {
   flag: England,
   playerImg: SincklerImg,
   playerHeight: 187,
-  playerAge: 30,
+  playerAge: 27,
   position: "Prop",
   positionNum: [1, 3],
   strength: 88,

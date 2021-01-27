@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 // import firebase from "./firebase";
-// import provider from "./firebase";
+
+import * as firebase from 'firebase/app';
+import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not import firestore code
+import provider from "./firebase";
 
 import styles from "./App.module.scss";
 
@@ -9,7 +12,7 @@ import SelectedPlayers from "./components/SelectedPlayers";
 import Navbar from "./components/Navbar";
 
 import players, { IPlayer } from "./data/data";
-// import DummyPlayer from "./data/data";
+import DummyPlayer, {NAdeolokun, initialTeam} from "./data/data";
 import Button from "./components/Button";
 
 
@@ -27,18 +30,17 @@ import submitSvg from "./assets/images/Icons/enter-arrow.svg";
 // }
 
 function App() {
+  // const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun, NAdeolokun,NAdeolokun]);
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
+
   // const [updatedTeam, setUpdatedTeam] = useState<IPlayer[]>([]);
   const [playerFilter, setPlayerFilterChoices] =useState<any>({})
-  const [positionFiltered, setFilteredPosition] = useState<string>("");
-  const [playerHeight, setPlayerH] = useState<number>();
+  // const [positionFiltered, setFilteredPosition] = useState<string>("");
+
   // const [availablePlayers, setAvailablePlayersRedundant] =useState<IPlayer[]>([])
 
   const [isOpen, setOpen] = useState<boolean>(false);
 
-
-
-  console.log(playerFilter);
 
   // const unselectPlayer = (currentTeam: IPlayer[]) => {
   //   const updatedTeam = currentTeam.splice(position, 1);
@@ -66,9 +68,23 @@ function App() {
       return alert("This player is already selected.");
     } else if (currentTeam.length > 14) {
       alert("You've already got a full team.");
-    } else {
+    // } 
+    // else (
+    //   console.log(currentTeam.length + 1)
+    // )
+    } else if (
+      currentTeam.length + 1 !== player.positionNum[0] ||
+      currentTeam.length + 1 !== player.positionNum[1] ||
+      currentTeam.length + 1 !== player.positionNum[2] ||
+      currentTeam.length + 1 !== player.positionNum[3] ||
+      currentTeam.length + 1 !== player.positionNum[4]) {
+        // alert("This player cannot play in this position.")
+         console.log(currentTeam.length + 1)
+
       addPlayerToTeam([...currentTeam, player]);
-    }
+    } else (
+        addPlayerToTeam([...currentTeam, player])
+    )
     return currentTeam; // Was working without this return ?? 
   };
 
@@ -90,11 +106,6 @@ function App() {
     return Math.floor(scoreSum / currentTeamArray.length) || 0;
   };
 
-  // useEffect(() => {
-  //   // Update the document title using the browser API
-  //   getAvailablePlayers()
-
-  // }, [playerFilter]);
 
   // const getFilteredAvailablePlayers = () => { 
   //   availablePlayers.map((player) => { 
@@ -153,25 +164,15 @@ function App() {
     return availablePlayers;
   };
 
-  // const experimentalFilterFunc = (player: string) => {
-  //   if (playerFilter.position === "") {
-  //     return getAvailablePlayers();
-  //   } else {
-  //     return filterPlayer();
-  //   }
-  // };
 
-
-
-
-  // const signIn = () => { 
-  //   firebase.auth().onAuthStateChanged(provider)
-  // }
+  const signIn = (provider: any) => { 
+    firebase.auth().onAuthStateChanged(provider)
+  }
 
 
   return (
     <section className={styles.App}>
-      <Navbar />
+      <Navbar signIn={signIn} />
       <section className={styles.team}>
         <SelectedPlayers
           currentTeam={currentTeam}
@@ -199,12 +200,14 @@ function App() {
 
                 <label>Position</label>
                 <select name="position" id="position" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "position": event.target.value})}}>
-    
+
                   {/* <option value="Position">Position</option> */}
                   <option value="Prop" label="Prop">Prop</option>
                   <option value="Hooker" label="Hooker">Hooker</option>
                   <option value="Second Row" label="Secon Row">Second Row</option>
                   <option value="Back Row" label="Back Row">Back Row</option>
+                  <option value="Number 8" label="Number 8">Number 8</option>
+
                   <option value="Scrum Half" label="Scrum Half">Scrum Half</option>
                   <option value="Fly Half" label="Fly Half">Fly Half</option>
                   <option value="Centre" label="Centre">Centre</option>
