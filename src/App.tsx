@@ -20,6 +20,7 @@ import Button from "./components/Button";
 
 
 import submitSvg from "./assets/images/Icons/enter-arrow.svg";
+import close from "./assets/images/Icons/cancel.svg";
 // import Accordion from "./components/Accordion";
 
 // import filter from "./assets/images/filter.svg";
@@ -43,6 +44,8 @@ function App() {
   // const [availablePlayers, setAvailablePlayersRedundant] =useState<IPlayer[]>([])
 
   const [isOpen, setOpen] = useState<boolean>(false);
+  const [loginRecommendationModal, setLoginRecommendation] = useState<boolean>(true);
+
 
 
   // const unselectPlayer = (currentTeam: IPlayer[]) => {
@@ -82,7 +85,7 @@ function App() {
       currentTeam.length + 1 !== player.positionNum[3] ||
       currentTeam.length + 1 !== player.positionNum[4]) {
         // alert("This player cannot play in this position.")
-         console.log(currentTeam.length + 1)
+        //  console.log(currentTeam.length + 1)
 
       addPlayerToTeam([...currentTeam, player]);
     } else (
@@ -159,7 +162,6 @@ function App() {
           setPlayer={setPlayer}
         />
         )
-          // console.log('barOne');
       } else if (currentTeam.length >= 14) {
         console.log("You've already selected 15 players.");
       }
@@ -183,6 +185,11 @@ function App() {
         />
       </section>
       <section className={styles.main}>
+        <div className={`${styles.loginRecommendationModal} ${loginRecommendationModal ? styles.loginRecommendationModal : styles.noLoginRecommendation}`}>
+        <img src={close} alt="Close Speech Bubble" onClick={() => {setLoginRecommendation(!loginRecommendationModal)}}/>
+
+          <p>We recommend logging in <br></br> before starting your team.<br></br> This means you can submit and see which players are most popular.</p>
+        </div>
         <div className={styles.tempClass}>
           <div className={styles.accordionDivHolder}>
 
@@ -200,14 +207,11 @@ function App() {
 
                 <label>Position</label>
                 <select name="position" id="position" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "position": event.target.value})}}>
-
-
                   <option value="Prop" label="Prop">Prop</option>
                   <option value="Hooker" label="Hooker">Hooker</option>
                   <option value="Second Row" label="Secon Row">Second Row</option>
                   <option value="Back Row" label="Back Row">Back Row</option>
                   <option value="Number 8" label="Number 8">Number 8</option>
-
                   <option value="Scrum Half" label="Scrum Half">Scrum Half</option>
                   <option value="Fly Half" label="Fly Half">Fly Half</option>
                   <option value="Centre" label="Centre">Centre</option>
@@ -353,7 +357,9 @@ function App() {
             </div>
           </div>
         </section> */}
+        {/* <div className={styles.submitBubble}></div> */}
         <div className={styles.teamScore}>
+
           <div>
             <p>Defense: {getTeamScoreJsx("defending")} %</p>
             <p>Tackling: {getTeamScoreJsx("tackling")} %</p>

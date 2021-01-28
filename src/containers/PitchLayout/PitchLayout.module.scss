@@ -177,17 +177,12 @@
           }
 
           .wings {
-            // border: brown 2px dashed;
             display: flex;
             margin: auto;
             margin-right: 250px;
             margin-top: 50px;
             justify-content: space-between;
             width: 100%;
-
-            // div { 
-            //     border: burlywood 2px solid;
-            // }
             
             .shirtNumber { 
               text-align: center;
@@ -205,9 +200,64 @@
           .fullBack { 
               display: flex;
               justify-content: center;
-
-            //   border: chartreuse 3px solid;
           }
         }
+
+          .noSubmitBubble { 
+            display: none;
+          }
+                  .yesSubmitBubble {
+          position: absolute;
+          width: 250px;
+          height: 120px;
+          padding: 0px;
+          background: pink;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          border: #000000 solid 2px;
+          margin-bottom: 60px;
+          margin-right: 50px;
+          bottom: 0;
+          right: 0;
+          z-index: 15;
+
+          img { 
+            height: 20px;
+            border: blanchedalmond solid 1px;
+            position: absolute;
+            right: 0;
+          }
+          
+          p { 
+            padding: 5px;
+          }
+          }
+          
+          .yesSubmitBubble:after {
+          content: '';
+          position: absolute;
+          border-style: solid;
+          border-width: 15px 15px 0;
+          border-color: red transparent;
+          display: block;
+          width: 0;
+          z-index: 1;
+          bottom: -15px;
+          left: 188px;
+          }
+          
+          .yesSubmitBubble:before {
+          content: '';
+          position: absolute;
+          border-style: solid;
+          border-width: 16px 16px 0;
+          border-color: red transparent;
+          display: block;
+          width: 0;
+          z-index: 0;
+          bottom: -18px;
+          left: 187px;
+          }
       }
 }
