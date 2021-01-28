@@ -112,12 +112,15 @@
 
           .playerDetailsName {
             text-align: center;
+            // text-align: left;
+            // margin-left: 5%;
           }
 
           .playerDetailsInfo {
             display: flex;
+            text-align: left;
             // justify-content: center;
-            border: solid red 2px;
+            // border: solid red 2px;
             width: fit-content;
             margin: 0 auto;
 

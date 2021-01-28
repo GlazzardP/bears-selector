@@ -1,18 +1,48 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { IPlayer } from "../../data/data";
 import styles from "./PitchLayout.module.scss";
 
 // styles, images and assets
 import imageee from "../../assets/images/Rugby_union_pitch.svg";
+import close from "../../assets/images/Icons/enter-arrow.svg";
 
 
-interface PitchLayourProps { 
+interface PitchLayoutProps { 
   currentTeam: IPlayer[];
   getSurname(playerObj: IPlayer): string; 
 
 
 }
-const PitchLayout: React.FC<PitchLayourProps> = ({currentTeam, getSurname}) => {
+const PitchLayout: React.FC<PitchLayoutProps> = ({currentTeam, getSurname}) => {
+  const [loginRecommendationModal, setLoginRecommendation] = useState<boolean>(true);
+
+  const [noSubmitBubble, setSubmitBubble] = useState<boolean>(false);
+
+  // const submitBubbleCheck = () => { 
+  //   if (currentTeam.length = 4){ 
+  //     // setSubmitBubble(!noSubmitBubble)
+  //     alert('bingo')
+  //   }
+  // }
+
+  const submissionBubble = () => { 
+    if (currentTeam.length > 14) { 
+    return setSubmitBubble(!noSubmitBubble)
+    // console.log('foo');
+    
+  } else { 
+    // console.log(`${currentTeam.length}`)
+    console.log('bar');
+    
+  }
+}
+
+useEffect(() => { 
+  submissionBubble()
+})
+    
+
+
   return (
         <section className={styles.Pitch}>
           <div className={styles.PitchImage}>
@@ -155,6 +185,15 @@ const PitchLayout: React.FC<PitchLayourProps> = ({currentTeam, getSurname}) => {
 
             </div>
           </div>
+          {/* <div className={`${styles.loginRecommendationModal} ${loginRecommendationModal ? styles.yesLoginRecommendation : styles.noLoginRecommendation}`}> */}
+
+          <div className={`${styles.noSubmitBubble} ${noSubmitBubble? styles.noSubmitBubble : styles.yesSubmitBubble }`}>
+            <p>Well done, you have chosen your Bristol Bears XV. You can either submit and checkout some stats or you can carry on editing your Bears.</p>
+            <img src={close} alt="" onClick={() => {setSubmitBubble(!noSubmitBubble)}}/>
+            {/* <img src={close} alt="" onClick={() => {alert('clicked close')}}/> */}
+
+          </div>
+
         </section>   
   );
 };

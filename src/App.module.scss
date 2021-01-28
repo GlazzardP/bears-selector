@@ -10,6 +10,70 @@
 
 .App {
   .main {
+ 
+       .loginRecommendationModal {
+        //  display: flex;
+          position: relative;
+          width: 275px;
+          height: 120px;
+          padding: 0px;
+          background: #9D9AFC;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          border: #7F7F7F solid 2px;
+          margin: 0 auto;
+          z-index: 10;
+
+          img { 
+            position: absolute;
+            height: 40px;
+            right: 0;
+            padding: 15px 10px 0 0;
+            // border: solid red 2px;
+          }
+          p { 
+            word-wrap: break-word;
+            // border: solid green 2px;
+
+            float: right;
+            margin: 10px;
+            padding: 5px;
+          }
+          }
+
+          .loginRecommendationModal:after {
+          content: '';
+          position: absolute;
+          border-style: solid;
+          border-width: 0 15px 15px;
+          border-color: #9D9AFC transparent;
+          display: block;
+          width: 0;
+          z-index: 1;
+          top: -15px;
+          left: 188px;
+          }
+
+          .loginRecommendationModal:before {
+          content: '';
+          position: absolute;
+          border-style: solid;
+          border-width: 0 16px 16px;
+          border-color: #7F7F7F transparent;
+          display: block;
+          width: 0;
+          z-index: 0;
+          top: -18px;
+          left: 187px;
+          
+          }
+
+          .noLoginRecommendation { 
+            display: none;
+          }
+
+    
 
     .tempClass {
       width: 100vw;
@@ -138,6 +202,70 @@
 @media only screen and (min-width: 768px) {
   .App {
     .main {
+
+      .loginRecommendationModal {
+        position: relative;
+        width: 275px;
+        height: 120px;
+        padding: 0px;
+        background: #9D9AFC;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        border: #7F7F7F solid 2px;
+        margin-left: 75px;
+        margin-top: -20px;
+        // padding-left: 50px;
+        z-index: 10;
+
+        img { 
+          position: absolute;
+          height: 40px;
+          right: 0;
+          padding: 15px 20px 0 0;
+          // border: solid red 2px;
+        }
+        p { 
+          word-wrap: break-word;
+          // border: solid green 2px;
+
+          float: right;
+          margin: 10px;
+          padding: 5px;
+        }
+        }
+
+        .loginRecommendationModal:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 0 15px 15px;
+        border-color: #9D9AFC transparent;
+        display: block;
+        width: 0;
+        z-index: 1;
+        top: -15px;
+        left: 188px;
+        }
+
+        .loginRecommendationModal:before {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 0 16px 16px;
+        border-color: #7F7F7F transparent;
+        display: block;
+        width: 0;
+        z-index: 0;
+        top: -18px;
+        left: 187px;
+        
+        }
+
+        .noLoginRecommendation { 
+          display: none;
+        }
+
       .tempClass {
         width: 100vw;
         // border: solid red 2px;
@@ -180,6 +308,70 @@
       position: relative;
       display: flex;
       flex-direction: row;
+
+      .loginRecommendationModal {
+        position: relative;
+        width: 275px;
+        height: fit-content;
+        padding: 0px;
+        background: $suspensionPink;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        // border: $suspensionPink solid 2px;
+        border: none;
+        margin-top: 85px;
+        z-index: 15;
+
+        img { 
+          position: absolute;
+          height: 40px;
+          right: 0;
+          padding: 15px 20px 0 0;
+        }
+        p { 
+          word-wrap: break-word;
+          float: right;
+          margin: 10px;
+          padding: 5px;
+          color: black;
+        }
+        }
+
+        .loginRecommendationModal:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 0 15px 15px;
+        border-color: $suspensionPink transparent;
+      //  background: $suspensionPink;
+
+        display: block;
+        width: 0;
+        z-index: 1;
+        top: -15px;
+        left: 188px;
+        }
+
+        .loginRecommendationModal:before {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 0 16px 16px;
+        border-color: $suspensionPink transparent;
+        // background: $suspensionPink;
+
+        display: block;
+        width: 0;
+        z-index: 0;
+        top: -18px;
+        left: 187px;
+        
+        }
+
+        .noLoginRecommendation { 
+          display: none;
+        }
 
 
       .allCards {
@@ -275,6 +467,8 @@
 
       .teamScore { 
         padding: 0 50px;
+          
+
       }
 
       .Pitch {
@@ -292,8 +486,6 @@
           position: absolute;
           margin-left: 5vw;
           margin-top: 5%;
-          // border: solid 2px red;
-          // padding-left: 20px;
           height: 85%;
           width: 40vw;
 
@@ -305,7 +497,7 @@
 
 
           .team { 
-            // border: solid red 2px;
+
             padding: 20px 50px 20px 20px;
           }
 
