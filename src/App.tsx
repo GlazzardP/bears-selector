@@ -370,7 +370,7 @@ function App() {
           <div>
             {currentTeam.length > 14 && (
               <Button
-                btnImg={submitSvg}
+                // btnImg={submitSvg}
                 btnText="Submit team"
                 handleClick={() => alert("Submit team")}
               />
