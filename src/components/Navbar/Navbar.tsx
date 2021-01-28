@@ -15,8 +15,10 @@ const Navbar: React.FC<NavbarProps> = ({signIn}) => {
   return (
     <section className={styles.Navbar}>
       <h1>Bristol Bears Team Selector</h1>
-      <Button btnImg={CancelSvg} btnText="Log in" handleClick={signIn} />
-      {/* <Button btnText="Submit" /> */}
+      <Button 
+      // btnImg={CancelSvg}
+       btnText="Log in" 
+       handleClick={signIn} />
     </section>
   );
 };
