@@ -19,6 +19,11 @@ const Navbar: React.FC<NavbarProps> = ({signIn}) => {
       // btnImg={CancelSvg}
        btnText="Log in" 
        handleClick={signIn} />
+       <hr/>
+      <Button 
+      // btnImg={CancelSvg}
+       btnText="Instructions" 
+       handleClick={() => alert("Here are you instructions: 1. Log in. This means you can submit your team. 2. Pick your best Bears. 3. Submit 4. Check out who's been picked the most & share your tam with your mates.")} />
     </section>
   );
 };
