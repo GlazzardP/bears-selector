@@ -968,7 +968,7 @@ const players: IPlayer[] = [
   AUren,
   CVui,
   JWoolmore,
-  DummyPlayer,
+  // DummyPlayer,
 ];
 
 export { initialTeam };
