@@ -7,16 +7,12 @@
   font-family: "Roboto", sans-serif;
 }
 
-// body { 
-//   background-color: red;;
-// }
 
 .App {
   .main {
 
     .tempClass {
       width: 100vw;
-      // border: solid red 2px;
       height: fit-content;
       margin: 5px 0;
       padding: 5px 0;
@@ -24,7 +20,6 @@
 
       .accordionDivHolder { 
         width: 95%;
-        // border: deeppink solid 2px;
         margin: auto;
 
         .accordionWrapper {
@@ -75,7 +70,6 @@
           &:hover,
           &.open {
             color: black;
-          //   background-color: red;
       
           }
         
@@ -84,7 +78,6 @@
               content: "";
               border-top: 0;
               border-bottom: 5px solid;
-              // background-color: deeppink;
       
             }
           }
@@ -92,13 +85,8 @@
         
         .accordionContent {
           padding: 1em 1.5em;
-              // background-color: deeppink;
-          // border: solid grey 2px;
 
           div { 
-            // display: flex;
-            // justify-content: flex-start;
-            // border: solid grey 2px;
             margin: 5px 0;
 
             label { 
@@ -114,10 +102,8 @@
     .allCards {
       display: grid;
       grid-template-columns: auto;
-      // border: solid pink 3px;
       padding-bottom: 75px;
       margin-top: 25px;
-      // position: sticky;
     }
 
 

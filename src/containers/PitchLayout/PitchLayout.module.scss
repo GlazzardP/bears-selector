@@ -1,0 +1,213 @@
+@import "../../assets/variables.scss";
+
+
+.Pitch {
+    display: none;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    .Pitch {
+        display: unset;
+        position: fixed;
+        right: 0;
+        top: 10vh;
+        height: 90vh;
+        width: 50vw;
+        border-left: solid black 2px;
+
+        .PitchImage {
+          border: solid black 2px;
+          position: absolute;
+          margin-left: 5vw;
+          margin-top: 5%;
+          height: 85%;
+          width: 40vw;
+
+          background-image: url(../../assets/images/Rugby_union_pitch.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          padding: 80px;
+
+
+          .team { 
+            padding: 20px 50px 20px 20px;
+          }
+
+          .frontRow {
+            display: flex;
+            margin: auto;
+            margin-right: 250px;
+            width: 60%;
+
+            .shirtNumber { 
+              text-align: center;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+            }
+          }
+          .secondRow {
+            display: flex;
+            margin: auto;       
+            margin-right: 270px;
+            width: 35%;
+
+            .shirtNumber { 
+              text-align: center;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+            }
+          }
+
+          .backRow {
+            display: flex;
+            margin: auto;
+            justify-content: space-between;
+            margin-right: 285px;
+            margin-top: -10px;
+            width: 50%;
+            // border: chocolate 2px solid;
+
+            .shirtNumber { 
+              text-align: center;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+            }
+          }
+
+          .numberEight { 
+            //   border: solid red 2px;
+              width: fit-content;
+              margin-left: 95px;
+              margin-top: -40px;
+
+              .shirtNumber { 
+                text-align: center;
+                margin: 0 auto;
+  
+              }
+  
+              p  {
+                width: fit-content;
+                padding: 5px;
+              }
+
+          }
+
+          .scrumHalf {
+            display: flex;
+            margin: auto;
+            margin-right: 200px;
+            padding-left: 20px;
+            width: 40%;
+
+            .shirtNumber { 
+              text-align: center;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+            }
+          }
+
+          .flyHalf {
+            display: flex;
+            margin: auto;
+            margin-right: 150px;
+            padding-left: 30px;
+            width: 40%;
+
+            .shirtNumber { 
+              text-align: center;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+            }
+
+          }
+
+          .centre {
+            display: flex;
+            margin: auto;
+            justify-content: space-between;
+            width: 55%;
+            transform: rotate(10deg);
+            padding-left: 100px;
+
+          
+              div { 
+                transform: rotate(-10deg);
+                width: fit-content;
+
+              }
+
+              .shirtNumber { 
+                text-align: center;
+                margin: 0 auto;
+  
+              }
+  
+              p  {
+                width: fit-content;
+                padding: 5px;
+              }
+
+          }
+
+          .wings {
+            // border: brown 2px dashed;
+            display: flex;
+            margin: auto;
+            margin-right: 250px;
+            margin-top: 50px;
+            justify-content: space-between;
+            width: 100%;
+
+            // div { 
+            //     border: burlywood 2px solid;
+            // }
+            
+            .shirtNumber { 
+              text-align: center;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+            }
+
+          }
+
+          .fullBack { 
+              display: flex;
+              justify-content: center;
+
+            //   border: chartreuse 3px solid;
+          }
+        }
+      }
+}
