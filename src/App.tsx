@@ -7,6 +7,9 @@ import provider from "./firebase";
 
 import styles from "./App.module.scss";
 
+// Containers 
+import PitchLayout from "./containers/PitchLayout"
+
 import Card from "./components/Card";
 import SelectedPlayers from "./components/SelectedPlayers";
 import Navbar from "./components/Navbar";
@@ -177,8 +180,6 @@ function App() {
         <SelectedPlayers
           currentTeam={currentTeam}
           onClick={onclick}
-          // unselectPlayer={unselectPlayer}
-          // player={player}
         />
       </section>
       <section className={styles.main}>
@@ -192,7 +193,6 @@ function App() {
               onClick={() => setOpen(!isOpen)}
               >
                 Filter Options
-              {/* {title} */}
             </div>
             <div className={`${styles.accordionItem} ${!isOpen ? styles.collapsed : ""}`}>
               <div className={styles.accordionContent}>
@@ -201,7 +201,7 @@ function App() {
                 <label>Position</label>
                 <select name="position" id="position" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "position": event.target.value})}}>
 
-                  {/* <option value="Position">Position</option> */}
+
                   <option value="Prop" label="Prop">Prop</option>
                   <option value="Hooker" label="Hooker">Hooker</option>
                   <option value="Second Row" label="Secon Row">Second Row</option>
@@ -253,10 +253,6 @@ function App() {
               <button onClick={() => {getAvailablePlayers()}}>Update Players</button>
 
               </div>
-
-
-
-
               </div>
             </div>
           </div>   
@@ -264,25 +260,14 @@ function App() {
 
           </div>
 
-          {/* <select name="position" id="position" onChange={handleChange}>
-            <option value="Prop">Prop</option>
-            <option value="Hooker">Hooker</option>
-            <option value="Second Row">Second Row</option>
-            <option value="Back Row">Back Row</option>
-            <option value="Scrum Half">Scrum Half</option>
-            <option value="Fly Half">Fly Half</option>
-            <option value="Centre">Centre</option>
-            <option value="Wing">Wing</option>
-            <option value="Full Back">Full Back</option>
-          </select> */}
         </div>
         <section className={styles.allCards}>
-          {/* <div className={styles.cards}>   */}
 
           {getAvailablePlayers()}
-          {/* </div> */}
+
         </section>
-        <section className={styles.Pitch}>
+        <PitchLayout currentTeam={currentTeam} getSurname={getSurname} />
+        {/* <section className={styles.Pitch}>
           <div className={styles.PitchImage}>
             <div className={styles.team}>
             <div className={styles.frontRow}>
@@ -293,9 +278,6 @@ function App() {
                     playerObj
                   )}`}</p>
 
-                  {/* <p>{playerObj.playerName}</p> */}
-                  {/* <p>{playerObj.positionNum[0]}</p> */}
-                  {/* <p>{chosenPosition}</p> */}
                 </div>
               ))}
             </div>
@@ -308,7 +290,7 @@ function App() {
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  {/* <p>{playerObj.positionNum[0]}</p> */}
+
                 </div>
               ))}
             </div>
@@ -321,7 +303,6 @@ function App() {
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
             </div>
@@ -333,7 +314,6 @@ function App() {
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
             </div>
@@ -345,7 +325,6 @@ function App() {
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
             </div>
@@ -357,7 +336,6 @@ function App() {
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
             </div>
@@ -369,13 +347,12 @@ function App() {
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
                   )}`}</p>
-                  {/* <p>{playerObj.positionNum[0]}</p> */}
                 </div>
               ))}
             </div>
             </div>
           </div>
-        </section>
+        </section> */}
         <div className={styles.teamScore}>
           <div>
             <p>Defense: {getTeamScoreJsx("defending")} %</p>
