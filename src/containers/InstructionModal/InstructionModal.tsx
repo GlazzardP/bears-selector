@@ -1,6 +1,8 @@
 import React, { useEffect, useState} from "react";
 import styles from "./InstructionModal.module.scss";
 
+
+import close from "../../assets/images/Icons/cancel.svg"
 interface InstructionModalProps { 
   toggleInstructionModal:(input: boolean) => any;
   instructionModa: boolean;
@@ -11,7 +13,10 @@ const InstructionModal: React.FC<InstructionModalProps> = ({toggleInstructionMod
   return (
     <section className={styles.instructionModalContainer} onClick={() => toggleInstructionModal(false)}>
       <div className={styles.instructionModalBox}>
-        <h2>Instructions</h2>
+        <div>        
+          <h2>Instructions</h2>
+          <img src={close} alt="Close Pop Up" onClick={() => {toggleInstructionModal(false)}}/>
+        </div>
         <p>We have build this website for rugby fans, especially Bristol Bear fan to pick their favourite team.</p>
         <p>1. We recommend logging in. This means you can submit your team to our database. The more people who do this, the better we can see who the preferred players are.<br></br>To log in, you can use your Gmail account, Facebook or create your own account with your email and password. </p>
         <p>2. Pick your 15. It's pretty simple. You can use the filter tool at the top of the players to find the right player for the right position.</p>
@@ -22,7 +27,9 @@ const InstructionModal: React.FC<InstructionModalProps> = ({toggleInstructionMod
         <p>Moving forward we want to be able to include more information and more insights but this is largely dependant on your support. No, not financial. Just spreading the word. Either by the good ol' fashion way, by mouth or, once you have submitted your team, you can share on all the horrible social media platforms.</p>
 
 
-        <button onClick={() => {toggleInstructionModal(false)}}>Close</button>
+        {/* <button onClick={() => {toggleInstructionModal(false)}}>Close</button> */}
+        <div className={styles.modalBackgroundImage}></div>
+
       </div>
     </section>
   );

@@ -1,3 +1,6 @@
+@import "../../assets/variables.scss";
+
+
 .instructionModalContainer { 
     position: fixed;
     top: 0;
@@ -7,6 +10,8 @@
     background-color: rgba($color: #574c4c, $alpha: 0.9);
     z-index: 15;
 
+
+
     .instructionModalBox { 
         position: absolute;
         height: 80%;
@@ -15,14 +20,48 @@
         margin-bottom: 10%;
 
         margin-left: 20%;
-        border: solid red 5px;
-        color: white;
-        background-color: black;
+        border: solid 5px $suspensionPink;
+        color: black;
+        background-color: white;
         vertical-align: middle;
         padding: 50px;
 
+        div { 
+            display: flex;
+            justify-content: space-between;
+            max-height: 30px;
+
+            img { 
+                width: fit-content;
+                padding: 0;
+                margin: 0;
+                cursor: pointer;
+            }
+        }
+
+
+        
+        // background-size: cover;
+        // opacity: 0.5;
+
+
         p { 
             margin: 5px;
+        }
+
+        .modalBackgroundImage { 
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.8;
+            background-image: url("../../assets/images/suspensionBridge.png");
+            // padding-bottom: 50px;
+            max-height: unset;
+            border: none;
+            border: solid black 2px;
+
         }
 
     }
