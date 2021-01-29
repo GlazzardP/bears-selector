@@ -85,32 +85,47 @@ const CardFront: React.FC<CardFrontProps> = ({
             </div>
             <div className={styles.playerDetails}>
               <div className={styles.playerDetailsName}>
-                <p>{player.playerName}</p>
-                <p>{player.position}</p>
+                <div>
+                  <p>{player.playerName}</p>
+                  <p>{player.position}</p>
+                </div>
+                <div>
+                                  {/* <p>{player.position}</p> */}
+                  <p className={styles.alignRight}>{player.playerHeight}cm</p>
+                  <p className={styles.alignRight}>{player.playerAge}</p>
+                </div>
+
+
+                {/* <p>{player.playerName}</p> */}
+
               </div>
               <div className={styles.playerDetailsInfo}>
-                <div>
+                {/* <div>
                   <p>Age</p>
                   <p>{player.playerAge}</p>
-                </div>
+                </div> */}
                 <div
                   className={styles.selectDrop}
                   onClick={(e) => stopEventPropagation(e)}
-                >
-                  <label>Position:</label>
-                  <select
-                    name="position"
-                    id="position"
-                    onChange={handleChange}
-                    className={styles.positionSelect}
-                  >
-                    {playerPositionJsx}
-                  </select>
+                ><div>                 
+                   <label>Position:</label>
+                    <select
+                      name="position"
+                      id="position"
+                      onChange={handleChange}
+                      className={styles.positionSelect}
+                    >
+                      {playerPositionJsx}
+                    </select>
+                  </div>
+
+                  <button className={styles.selectButton} onClick={() => setPlayer(player)}>Pick</button>
+
                 </div>
-                <div>
+                {/* <div>
                   <p>Height</p>
                   <p>{player.playerHeight}cm</p>
-                </div>
+                </div> */}
               </div>
               <div
                 className={styles.playerButtons}
