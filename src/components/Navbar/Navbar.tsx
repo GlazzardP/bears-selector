@@ -6,6 +6,7 @@ import InstructionModal from "../../containers/InstructionModal";
 
 import Button from "../Button";
 import CancelSvg from "../../assets/images/Icons/cancel.svg"
+import { provider } from "../../firebase";
 
 interface NavbarProps { 
   signIn(provider: any): any;
@@ -22,7 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({signIn}) => {
       <Button 
       // btnImg={CancelSvg}
        btnText="Log in" 
-       handleClick={signIn} />
+       handleClick={() => {signIn(provider)}} />
        <hr/>
       <Button 
       // btnImg={CancelSvg}

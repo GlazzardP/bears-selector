@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 // import firebase from "./firebase";
 
-import * as firebase from 'firebase/app';
-import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not import firestore code
-import provider from "./firebase";
+// import * as firebase from 'firebase/app';
+// import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not import firestore code
+// import provider from "./firebase";
+
+import firebase, {provider} from "./firebase"
 
 import styles from "./App.module.scss";
 
@@ -45,6 +47,7 @@ function App() {
 
   const [isOpen, setOpen] = useState<boolean>(false);
   const [loginRecommendationModal, setLoginRecommendation] = useState<boolean>(true);
+  const [user, setUser]=useState<any>(null) //ANY -- This should not be ANY -- improve
 
 
 
@@ -173,6 +176,20 @@ function App() {
   const signIn = (provider: any) => { 
     firebase.auth().onAuthStateChanged(provider)
   }
+
+  const getUser = () => { 
+    firebase.auth().onAuthStateChanged((user) => { 
+      if (user) { 
+        setUser(user);
+      } else { 
+        setUser(null)
+      }
+    })
+  }
+
+  useEffect(() => { 
+    getUser()
+  }, [])
 
 
   return (
@@ -370,7 +387,6 @@ function App() {
             <p>Attack: {getTeamScoreJsx("attacking")} %</p>
             <p>Experience: {getTeamScoreJsx("experience")} %</p>
           </div>
-                    {/* <button onClick={() => signIn()}>Sign IN</button> */}
 
 
           <div>

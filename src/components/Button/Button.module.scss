@@ -1,7 +1,7 @@
 .Button {
   border: none;
   background-color: rgb(62, 219, 247);
-  color: white;
+  // color: white;
   width: 100px;
   height: 40px;
   //   min-width: fit-content;
@@ -10,7 +10,8 @@
   padding: 10px 0;
   margin: 10px;
   font-size: 15px;
-  border-radius: 5%;
+  border-radius: 10px;
+
   
 
   img { 
@@ -20,4 +21,11 @@
     // border: blanchedalmond 2px solid;
     margin: auto 0;
   }
+}
+
+.Button:hover {
+
+  background-color: rgb(56, 103, 242);
+  cursor: pointer;
+
 }
