@@ -1,0 +1,692 @@
+@import "../../assets/variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+
+.App {
+  .main {
+ 
+       .loginRecommendationModal {
+        //  display: flex;
+          position: relative;
+          width: 275px;
+          height: 120px;
+          padding: 0px;
+          background: #9D9AFC;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          border: #7F7F7F solid 2px;
+          margin: 0 auto;
+          z-index: 10;
+
+          img { 
+            position: absolute;
+            height: 40px;
+            right: 0;
+            padding: 15px 10px 0 0;
+            // border: solid red 2px;
+          }
+          p { 
+            word-wrap: break-word;
+            // border: solid green 2px;
+
+            float: right;
+            margin: 10px;
+            padding: 5px;
+          }
+          }
+
+          .loginRecommendationModal:after {
+          content: '';
+          position: absolute;
+          border-style: solid;
+          border-width: 0 15px 15px;
+          border-color: #9D9AFC transparent;
+          display: block;
+          width: 0;
+          z-index: 1;
+          top: -15px;
+          left: 188px;
+          }
+
+          .loginRecommendationModal:before {
+          content: '';
+          position: absolute;
+          border-style: solid;
+          border-width: 0 16px 16px;
+          border-color: #7F7F7F transparent;
+          display: block;
+          width: 0;
+          z-index: 0;
+          top: -18px;
+          left: 187px;
+          
+          }
+
+          .noLoginRecommendation { 
+            display: none;
+          }
+
+    
+
+    .tempClass {
+      width: 100vw;
+      height: fit-content;
+      margin: 5px 0;
+      padding: 5px 0;
+      z-index: 10;
+
+      .accordionDivHolder { 
+        width: 95%;
+        margin: auto;
+
+        .accordionWrapper {
+          & + * {
+            margin-top: 0.5em;
+      
+          }
+        }
+        
+        .accordionItem {
+          overflow: hidden;
+          transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+          height: auto;
+          max-height: 9999px;
+          background-color: white;
+          border-radius: 1.5em;
+          border: solid grey 2px;
+        }
+        
+        .accordionItem.collapsed {
+          max-height: 0;
+          transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+          border: none;
+      
+        }
+        
+        .accordionTitle {
+          font-weight: 600;
+          cursor: pointer;
+          color: #666;
+          padding: 0.5em 1.5em;
+          border: solid 1px #ccc;
+          border-radius: 1.5em;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      
+        
+          &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid currentColor;
+          }
+        
+          &:hover,
+          &.open {
+            color: black;
+      
+          }
+        
+          &.open {
+            &::after {
+              content: "";
+              border-top: 0;
+              border-bottom: 5px solid;
+      
+            }
+          }
+        }
+        
+        .accordionContent {
+          padding: 1em 1.5em;
+
+          div { 
+            margin: 5px 0;
+
+            label { 
+              padding: 10px;
+            }
+          }
+      
+        }
+        
+      }
+
+    }
+    .allCards {
+      display: grid;
+      grid-template-columns: auto;
+      padding-bottom: 75px;
+      margin-top: 25px;
+    }
+
+
+    .Pitch {
+      display: none;
+    }
+
+    .teamScore {
+      padding: 0 20px;
+      height: 7.5vh;
+      background-color: $navy;
+      width: 100vw;
+
+      bottom: 0;
+      // right: 0;
+      position: fixed;
+      color: pink;
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        display: flex;
+
+        p {
+          padding: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .App {
+    .main {
+
+      .loginRecommendationModal {
+        position: relative;
+        width: 275px;
+        height: 120px;
+        padding: 0px;
+        background: #9D9AFC;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        border: #7F7F7F solid 2px;
+        margin-left: 75px;
+        margin-top: -20px;
+        // padding-left: 50px;
+        z-index: 10;
+
+        img { 
+          position: absolute;
+          height: 40px;
+          right: 0;
+          padding: 15px 20px 0 0;
+          // border: solid red 2px;
+        }
+        p { 
+          word-wrap: break-word;
+          // border: solid green 2px;
+
+          float: right;
+          margin: 10px;
+          padding: 5px;
+        }
+        }
+
+        .loginRecommendationModal:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 0 15px 15px;
+        border-color: #9D9AFC transparent;
+        display: block;
+        width: 0;
+        z-index: 1;
+        top: -15px;
+        left: 188px;
+        }
+
+        .loginRecommendationModal:before {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 0 16px 16px;
+        border-color: #7F7F7F transparent;
+        display: block;
+        width: 0;
+        z-index: 0;
+        top: -18px;
+        left: 187px;
+        
+        }
+
+        .noLoginRecommendation { 
+          display: none;
+        }
+
+      .tempClass {
+        width: 100vw;
+        // border: solid red 2px;
+        height: fit-content;
+      }
+      .allCards {
+        display: grid;
+        grid-template-columns: auto auto;
+        // border: solid blue 3px;
+      }
+
+      .teamScore {
+        padding: 0 20px;
+        height: 5vh;
+        background-color: $navy;
+        width: 100vw;
+
+        bottom: 0;
+        position: fixed;
+        color: $suspensionPink;
+        display: flex;
+        justify-content: space-between;
+
+        div {
+          margin: auto 0;
+          display: flex;
+
+          p {
+            padding: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .App {
+    .main {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+
+      .loginRecommendationModal {
+        position: relative;
+        width: 275px;
+        height: fit-content;
+        padding: 0px;
+        background: $suspensionPink;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        // border: $suspensionPink solid 2px;
+        border: none;
+        margin-top: 85px;
+        z-index: 15;
+
+        img { 
+          position: absolute;
+          height: 40px;
+          right: 0;
+          padding: 15px 20px 0 0;
+        }
+        p { 
+          word-wrap: break-word;
+          float: right;
+          margin: 10px;
+          padding: 5px;
+          color: black;
+        }
+        }
+
+        .loginRecommendationModal:after {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 0 15px 15px;
+        border-color: $suspensionPink transparent;
+      //  background: $suspensionPink;
+
+        display: block;
+        width: 0;
+        z-index: 1;
+        top: -15px;
+        left: 188px;
+        }
+
+        .loginRecommendationModal:before {
+        content: '';
+        position: absolute;
+        border-style: solid;
+        border-width: 0 16px 16px;
+        border-color: $suspensionPink transparent;
+        // background: $suspensionPink;
+
+        display: block;
+        width: 0;
+        z-index: 0;
+        top: -18px;
+        left: 187px;
+        
+        }
+
+        .noLoginRecommendation { 
+          display: none;
+        }
+
+
+      .allCards {
+        position: absolute;
+        left: 0;
+        // top: 12vh;
+        display: grid;
+        grid-template-columns: auto auto;
+        // border: solid yellow 3px;
+        width: 50vw;
+        margin-top: 150px;
+      }
+
+      .tempClass {
+        width: 50vw;
+        position: absolute;
+        left: 0;
+        top: 10vh;
+        height: fit-content;
+          // border: solid red 2px;
+
+        // .accordionWrapper { 
+        //   border: solid red 2px;
+        // }
+
+        .accordionDivHolder { 
+          width: 47.5%;
+          margin-left: 30px;
+          position: fixed;
+  
+          .accordionWrapper {
+            & + * {
+              margin-top: 0.5em;
+        
+            }
+          }
+          
+          .accordionItem {
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+            background-color: white;
+            border-radius: 1.5em;
+          }
+          
+          .accordionItem.collapsed {
+            max-height: 0;
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+        
+          }
+          
+          .accordionTitle {
+            font-weight: 600;
+            cursor: pointer;
+            color: #666;
+            padding: 0.5em 1.5em;
+            border: solid 2px #ccc;
+            border-radius: 1.5em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+        
+          
+            &::after {
+              content: "";
+              width: 0;
+              height: 0;
+              border-left: 5px solid transparent;
+              border-right: 5px solid transparent;
+              border-top: 5px solid currentColor;
+            }
+          
+            &:hover,
+            &.open {
+              color: black;
+            }
+          
+            &.open {
+              &::after {
+                content: "";
+                border-top: 0;
+                border-bottom: 5px solid;
+              }
+            }
+          }
+          
+          .accordionContent {
+            padding: 1em 1.5em;
+          }
+      }
+  
+      }
+
+      .teamScore { 
+        padding: 0 50px;
+          
+
+      }
+
+      .Pitch {
+        display: unset;
+        position: fixed;
+        right: 0;
+        top: 10vh;
+        height: 90vh;
+        width: 50vw;
+        // border: blue 2px solid;
+        border-left: solid black 2px;
+
+        .PitchImage {
+          border: solid black 2px;
+          position: absolute;
+          margin-left: 5vw;
+          margin-top: 5%;
+          height: 85%;
+          width: 40vw;
+
+          background-image: url(../../assets/images/Rugby_union_pitch.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          padding: 80px;
+
+
+          .team { 
+
+            padding: 20px 50px 20px 20px;
+          }
+
+          .frontRow {
+            display: flex;
+            margin: auto;
+            // border: deeppink solid 2px;
+            margin-right: 250px;
+            // justify-content: flex-end;
+            // border: solid red 2px;
+            width: 60%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
+          }
+          .secondRow {
+            display: flex;
+            margin: auto;       
+            // border: deeppink solid 2px;
+            margin-right: 270px;
+            // border: solid blue 2px;
+            width: 35%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
+          }
+          .backRow {
+            display: flex;
+            margin: auto;
+            // border: deeppink solid 2px;
+            margin-right: 280px;
+            // border: solid yellow 2px;
+            // background-color: red;
+            width: 50%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
+          }
+          .scrumHalf {
+            display: flex;
+            margin: auto;
+            // border: deeppink solid 2px;
+            margin-right: 200px;
+            // border: solid yellow 2px;
+            // background-color: red;
+            padding-left: 20px;
+            width: 40%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
+          }
+
+          .flyHalf {
+            display: flex;
+            margin: auto;
+            // border: deeppink solid 2px;
+            margin-right: 150px;
+            // border: solid yellow 2px;
+            // background-color: red;
+            padding-left: 30px;
+
+            width: 40%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
+
+          }
+
+          .centre {
+            display: flex;
+            margin: auto;
+            // border: deeppink solid 2px;
+            justify-content: space-between;
+            // margin-right: 50px;
+            // border: solid yellow 2px;
+            // background-color: red;
+            width: 50%;
+            transform: rotate(10deg);
+            padding-left: 100px;
+          
+              div { 
+                transform: rotate(-10deg);
+
+              }
+
+              .shirtNumber { 
+                text-align: center;
+                // border: deepskyblue solid 2px;
+                margin: 0 auto;
+  
+              }
+  
+              p  {
+                width: fit-content;
+                padding: 5px;
+                // border: deeppink solid 2px;
+              }
+
+          }
+
+          .wings {
+            display: flex;
+            margin: auto;
+            // border: deeppink solid 2px;
+            margin-right: 250px;
+            margin-top: 50px;
+            justify-content: space-between;
+            // border: solid yellow 2px;
+            // background-color: red;
+            width: 100%;
+
+            .shirtNumber { 
+              text-align: center;
+              // border: deepskyblue solid 2px;
+              margin: 0 auto;
+
+            }
+
+            p  {
+              width: fit-content;
+              padding: 5px;
+              // border: deeppink solid 2px;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .App {
+    .main {
+      position: relative;
+
+      .allCards {
+        grid-template-columns: auto auto auto;
+      }
+    }
+  }
+}
