@@ -19,20 +19,23 @@ const Navbar: React.FC<NavbarProps> = ({signIn}) => {
   return (
     <section className={styles.Navbar}>
       <h1>Bristol Bears Team Selector</h1>
-      <Button 
-      // btnImg={CancelSvg}
-       btnText="Log in" 
-       handleClick={signIn} />
-       <hr/>
-      <Button 
-      // btnImg={CancelSvg}
-       btnText="Instructions" 
-       handleClick={() => {toggleInstructionModal(true)}} />
-      {/* //  handleClick={() => alert("Here are you instructions: 1. Log in. This means you can submit your team. 2. Pick your best Bears. 3. Submit 4. Check out who's been picked the most & share your tam with your mates.")} /> */}
+      {/* <div> */}
+        <Button 
+        // btnImg={CancelSvg}
+         btnText="Log in" 
+         handleClick={signIn} />
+         <div> <hr className={styles.navHR}/></div>
+        <Button 
+        // btnImg={CancelSvg}
+         btnText="Instructions" 
+         handleClick={() => {toggleInstructionModal(true)}} />
+        {/* //  handleClick={() => alert("Here are you instructions: 1. Log in. This means you can submit your team. 2. Pick your best Bears. 3. Submit 4. Check out who's been picked the most & share your tam with your mates.")} /> */}
 
-       {instrutionModal ? ( 
-          <InstructionModal toggleInstructionModal={toggleInstructionModal} instructionModal={instrutionModal} />
-       ) : null}
+         {instrutionModal ? ( 
+            <InstructionModal toggleInstructionModal={toggleInstructionModal} instructionModal={instrutionModal} />
+         ) : null}
+      {/* </div> */}
+
     </section>
   );
 };

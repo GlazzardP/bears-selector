@@ -4,21 +4,34 @@
   width: 100%;
   border: solid black 2px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: middle;
   background-color: $navy;
   color: $suspensionPink;
   // margin: auto;
-  padding: 10px;
+  padding: 20px;
 
   h1 { 
     margin: auto 0;
   }
 
-  // hr  { 
-  //   background-image: linear-gradient(to top, #ccc, #333, #ccc);
-  //   background: #333;
-  //   border: 0;
+  div { 
+    display: flex;
+    flex-direction: row;
 
-  // }
+  .navHR { 
+    height: 50px;
+    max-width: 250px;
+    padding: 0.25rem;
+    position: relative;
+    background-image: linear-gradient(to top, rgba($suspensionPink, 0.25), rgba($suspensionPink, 0.75), rgba($suspensionPink, 0.25));
+    border: none;
+    padding: 1.5px;
+    margin-top: 5px;
+  }
+
+  }
 }
 
 

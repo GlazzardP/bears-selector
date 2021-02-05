@@ -10,7 +10,7 @@
   padding: 10px 0;
   margin: 10px;
   font-size: 15px;
-  border-radius: 5%;
+  border-radius: 10px;
   
 
   img { 
@@ -20,4 +20,9 @@
     // border: blanchedalmond 2px solid;
     margin: auto 0;
   }
+}
+
+.Button:hover { 
+  background-color: rgb(111, 111, 224);
+  cursor: pointer;
 }
