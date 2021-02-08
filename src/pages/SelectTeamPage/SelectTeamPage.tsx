@@ -11,6 +11,7 @@ import PitchLayout from "../../containers/PitchLayout"
 import Card from "../../components/Card";
 import SelectedPlayers from "../../components/SelectedPlayers";
 import Navbar from "../../components/Navbar";
+import ScoreModal from "../../containers/TeamScoreModal"
 
 import players, { IPlayer, NAdeolokun } from "../../data/data";
 // import DummyPlayer, {NAdeolokun, initialTeam} from "../../data/data";
@@ -19,6 +20,9 @@ import Button from "../../components/Button";
 
 import submitSvg from "./assets/images/Icons/enter-arrow.svg";
 import close from "../../assets/images/Icons/cancel.svg";
+import UpArrow from "../../assets/images/Icons/up-chevron.svg"
+import DownArrow from "../../assets/images/Icons/down-chevron.svg"
+
 // import Accordion from "./components/Accordion";
 
 
@@ -28,11 +32,15 @@ import close from "../../assets/images/Icons/cancel.svg";
 
 const SelectTeamPage: React.FC = () => {
 
-  const [isOpen, setOpen] = useState<boolean>(false);
+  const [isOpen, setOpen] = useState<boolean>(false); // Player filter accordion
+  const [teamScoreOpen, setTeamScoreOpen] = useState<boolean>(false); // Team score accordion, footer of page
+
   const [playerFilter, setPlayerFilterChoices] = useState<any>({})
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
   const [loginRecommendationModal, setLoginRecommendation] = useState<boolean>(true);
+  const [scoreModal, toggleScoreModal]= useState<boolean>(false);
 
+  console.log(teamScoreOpen);
 
   const getTeamScoreJsx = (type: any) => {
     const currentTeamArray = currentTeam.filter((playerObj) => {
@@ -224,9 +232,38 @@ const SelectTeamPage: React.FC = () => {
 
         </section>
         <PitchLayout currentTeam={currentTeam} getSurname={getSurname} />
-        <div className={styles.teamScore}>
 
-          <div>
+        {/* <div className={styles.teamScoreAccordionDivHolder}>
+           <div className={styles.teamScoreAccordionWrapper}>
+              <div
+                className={`${styles.teamScoreAccordionTitle} ${teamScoreOpen ? styles.teamScoreOpen : ""}`}
+                onClick={() => setOpen(!teamScoreOpen)}
+                >
+                  team score
+              </div>
+              <div className={`${styles.teamScoreAccordionItem} ${!isOpen ? styles.collapsed : ""}`}>
+                Accordion Item
+                    <div className={styles.teamScoreAccordionContent}><p> Accordion Content</p> </div>
+                </div>
+            </div>
+        </div> */}
+        {/* <div className={styles.teamScore}> */}
+        {/* <img src={UpArrow} alt="Close Speech Bubble" onClick={() => {toggleScoreModal(!scoreModal)}}/> */}
+        <div className={styles.scoreModalDiv}>
+          <p>Team Score</p>
+          <img className={styles.scoreModalArrow} src={UpArrow} alt="Close Speech Bubble" onClick={() => {toggleScoreModal(true)}}/>
+
+        </div>
+
+        {scoreModal ? ( 
+            <ScoreModal toggleScoreModal={toggleScoreModal} scoreModal={scoreModal} getTeamScoreJsx={getTeamScoreJsx} />
+         ) : null}
+
+
+
+
+{/* 
+          <div className={`${styles.attributeScores} ${teamScoreOpen ? styles.teamScoreClosed : ""}`} >
 
             <p>Defense: {getTeamScoreJsx("defending")} %</p> 
             <p>Tackling: {getTeamScoreJsx("tackling")} %</p>
@@ -237,8 +274,10 @@ const SelectTeamPage: React.FC = () => {
             <p>Attack: {getTeamScoreJsx("attacking")} %</p>
             <p>Experience: {getTeamScoreJsx("experience")} %</p>
           </div>
+          <div className={styles.scoresAccordion}>
+            <img src={UpArrow} alt="Open team score section"  onClick={() => setTeamScoreOpen(!teamScoreOpen)}  />
 
-
+          </div>
 
           <div>
             {currentTeam.length > 14 && (
@@ -247,11 +286,17 @@ const SelectTeamPage: React.FC = () => {
                 handleClick={() => alert("Submit team")}
               />
             )}
-          </div>
-        </div>
+          </div> */}
+          {/* </div> */}
       </section>
     </section>
   );
 };
 
 export default SelectTeamPage;
+
+
+
+
+
+

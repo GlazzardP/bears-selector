@@ -925,7 +925,6 @@ const initialTeam: IPlayer[] = [
 ];
 
 const players: IPlayer[] = [
-  SLuatua,
   // HThacker,
   NAdeolokun,
   JAfoa,
@@ -933,21 +932,21 @@ const players: IPlayer[] = [
   DAttwood,
   SBedlow,
   BByrne,
-  WCapon,
-  CCook,
-  JDun,
-  MEadie,
-  BEarl,
-  TEden,
-  TFricker,
-  JHawkins,
-  JHeenan,
-  EHolmes,
-  NHughes,
-  JJoyce,
-  TKessell,
-  MLahiff,
-  ALeiua,
+  // WCapon,
+  // CCook,
+  // JDun,
+  // MEadie,
+  // BEarl,
+  // TEden,
+  // TFricker,
+  // JHawkins,
+  // JHeenan,
+  // EHolmes,
+  // NHughes,
+  // JJoyce,
+  // TKessell,
+  // MLahiff,
+  // ALeiua,
   // SLuatua,
   MMalins,
   PMccabe,
@@ -968,7 +967,7 @@ const players: IPlayer[] = [
   AUren,
   CVui,
   JWoolmore,
-  // DummyPlayer,
+
 ];
 
 export { initialTeam };

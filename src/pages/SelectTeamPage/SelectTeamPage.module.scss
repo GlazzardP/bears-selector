@@ -13,16 +13,17 @@
  
        .loginRecommendationModal {
         //  display: flex;
-          position: relative;
+          position: absolute;
           width: 275px;
           height: 120px;
           padding: 0px;
-          background: #9D9AFC;
+          top: 170px;
+          background: $suspensionPink;
           -webkit-border-radius: 10px;
           -moz-border-radius: 10px;
           border-radius: 10px;
-          border: #7F7F7F solid 2px;
-          margin: 0 auto;
+          border: none;
+          margin-left: 5%;
           z-index: 5;
 
           img { 
@@ -47,12 +48,12 @@
           position: absolute;
           border-style: solid;
           border-width: 0 15px 15px;
-          border-color: #9D9AFC transparent;
+          border-color: $suspensionPink transparent;
           display: block;
           width: 0;
           z-index: 5;
           top: -15px;
-          left: 188px;
+          left: 25px;
           }
 
           .loginRecommendationModal:before {
@@ -60,12 +61,12 @@
           position: absolute;
           border-style: solid;
           border-width: 0 16px 16px;
-          border-color: #7F7F7F transparent;
+          border-color: $suspensionPink transparent;
           display: block;
           width: 0;
           z-index: 5;
           top: -18px;
-          left: 187px;
+          left: 25px;
           
           }
 
@@ -170,32 +171,183 @@
       margin-top: 25px;
     }
 
+    // .teamScoreAccordionDivHolder { 
+    //   border: solid grey 2px;
+
+      
+    //     .teamScoreAccordionWrapper {
+    //       & + * {
+    //         margin-top: 0.5em;
+      
+    //       }
+    //     }
+        
+    //     .teamScoreAccordionItem {
+    //       overflow: hidden;
+    //       transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
+    //       height: auto;
+    //       max-height: 9999px;
+    //       background-color: white;
+    //       border-radius: 1.5em;
+    //       border: solid grey 2px;
+    //       background-color: red;
+    //     }
+        
+    //     .teamScoreAccordionItem.collapsed {
+    //       max-height: 0;
+    //       transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+    //       border: none;
+      
+    //     }
+        
+    //     .teamScoreAccordionTitle {
+    //       font-weight: 600;
+    //       cursor: pointer;
+    //       color: #666;
+    //       padding: 0.5em 1.5em;
+    //       border: solid 1px #ccc;
+    //       border-radius: 1.5em;
+    //       display: flex;
+    //       justify-content: space-between;
+    //       align-items: center;
+      
+        
+    //       &::after {
+    //         content: "";
+    //         width: 0;
+    //         height: 0;
+    //         border-left: 5px solid transparent;
+    //         border-right: 5px solid transparent;
+    //         border-top: 5px solid currentColor;
+    //       }
+        
+    //       &:hover,
+    //       &.open {
+    //         color: black;
+      
+    //       }
+        
+    //       &.open {
+    //         &::after {
+    //           content: "";
+    //           border-top: 0;
+    //           border-bottom: 5px solid;
+      
+    //         }
+    //     }
+        
+    //     .teamScoreAccordionContent {
+    //       padding: 1em 1.5em;
+
+    //       div { 
+    //         margin: 5px 0;
+
+    //         label { 
+    //           padding: 10px;
+    //         }
+    //       }
+      
+    //     }
+        
+    //   }    
+    // }
+
 
     .Pitch {
       display: none;
     }
 
-    .teamScore {
-      padding: 0 20px;
-      height: 7.5vh;
-      background-color: $navy;
-      width: 100vw;
-
-      bottom: 0;
-      // right: 0;
+    .scoreModalDiv { 
+      background-color: rgb(223, 205, 205);
+      border-radius: 50%;
+      width: 150px;
+      height: 40px;
+      border-radius: 10px;
+      border: none;
       position: fixed;
-      color: pink;
+      bottom: 0;
+      right: 10%;
+      // max-height: 10%;
+      // max-width: 10%;
+      margin: 10px;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
+      align-items: center;
 
-      div {
-        display: flex;
 
-        p {
-          padding: 5px;
-        }
+      .scoreModalArrow { 
+        // margin: 20%;
+        height: 60%;
+        // width: 60%;
       }
+
     }
+
+
+    // .teamScore {
+    //   padding: 0 20px;
+    //   height: vh;
+    //   width: 10vw;
+    //   border-radius: 50%;
+    //   bottom: 0;
+    //   right: 5;
+    //   position: fixed;
+    //   border: solid red 2px;;
+    //   background: red;
+
+    //   img { 
+    //     height: 5vh;
+    //     position: absolute;
+    //     margin: 2.5vh 2.5vw 0 0;
+    //     border: solid black 2px;
+    //   }
+
+    //   // div {
+    //   //   display: flex;
+
+    //     // .attributeScores { 
+    //     //   position: fixed;
+    //     //   border: olive solid 2px;
+    //     //   background-color: red;
+    //     //   height: 40vh;
+    //     //   width: 100vw;
+
+
+    //     // }
+
+    //     // .teamScoreClosed { 
+    //     //   display: none;
+    //     // }
+
+    //     // div {
+    //     //   display: flex;
+    //     //    img { 
+    //     //      max-width: 80%;
+    //     //    }
+    //     // }
+
+    //     // p {
+    //     //   padding: 5px;
+    //     // }
+    //   // }
+    //   // .scoresAccordion { 
+    //   //   border: solid red 4px;
+    //   //   background-color: pink;
+    //   //   position: fixed;
+    //   //   bottom: 0;
+    //   //   left: 0;
+    //   //   width: 20vw;
+    //   //   height: 7.5vh;
+    //   //   border-radius: 50%;
+
+    //   //   img { 
+    //   //     position: relative;
+    //   //     border: solid green 2px;
+    //   //     margin: center;
+    //   //     margin: auto;
+    //   //   }
+    //   // }
+    // }
   }
 }
 
@@ -204,7 +356,7 @@
     .main {
 
       .loginRecommendationModal {
-        position: relative;
+        position: absolute;
         width: 275px;
         height: 120px;
         padding: 0px;
@@ -213,9 +365,9 @@
         -moz-border-radius: 10px;
         border-radius: 10px;
         border: #7F7F7F solid 2px;
-        margin-left: 75px;
+        margin-left: 350px;
         margin-top: -20px;
-        // padding-left: 50px;
+        top: 125px;
         z-index: 5;
 
         img { 
@@ -297,6 +449,10 @@
             padding: 5px;
           }
         }
+
+        .scoresAccordion { 
+          display: none;
+        }
       }
     }
   }
@@ -310,7 +466,7 @@
       flex-direction: row;
 
       .loginRecommendationModal {
-        position: relative;
+        position: fixed;
         width: 275px;
         height: fit-content;
         padding: 0px;
@@ -318,11 +474,9 @@
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px;
-        // border: $suspensionPink solid 2px;
         border: none;
-        margin-top: 95px;
-        // margin-left: 950px;
-
+        top: 110px;
+        right: 100px;
         z-index: 5;
 
         img { 
@@ -390,16 +544,14 @@
         left: 0;
         top: 10vh;
         height: fit-content;
-          // border: solid red 2px;
-
-        // .accordionWrapper { 
-        //   border: solid red 2px;
-        // }
+ 
 
         .accordionDivHolder { 
           width: 47.5%;
           margin-left: 30px;
           position: fixed;
+          border: solid red 2px;
+          z-index: 5;
   
           .accordionWrapper {
             & + * {
