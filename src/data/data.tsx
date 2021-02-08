@@ -925,7 +925,6 @@ const initialTeam: IPlayer[] = [
 ];
 
 const players: IPlayer[] = [
-  SLuatua,
   // HThacker,
   NAdeolokun,
   JAfoa,
@@ -948,7 +947,7 @@ const players: IPlayer[] = [
   TKessell,
   MLahiff,
   ALeiua,
-  // SLuatua,
+  SLuatua,
   MMalins,
   PMccabe,
   LMorahan,
@@ -968,7 +967,7 @@ const players: IPlayer[] = [
   AUren,
   CVui,
   JWoolmore,
-  // DummyPlayer,
+
 ];
 
 export { initialTeam };

@@ -19,7 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({signIn}) => {
   return (
     <section className={styles.Navbar}>
       <h1>Bristol Bears Team Selector</h1>
-      {/* <div> */}
+      <div>
         <Button 
         // btnImg={CancelSvg}
          btnText="Log in" 
@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({signIn}) => {
          {instrutionModal ? ( 
             <InstructionModal toggleInstructionModal={toggleInstructionModal} instructionModal={instrutionModal} />
          ) : null}
-      {/* </div> */}
+      </div>
 
     </section>
   );
