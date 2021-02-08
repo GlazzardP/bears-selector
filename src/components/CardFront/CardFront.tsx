@@ -85,8 +85,8 @@ const CardFront: React.FC<CardFrontProps> = ({
             </div>
             <div className={styles.playerDetails}>
               <div className={styles.playerDetailsName}>
-                <p>{player.playerName}</p>
-                <p>{player.position}</p>
+                <p className={styles.playersName}>{player.playerName}</p>
+                <p className={styles.playersPosition}>{player.position}</p>
               </div>
               <div className={styles.playerDetailsInfo}>
                 <div>

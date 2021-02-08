@@ -12,7 +12,7 @@
     // transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
     height: auto;
     max-height: 9999px;
-    background-color: red;
+    // background-color: red;
   }
   
   .accordionItem.collapsed {
@@ -47,7 +47,7 @@
     &.open {
       color: black;
       margin-bottom: 5px;
-      background-color: red;
+      // background-color: red;
 
     }
   
