@@ -233,22 +233,7 @@ const SelectTeamPage: React.FC = () => {
         </section>
         <PitchLayout currentTeam={currentTeam} getSurname={getSurname} />
 
-        {/* <div className={styles.teamScoreAccordionDivHolder}>
-           <div className={styles.teamScoreAccordionWrapper}>
-              <div
-                className={`${styles.teamScoreAccordionTitle} ${teamScoreOpen ? styles.teamScoreOpen : ""}`}
-                onClick={() => setOpen(!teamScoreOpen)}
-                >
-                  team score
-              </div>
-              <div className={`${styles.teamScoreAccordionItem} ${!isOpen ? styles.collapsed : ""}`}>
-                Accordion Item
-                    <div className={styles.teamScoreAccordionContent}><p> Accordion Content</p> </div>
-                </div>
-            </div>
-        </div> */}
-        {/* <div className={styles.teamScore}> */}
-        {/* <img src={UpArrow} alt="Close Speech Bubble" onClick={() => {toggleScoreModal(!scoreModal)}}/> */}
+
         <div className={styles.scoreModalDiv}>
           <p>Team Score</p>
           <img className={styles.scoreModalArrow} src={UpArrow} alt="Close Speech Bubble" onClick={() => {toggleScoreModal(true)}}/>
@@ -259,35 +244,6 @@ const SelectTeamPage: React.FC = () => {
             <ScoreModal toggleScoreModal={toggleScoreModal} scoreModal={scoreModal} getTeamScoreJsx={getTeamScoreJsx} />
          ) : null}
 
-
-
-
-{/* 
-          <div className={`${styles.attributeScores} ${teamScoreOpen ? styles.teamScoreClosed : ""}`} >
-
-            <p>Defense: {getTeamScoreJsx("defending")} %</p> 
-            <p>Tackling: {getTeamScoreJsx("tackling")} %</p>
-            <p>Strength: {getTeamScoreJsx("strength")} %</p>
-            <p>Fitness: {getTeamScoreJsx("fitness")} %</p>
-            <p>Speed: {getTeamScoreJsx("speed")} %</p>
-            <p>Passing: {getTeamScoreJsx("passing")} %</p>
-            <p>Attack: {getTeamScoreJsx("attacking")} %</p>
-            <p>Experience: {getTeamScoreJsx("experience")} %</p>
-          </div>
-          <div className={styles.scoresAccordion}>
-            <img src={UpArrow} alt="Open team score section"  onClick={() => setTeamScoreOpen(!teamScoreOpen)}  />
-
-          </div>
-
-          <div>
-            {currentTeam.length > 14 && (
-              <Button
-                btnText="Submit team"
-                handleClick={() => alert("Submit team")}
-              />
-            )}
-          </div> */}
-          {/* </div> */}
       </section>
     </section>
   );
