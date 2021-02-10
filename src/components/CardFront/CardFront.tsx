@@ -84,42 +84,46 @@ const CardFront: React.FC<CardFrontProps> = ({
               </div>
             </div>
             <div className={styles.playerDetails}>
-              <div className={styles.playerDetailsName}>
-                <p className={styles.playersName}>{player.playerName}</p>
-                <p className={styles.playersPosition}>{player.position}</p>
-              </div>
-              <div className={styles.playerDetailsInfo}>
-                <div>
-                  <p>Age</p>
-                  <p>{player.playerAge}</p>
+              <div className={styles.playerDetailsDiv}>
+                <div className={styles.playerNameDiv}>                
+                  <p className={styles.playersName}>{player.playerName}</p>
+                  <p className={styles.playersPosition}>{player.position}</p>
+                  <div className={styles.selectDrop} onClick={(e) => stopEventPropagation(e)}>     
+                    <label>Position:</label>
+                      <select
+                        name="position"
+                        id="position"
+                        onChange={handleChange}
+                        className={styles.positionSelect}
+                      >
+                        {playerPositionJsx}
+                      </select>         
+
                 </div>
-                <div
-                  className={styles.selectDrop}
-                  onClick={(e) => stopEventPropagation(e)}
-                >
-                  <label>Position:</label>
-                  <select
-                    name="position"
-                    id="position"
-                    onChange={handleChange}
-                    className={styles.positionSelect}
-                  >
-                    {playerPositionJsx}
-                  </select>
+
                 </div>
                 <div>
-                  <p>Height</p>
                   <p>{player.playerHeight}cm</p>
+                  <p>{player.weight}kg</p>
+                  <button className={styles.selectButton} onClick={() => setPlayer(player)}>Pick</button>
+
                 </div>
+
+
               </div>
+
+
+
               <div
                 className={styles.playerButtons}
                 onClick={(e) => stopEventPropagation(e)}
               >
                 {/* <button onClick={() => alert(`Picked ${chosenPosition}`)}>{chosenPosition} Evidence</button> */}
-                <button className={styles.selectButton} onClick={() => setPlayer(player)}>Pick</button>
+                {/* <button className={styles.selectButton} onClick={() => setPlayer(player)}>Pick</button> */}
                 {/* <button onClick={() => updateTeam(playerObj)}>Pick</button> */}
               </div>
+
+
             </div>
           </div>
         </div>

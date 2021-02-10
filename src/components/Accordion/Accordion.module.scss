@@ -1,23 +1,14 @@
 
   
-  // .accordionWrapper {
-  //   & + * {
-  //     margin-top: 0.5em;
-
-  //   }
-  // }
   
   .accordionItem {
     overflow: hidden;
-    // transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
     height: auto;
     max-height: 9999px;
-    // background-color: red;
   }
   
   .accordionItem.collapsed {
     max-height: 0;
-    // transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
 
   }
   
@@ -31,7 +22,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // margin-bottom: 205px;
 
   
     &::after {
@@ -47,7 +37,6 @@
     &.open {
       color: black;
       margin-bottom: 5px;
-      // background-color: red;
 
     }
   
@@ -56,7 +45,6 @@
         content: "";
         border-top: 0;
         border-bottom: 5px solid;
-        background-color: deeppink;
 
       }
     }
@@ -64,7 +52,6 @@
   
   .accordionContent {
     padding: 1em 1.5em;
-     background-color: deeppink;
 
   }
   
@@ -96,8 +83,6 @@
     &.open {
       color: black;
       margin-bottom: 50px;
-
-
     }
   
     &.open {
