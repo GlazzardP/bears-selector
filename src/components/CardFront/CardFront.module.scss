@@ -116,105 +116,138 @@
 
         .playerDetails {
           bottom: 0;
-          // border: solid red 2px;
+          // border: solid blue 2px;
+          display: flex;
+          flex-direction: column;
 
-
-
-          .playerDetailsName {
-            text-align: center;
-            // text-align: left;
-            // margin-left: 5%;
-            // border: solid yellow 2px;
+          .playerDetailsDiv { 
             display: flex;
             justify-content: space-between;
-
-            div { 
-              text-align: left;
-              display: flex;
-              flex-direction: column;
-
-              .alignRight  { 
-                text-align: right;
-              } 
-            }
-          }
-
-          .playerDetailsInfo {
-            display: flex;
-            text-align: left;
-            // justify-content: center;
             // border: solid green 2px;
-            width: fit-content;
-            margin: 0 auto;
 
+            .playerNameDiv { 
 
-
-
-            div {
-              padding: 0 10px;
-              display: flex;
-              flex-direction: row;
-              justify-content: center;
-              border: solid red 2px;
-
-              div { 
-                display: flex;
-                flex-direction: column
+              .playersName { 
+                font-weight: 900;
+                font-size: 20px;
+                // color: red;
               }
-;
-
-              p {
-                text-align: center;
+            }  
+            
+                .selectDrop { 
+                  // border: solid purple 2px;
+              padding: 0;
+              margin: 0;
+              // display: flex;
+              // justify-content: space-evenly;
+              margin: auto;
+              // label { 
+              //   margin: auto;
+              // }
+              select { 
+                margin: 5px;
               }
-
-              .selectButton { 
-                border: none;
-                border-radius: 10px;
-                background-color: $suspensionPink;
-                width: 25%;
-                height: 20px;
-                // margin: 10px auto;
-                cursor: pointer;
-                bottom: 0;
-
-              }
-
-              .positionSelect {
-                color: red;
-
-                .selectOption {
-                  color: pink;
-                  text-align: left;
-                }
-                .selectOption:hover {
-                  background-color: grey;
-                }
-              }
+  
             }
-
-            // .selectDrop {
-            //   border: solid red 2px;
-            //   background-color: red;
-            // }
+            
           }
 
-          .playerButtons {
+
+
+          .playerButtons { 
+            width: 50px;
             margin: auto;
-            text-align: center;
-
-
+            padding-bottom: 20px;
+            // border: red solid 2px;
 
             .selectButton { 
+              margin: 0;
 
-              border: none;
-              border-radius: 10px;
-              background-color: $suspensionPink;
-              width: 25%;
-              height: 20px;
-              margin: 10px auto;
-              cursor: pointer;
+              width: 50px;
+              // border: yellow solid 2px;
+
+
             }
           }
+
+
+
+
+
+//           .playerDetailsInfo {
+//             display: flex;
+//             text-align: left;
+//             width: fit-content;
+//             margin: 0 auto;
+
+
+
+
+//             div {
+//               padding: 0 10px;
+//               display: flex;
+//               flex-direction: row;
+//               justify-content: center;
+//               border: solid yellow 2px;
+
+//               div { 
+//                 display: flex;
+//                 flex-direction: column
+//               }
+// ;
+
+//               p {
+//                 text-align: center;
+//               }
+
+//               .selectButton { 
+//                 border: none;
+//                 border-radius: 10px;
+//                 background-color: $suspensionPink;
+//                 width: 25%;
+//                 height: 20px;
+//                 // margin: 10px auto;
+//                 cursor: pointer;
+//                 bottom: 0;
+
+//               }
+
+//               .positionSelect {
+//                 color: red;
+
+//                 .selectOption {
+//                   color: pink;
+//                   text-align: left;
+//                 }
+//                 .selectOption:hover {
+//                   background-color: grey;
+//                 }
+//               }
+//             }
+
+//             // .selectDrop {
+//             //   border: solid red 2px;
+//             //   background-color: red;
+//             // }
+//           }
+
+          // .playerButtons {
+          //   margin: auto;
+          //   text-align: center;
+
+
+
+          //   .selectButton { 
+
+          //     border: none;
+          //     border-radius: 10px;
+          //     background-color: $suspensionPink;
+          //     width: 25%;
+          //     height: 20px;
+          //     margin: 10px auto;
+          //     cursor: pointer;
+          //   }
+          // }
         }
       }
     }
