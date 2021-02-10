@@ -25,7 +25,6 @@ const Routes: React.FC = ({}) => {
 
 // const Routes = () => {
   return (
-    // <section className={styles.Routes}>
 
 
     <Router>
@@ -53,7 +52,6 @@ const Routes: React.FC = ({}) => {
           </Route>
         </Switch> */}
     </Router>   
-  // </section>
   );
 };
 

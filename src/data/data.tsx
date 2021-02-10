@@ -100,6 +100,8 @@ export interface IPlayer {
   kicking?: number;
   scrummaging?: number;
   lineOut?: number;
+  weight?: number;
+
 }
 
 export const DummyPlayer: IPlayer = {
@@ -128,8 +130,8 @@ export const NAdeolokun: IPlayer = {
   nationality: "Ireland",
   flag: Ireland,
   playerImg: AdeolokunImg,
-  playerHeight: 190,
-  playerAge: 30,
+  playerHeight: 186,
+  playerAge: 32,
   position: "Wing",
   positionNum: [11, 14],
   strength: 78,
@@ -141,6 +143,7 @@ export const NAdeolokun: IPlayer = {
   defending: 76,
   experience: 77,
   kicking: 80,
+  weight: 90,
 };
 
 const JAfoa: IPlayer = {
@@ -148,8 +151,8 @@ const JAfoa: IPlayer = {
   nationality: "New Zealand",
   flag: NewZealand,
   playerImg: AfoaImg,
-  playerHeight: 187,
-  playerAge: 36,
+  playerHeight: 183,
+  playerAge: 39,
   position: "Prop",
   positionNum: [1, 3],
   strength: 88,
@@ -161,6 +164,7 @@ const JAfoa: IPlayer = {
   defending: 86,
   experience: 90,
   scrummaging: 85,
+  weight: 121,
 };
 
 const JArmstrong: IPlayer = {
@@ -168,8 +172,8 @@ const JArmstrong: IPlayer = {
   nationality: "England",
   flag: England,
   playerImg: ArmstrongImg,
-  playerHeight: 187,
-  playerAge: 30,
+  playerHeight: 186,
+  playerAge: 27,
   position: "Prop",
   positionNum: [1, 3],
   strength: 88,
@@ -180,6 +184,7 @@ const JArmstrong: IPlayer = {
   attacking: 58,
   defending: 86,
   experience: 57,
+  weight: 126,
 };
 
 const DAttwood: IPlayer = {
@@ -188,7 +193,7 @@ const DAttwood: IPlayer = {
   flag: England,
   playerImg: AttwoodImg,
   playerHeight: 194,
-  playerAge: 30,
+  playerAge: 35,
   position: "Second Row",
   positionNum: [4, 5],
   strength: 90,
@@ -199,6 +204,7 @@ const DAttwood: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 119,
 };
 
 const SBedlow: IPlayer = {
@@ -206,10 +212,10 @@ const SBedlow: IPlayer = {
   nationality: "England",
   flag: England,
   playerImg: BedlowImg,
-  playerHeight: 187,
-  playerAge: 30,
+  playerHeight: 183,
+  playerAge: 26,
   position: "Centre",
-  positionNum: [12, 13],
+  positionNum: [10, 12, 13],
   strength: 74,
   fitness: 78,
   speed: 82,
@@ -218,6 +224,7 @@ const SBedlow: IPlayer = {
   attacking: 68,
   defending: 76,
   experience: 87,
+  weight: 104,
 };
 
 const BByrne: IPlayer = {
@@ -225,8 +232,8 @@ const BByrne: IPlayer = {
   nationality: "Ireland",
   flag: Ireland,
   playerImg: ByrneImg,
-  playerHeight: 184,
-  playerAge: 30,
+  playerHeight: 180,
+  playerAge: 28,
   position: "Hooker",
   positionNum: [2],
   strength: 88,
@@ -237,6 +244,7 @@ const BByrne: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 99,
 };
 
 const WCapon: IPlayer = {
@@ -244,8 +252,8 @@ const WCapon: IPlayer = {
   nationality: "England",
   flag: England,
   playerImg: CaponImg,
-  playerHeight: 186,
-  playerAge: 30,
+  playerHeight: 180,
+  playerAge: 24,
   position: "Hooker",
   positionNum: [2],
   strength: 88,
@@ -256,6 +264,7 @@ const WCapon: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103.5,
 };
 
 const CCook: IPlayer = {
@@ -275,6 +284,7 @@ const CCook: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 92,
 };
 
 const JDun: IPlayer = {
@@ -282,8 +292,8 @@ const JDun: IPlayer = {
   nationality: "England",
   flag: England,
   playerImg: DunImg,
-  playerHeight: 187,
-  playerAge: 30,
+  playerHeight: 194,
+  playerAge: 23,
   position: "Back Row",
   positionNum: [6, 7, 8],
   strength: 88,
@@ -294,6 +304,7 @@ const JDun: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 111,
 };
 
 const MEadie: IPlayer = {
@@ -301,7 +312,7 @@ const MEadie: IPlayer = {
   nationality: "England",
   flag: England,
   playerImg: EadieImg,
-  playerHeight: 187,
+  playerHeight: 189,
   playerAge: 30,
   position: "Back Row",
   positionNum: [6, 7, 8],
@@ -313,6 +324,7 @@ const MEadie: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 105,
 };
 
 const BEarl: IPlayer = {
@@ -320,8 +332,8 @@ const BEarl: IPlayer = {
   nationality: "England",
   flag: England,
   playerImg: EarlImg,
-  playerHeight: 189,
-  playerAge: 30,
+  playerHeight: 188,
+  playerAge: 23,
   position: "Back Row",
   positionNum: [6, 7, 8],
   strength: 88,
@@ -332,6 +344,7 @@ const BEarl: IPlayer = {
   attacking: 80,
   defending: 86,
   experience: 87,
+  weight: 102,
 };
 
 const TEden: IPlayer = {
@@ -339,8 +352,8 @@ const TEden: IPlayer = {
   nationality: "England",
   flag: England,
   playerImg: EdenImg,
-  playerHeight: 183,
-  playerAge: 30,
+  playerHeight: 186,
+  playerAge: 27,
   position: "Fly Half",
   positionNum: [10],
   strength: 88,
@@ -351,6 +364,7 @@ const TEden: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 93,
 };
 
 const TFricker: IPlayer = {
@@ -370,6 +384,7 @@ const TFricker: IPlayer = {
   attacking: 78,
   defending: 86,
   experience: 87,
+  weight: 98,
 };
 
 const JHawkins: IPlayer = {
@@ -377,7 +392,7 @@ const JHawkins: IPlayer = {
   nationality: "New Zealand",
   flag: England,
   playerImg: HawkinsImg,
-  playerHeight: 190,
+  playerHeight: 196,
   playerAge: 30,
   position: "Second Row",
   positionNum: [4, 5],
@@ -389,6 +404,7 @@ const JHawkins: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 117.5,
 };
 
 const JHeenan: IPlayer = {
@@ -410,6 +426,7 @@ const JHeenan: IPlayer = {
   experience: 87,
   scrummaging: 80,
   lineOut: 80,
+  weight: 103,
 };
 
 const EHolmes: IPlayer = {
@@ -429,6 +446,8 @@ const EHolmes: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 80,
+  weight: 120,
+
 };
 
 const NHughes: IPlayer = {
@@ -448,6 +467,8 @@ const NHughes: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 133,
+
 };
 
 const JJoyce: IPlayer = {
@@ -467,6 +488,8 @@ const JJoyce: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 123,
+
 };
 
 const TKessell: IPlayer = {
@@ -486,6 +509,8 @@ const TKessell: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 83,
+
 };
 
 const MLahiff: IPlayer = {
@@ -505,6 +530,8 @@ const MLahiff: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 123,
+
 };
 
 const ALeiua: IPlayer = {
@@ -524,6 +551,8 @@ const ALeiua: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 98,
+
 };
 
 const SLuatua: IPlayer = {
@@ -543,6 +572,8 @@ const SLuatua: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 109,
+
 };
 
 const MMalins: IPlayer = {
@@ -562,6 +593,8 @@ const MMalins: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const PMccabe: IPlayer = {
@@ -581,6 +614,8 @@ const PMccabe: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 113,
+
 };
 
 const LMorahan: IPlayer = {
@@ -600,6 +635,8 @@ const LMorahan: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const SNaulago: IPlayer = {
@@ -619,6 +656,8 @@ const SNaulago: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const POconner: IPlayer = {
@@ -638,6 +677,8 @@ const POconner: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const CPiatau: IPlayer = {
@@ -657,6 +698,8 @@ const CPiatau: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const SPiatau: IPlayer = {
@@ -676,6 +719,8 @@ const SPiatau: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const CPowell: IPlayer = {
@@ -695,6 +740,8 @@ const CPowell: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const HPurdy: IPlayer = {
@@ -714,6 +761,8 @@ const HPurdy: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const SRadradra: IPlayer = {
@@ -733,6 +782,8 @@ const SRadradra: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const HRandall: IPlayer = {
@@ -752,6 +803,8 @@ const HRandall: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const CSheedy: IPlayer = {
@@ -771,6 +824,8 @@ const CSheedy: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const KSinckler: IPlayer = {
@@ -790,6 +845,8 @@ const KSinckler: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const HThacker: IPlayer = {
@@ -809,6 +866,8 @@ const HThacker: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const DThomas: IPlayer = {
@@ -828,6 +887,8 @@ const DThomas: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const YThomas: IPlayer = {
@@ -847,6 +908,8 @@ const YThomas: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const AUren: IPlayer = {
@@ -866,6 +929,8 @@ const AUren: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const CVui: IPlayer = {
@@ -885,6 +950,8 @@ const CVui: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const JWoolmore: IPlayer = {
@@ -904,6 +971,8 @@ const JWoolmore: IPlayer = {
   attacking: 68,
   defending: 86,
   experience: 87,
+  weight: 103,
+
 };
 
 const initialTeam: IPlayer[] = [

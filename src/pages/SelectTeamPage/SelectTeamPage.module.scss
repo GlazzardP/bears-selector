@@ -18,7 +18,8 @@
           height: 120px;
           padding: 0px;
           top: 170px;
-          background: $suspensionPink;
+          // background: $suspensionPink;
+          background-color: rgb(62, 219, 247);
           -webkit-border-radius: 10px;
           -moz-border-radius: 10px;
           border-radius: 10px;
@@ -48,7 +49,7 @@
           position: absolute;
           border-style: solid;
           border-width: 0 15px 15px;
-          border-color: $suspensionPink transparent;
+          border-color: rgb(62, 219, 247);
           display: block;
           width: 0;
           z-index: 5;
@@ -61,7 +62,7 @@
           position: absolute;
           border-style: solid;
           border-width: 0 16px 16px;
-          border-color: $suspensionPink transparent;
+          border-color: rgb(62, 219, 247);
           display: block;
           width: 0;
           z-index: 5;
@@ -171,94 +172,15 @@
       margin-top: 25px;
     }
 
-    // .teamScoreAccordionDivHolder { 
-    //   border: solid grey 2px;
-
-      
-    //     .teamScoreAccordionWrapper {
-    //       & + * {
-    //         margin-top: 0.5em;
-      
-    //       }
-    //     }
-        
-    //     .teamScoreAccordionItem {
-    //       overflow: hidden;
-    //       transition: max-height 0.3s cubic-bezier(1, 0, 1, 0);
-    //       height: auto;
-    //       max-height: 9999px;
-    //       background-color: white;
-    //       border-radius: 1.5em;
-    //       border: solid grey 2px;
-    //       background-color: red;
-    //     }
-        
-    //     .teamScoreAccordionItem.collapsed {
-    //       max-height: 0;
-    //       transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
-    //       border: none;
-      
-    //     }
-        
-    //     .teamScoreAccordionTitle {
-    //       font-weight: 600;
-    //       cursor: pointer;
-    //       color: #666;
-    //       padding: 0.5em 1.5em;
-    //       border: solid 1px #ccc;
-    //       border-radius: 1.5em;
-    //       display: flex;
-    //       justify-content: space-between;
-    //       align-items: center;
-      
-        
-    //       &::after {
-    //         content: "";
-    //         width: 0;
-    //         height: 0;
-    //         border-left: 5px solid transparent;
-    //         border-right: 5px solid transparent;
-    //         border-top: 5px solid currentColor;
-    //       }
-        
-    //       &:hover,
-    //       &.open {
-    //         color: black;
-      
-    //       }
-        
-    //       &.open {
-    //         &::after {
-    //           content: "";
-    //           border-top: 0;
-    //           border-bottom: 5px solid;
-      
-    //         }
-    //     }
-        
-    //     .teamScoreAccordionContent {
-    //       padding: 1em 1.5em;
-
-    //       div { 
-    //         margin: 5px 0;
-
-    //         label { 
-    //           padding: 10px;
-    //         }
-    //       }
-      
-    //     }
-        
-    //   }    
-    // }
-
 
     .Pitch {
       display: none;
     }
 
     .scoreModalDiv { 
-      background-color: rgb(223, 205, 205);
+      // background-color: rgb(223, 205, 205);
+      background-color: rgb(62, 219, 247);
+
       border-radius: 50%;
       width: 150px;
       height: 40px;
@@ -267,8 +189,6 @@
       position: fixed;
       bottom: 0;
       right: 10%;
-      // max-height: 10%;
-      // max-width: 10%;
       margin: 10px;
       display: flex;
       justify-content: space-evenly;
@@ -276,78 +196,11 @@
 
 
       .scoreModalArrow { 
-        // margin: 20%;
         height: 60%;
-        // width: 60%;
       }
 
     }
 
-
-    // .teamScore {
-    //   padding: 0 20px;
-    //   height: vh;
-    //   width: 10vw;
-    //   border-radius: 50%;
-    //   bottom: 0;
-    //   right: 5;
-    //   position: fixed;
-    //   border: solid red 2px;;
-    //   background: red;
-
-    //   img { 
-    //     height: 5vh;
-    //     position: absolute;
-    //     margin: 2.5vh 2.5vw 0 0;
-    //     border: solid black 2px;
-    //   }
-
-    //   // div {
-    //   //   display: flex;
-
-    //     // .attributeScores { 
-    //     //   position: fixed;
-    //     //   border: olive solid 2px;
-    //     //   background-color: red;
-    //     //   height: 40vh;
-    //     //   width: 100vw;
-
-
-    //     // }
-
-    //     // .teamScoreClosed { 
-    //     //   display: none;
-    //     // }
-
-    //     // div {
-    //     //   display: flex;
-    //     //    img { 
-    //     //      max-width: 80%;
-    //     //    }
-    //     // }
-
-    //     // p {
-    //     //   padding: 5px;
-    //     // }
-    //   // }
-    //   // .scoresAccordion { 
-    //   //   border: solid red 4px;
-    //   //   background-color: pink;
-    //   //   position: fixed;
-    //   //   bottom: 0;
-    //   //   left: 0;
-    //   //   width: 20vw;
-    //   //   height: 7.5vh;
-    //   //   border-radius: 50%;
-
-    //   //   img { 
-    //   //     position: relative;
-    //   //     border: solid green 2px;
-    //   //     margin: center;
-    //   //     margin: auto;
-    //   //   }
-    //   // }
-    // }
   }
 }
 
@@ -360,7 +213,8 @@
         width: 275px;
         height: 120px;
         padding: 0px;
-        background: #9D9AFC;
+        // background: #9D9AFC;
+        background-color: rgb(62, 219, 247);
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px;
@@ -392,7 +246,7 @@
         position: absolute;
         border-style: solid;
         border-width: 0 15px 15px;
-        border-color: #9D9AFC transparent;
+        // border-color: #9D9AFC transparent;
         display: block;
         width: 0;
         z-index: 5;
@@ -405,7 +259,7 @@
         position: absolute;
         border-style: solid;
         border-width: 0 16px 16px;
-        border-color: #7F7F7F transparent;
+        // border-color: #7F7F7F transparent;
         display: block;
         width: 0;
         z-index: 5;
@@ -470,7 +324,7 @@
         width: 275px;
         height: fit-content;
         padding: 0px;
-        background: $suspensionPink;
+        background: rgb(62, 219, 247);
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px;
@@ -499,7 +353,7 @@
         position: absolute;
         border-style: solid;
         border-width: 0 15px 15px;
-        border-color: $suspensionPink transparent;
+        border-color: rgb(62, 219, 247) transparent;
 
         display: block;
         width: 0;
@@ -513,7 +367,7 @@
         position: absolute;
         border-style: solid;
         border-width: 0 16px 16px;
-        border-color: $suspensionPink transparent;
+        border-color: rgb(62, 219, 247) transparent;
         display: block;
         width: 0;
         z-index: 5;
