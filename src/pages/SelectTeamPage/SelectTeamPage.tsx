@@ -69,17 +69,19 @@ const SelectTeamPage: React.FC = () => {
     //   console.log(currentTeam.length + 1)
     // )
     } else if (
-      currentTeam.length + 1 !== player.positionNum[0] ||
-      currentTeam.length + 1 !== player.positionNum[1] ||
-      currentTeam.length + 1 !== player.positionNum[2] ||
-      currentTeam.length + 1 !== player.positionNum[3] ||
+      currentTeam.length + 1 !== player.positionNum[0] &&
+      currentTeam.length + 1 !== player.positionNum[1] &&
+      currentTeam.length + 1 !== player.positionNum[2] &&
+      currentTeam.length + 1 !== player.positionNum[3] &&
       currentTeam.length + 1 !== player.positionNum[4]) {
         // alert("This player cannot play in this position.")
         //  console.log(currentTeam.length + 1)
 
-      addPlayerToTeam([...currentTeam, player]);
+      // addPlayerToTeam([...currentTeam, player]);
+      alert(`${currentTeam.length + 1} and ${player.positionNum[0]}, ${player.positionNum[1]}, ${player.positionNum[2]}, ${player.positionNum[3]}, ${player.positionNum[4]  }`)
     } else (
-        addPlayerToTeam([...currentTeam, player])
+        // addPlayerToTeam([...currentTeam, player])
+        alert('wrong position')
     )
     return currentTeam; // Was working without this return ?? 
   };

@@ -12,7 +12,6 @@ interface NavbarProps {
   // setPlayer: (player: IPlayer) => void;
 
 }
-// const CardFront: React.FC<CardFrontProps> = ({
 
 const Navbar: React.FC<NavbarProps> = ({signIn}) => {
   const [instrutionModal, toggleInstructionModal] =useState<boolean>(false);
