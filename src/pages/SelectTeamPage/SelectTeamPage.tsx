@@ -11,7 +11,7 @@ import PitchLayout from "../../containers/PitchLayout"
 import Card from "../../components/Card";
 import SelectedPlayers from "../../components/SelectedPlayers";
 import Navbar from "../../components/Navbar";
-import ScoreModal from "../../containers/TeamScoreModal"
+import TeamScoreModal from "../../containers/TeamScoreModal"
 
 import players, { IPlayer, NAdeolokun } from "../../data/data";
 // import DummyPlayer, {NAdeolokun, initialTeam} from "../../data/data";
@@ -68,21 +68,20 @@ const SelectTeamPage: React.FC = () => {
     // else (
     //   console.log(currentTeam.length + 1)
     // )
-    } else if (
-      currentTeam.length + 1 !== player.positionNum[0] &&
-      currentTeam.length + 1 !== player.positionNum[1] &&
-      currentTeam.length + 1 !== player.positionNum[2] &&
-      currentTeam.length + 1 !== player.positionNum[3] &&
-      currentTeam.length + 1 !== player.positionNum[4]) {
-        // alert("This player cannot play in this position.")
-        //  console.log(currentTeam.length + 1)
+    } 
+    // else if (
+      // currentTeam.length + 1 !== player.positionNum[0] &&
+      // currentTeam.length + 1 !== player.positionNum[1] &&
+      // currentTeam.length + 1 !== player.positionNum[2] &&
+      // currentTeam.length + 1 !== player.positionNum[3] &&
+      // currentTeam.length + 1 !== player.positionNum[4]) {
 
-      // addPlayerToTeam([...currentTeam, player]);
-      alert(`${currentTeam.length + 1} and ${player.positionNum[0]}, ${player.positionNum[1]}, ${player.positionNum[2]}, ${player.positionNum[3]}, ${player.positionNum[4]  }`)
-    } else (
-        // addPlayerToTeam([...currentTeam, player])
-        alert('wrong position')
-    )
+      addPlayerToTeam([...currentTeam, player]);
+      // alert(`${currentTeam.length + 1} and ${player.positionNum[0]}, ${player.positionNum[1]}, ${player.positionNum[2]}, ${player.positionNum[3]}, ${player.positionNum[4]  }`)
+    // } else (
+
+    //     alert('wrong position')
+    // )
     return currentTeam; // Was working without this return ?? 
   };
 
@@ -233,18 +232,32 @@ const SelectTeamPage: React.FC = () => {
           {getAvailablePlayers()}
 
         </section>
+
         <PitchLayout currentTeam={currentTeam} getSurname={getSurname} />
 
 
         <div className={styles.scoreModalDiv}>
           <p>Team Score</p>
           <img className={styles.scoreModalArrow} src={UpArrow} alt="Close Speech Bubble" onClick={() => {toggleScoreModal(true)}}/>
+        </div>
+
+        <div className={styles.teamDesktopScore}>         
+
+            <p>Tackling: {getTeamScoreJsx("tackling")} %</p>
+            <p>Strength: {getTeamScoreJsx("strength")} %</p>
+            <p>Fitness: {getTeamScoreJsx("fitness")} %</p>
+            <p>Speed: {getTeamScoreJsx("speed")} %</p>
+            <p>Passing: {getTeamScoreJsx("passing")} %</p>
+            <p>Attack: {getTeamScoreJsx("attacking")} %</p>
+            <p>Experience: {getTeamScoreJsx("experience")} %</p>
+            <p>Defense: {getTeamScoreJsx("defending")} %</p> 
 
         </div>
 
-        {scoreModal ? ( 
-            <ScoreModal toggleScoreModal={toggleScoreModal} scoreModal={scoreModal} getTeamScoreJsx={getTeamScoreJsx} />
-         ) : null}
+          {scoreModal ? ( 
+              <TeamScoreModal toggleScoreModal={toggleScoreModal} scoreModal={scoreModal} getTeamScoreJsx={getTeamScoreJsx} />
+           ) : null}
+
 
       </section>
     </section>
