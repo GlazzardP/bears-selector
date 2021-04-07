@@ -706,10 +706,40 @@
   .App {
     .main {
       position: relative;
+      // color: red;
 
       .allCards {
         grid-template-columns: auto auto auto;
       }
+
+      .scoreModalDiv { 
+        display: none;
+      }
+      // .teamScoreModal { 
+      //   // display: none;
+      //   border: solid red 5px;
+      //   // z-index: 20;
+      // }
+    }
+
+    .teamDesktopScore { 
+  
+      position: fixed;
+      bottom: 0;
+      width: 100vw;
+      height: 5vh;
+      background-color: $navy;
+      color: white;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      p { 
+        margin: 0 20px;
+      }
+
+
     }
   }
 }

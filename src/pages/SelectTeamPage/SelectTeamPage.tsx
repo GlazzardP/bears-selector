@@ -7,7 +7,7 @@ import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not
 
 
 import PitchLayout from "../../containers/PitchLayout"
-
+// import TeamScoreModal from "../../containers/TeamScoreModal"
 import Card from "../../components/Card";
 import SelectedPlayers from "../../components/SelectedPlayers";
 // import Navbar from "../../components/Navbar";
@@ -21,6 +21,7 @@ import players, { IPlayer } from "../../data/data";
 // import submitSvg from "./assets/images/Icons/enter-arrow.svg";
 import close from "../../assets/images/Icons/cancel.svg";
 import UpArrow from "../../assets/images/Icons/up-chevron.svg"
+import TeamScoreModal from "../../containers/TeamScoreModal";
 // import DownArrow from "../../assets/images/Icons/down-chevron.svg"
 
 // import Accordion from "./components/Accordion";
@@ -68,21 +69,20 @@ const SelectTeamPage: React.FC = () => {
     // else (
     //   console.log(currentTeam.length + 1)
     // )
-    } else if (
-      currentTeam.length + 1 !== player.positionNum[0] &&
-      currentTeam.length + 1 !== player.positionNum[1] &&
-      currentTeam.length + 1 !== player.positionNum[2] &&
-      currentTeam.length + 1 !== player.positionNum[3] &&
-      currentTeam.length + 1 !== player.positionNum[4]) {
-        // alert("This player cannot play in this position.")
-        //  console.log(currentTeam.length + 1)
+    } 
+    // else if (
+      // currentTeam.length + 1 !== player.positionNum[0] &&
+      // currentTeam.length + 1 !== player.positionNum[1] &&
+      // currentTeam.length + 1 !== player.positionNum[2] &&
+      // currentTeam.length + 1 !== player.positionNum[3] &&
+      // currentTeam.length + 1 !== player.positionNum[4]) {
 
-      // addPlayerToTeam([...currentTeam, player]);
-      alert(`${currentTeam.length + 1} and ${player.positionNum[0]}, ${player.positionNum[1]}, ${player.positionNum[2]}, ${player.positionNum[3]}, ${player.positionNum[4]  }`)
-    } else (
-        // addPlayerToTeam([...currentTeam, player])
-        alert('wrong position')
-    )
+      addPlayerToTeam([...currentTeam, player]);
+      // alert(`${currentTeam.length + 1} and ${player.positionNum[0]}, ${player.positionNum[1]}, ${player.positionNum[2]}, ${player.positionNum[3]}, ${player.positionNum[4]  }`)
+    // } else (
+
+    //     alert('wrong position')
+    // )
     return currentTeam; // Was working without this return ?? 
   };
 
@@ -233,6 +233,7 @@ const SelectTeamPage: React.FC = () => {
           {getAvailablePlayers()}
 
         </section>
+
         <PitchLayout currentTeam={currentTeam} getSurname={getSurname} />
 
 
@@ -251,9 +252,10 @@ const SelectTeamPage: React.FC = () => {
           <p>Experience: {getTeamScoreJsx("experience")} %</p>
         </div>
 
-        {scoreModal ? ( 
-            <ScoreModal toggleScoreModal={toggleScoreModal} scoreModal={scoreModal} getTeamScoreJsx={getTeamScoreJsx} />
-         ) : null}
+          {scoreModal ? ( 
+              <TeamScoreModal toggleScoreModal={toggleScoreModal} scoreModal={scoreModal} getTeamScoreJsx={getTeamScoreJsx} />
+           ) : null}
+
 
       </section>
     </section>
