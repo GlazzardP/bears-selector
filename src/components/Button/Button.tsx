@@ -1,5 +1,5 @@
 import React from "react";
-import { Interface } from "readline";
+// import { Interface } from "readline";
 import styles from "./Button.module.scss";
 
 interface ButtonProps {

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./CardBack.module.scss";
 import bearsLogo from "../../assets/images/1200px-Bristol_Bears_logo.svg.png";
 
-import Button from "../Button";
+// import Button from "../Button";
 
 import { IPlayer } from "../../data/data";
 

@@ -3,7 +3,7 @@ import styles from "./CardFront.module.scss";
 import bearsLogo from "../../assets/images/1200px-Bristol_Bears_logo.svg.png";
 import { useId } from "react-id-generator";
 
-import Button from "../../components/Button";
+// import Button from "../../components/Button";
 
 import { IPlayer } from "../../data/data";
 // impor {ButtonProps} from "../../"
@@ -32,7 +32,7 @@ const CardFront: React.FC<CardFrontProps> = ({
   // chosenPosition
   // updateTeam,
 }) => {
-  const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
+  // const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
 
   const [chosenPosition, setChosenPosition] = useState<number>(player.positionNum[0]);
   const [htmlId] = useId();

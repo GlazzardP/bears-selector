@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Interface } from "readline";
+// import { Interface } from "readline";
 import styles from "./Card.module.scss";
 // import bearsLogo from "../../assetts/images/1200px-Bristol_Bears_logo.svg.png";
 // import playerImage from "../../assetts/images/steven-luatua_30-removebg-preview.png";

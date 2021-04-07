@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./SelectTeamPage.module.scss";
 
-import * as firebase from 'firebase/app';
+// import * as firebase from 'firebase/app';
 import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not import firestore code
 // import provider from "../../firebase";
 
@@ -10,18 +10,18 @@ import PitchLayout from "../../containers/PitchLayout"
 
 import Card from "../../components/Card";
 import SelectedPlayers from "../../components/SelectedPlayers";
-import Navbar from "../../components/Navbar";
+// import Navbar from "../../components/Navbar";
 import ScoreModal from "../../containers/TeamScoreModal"
 
-import players, { IPlayer, NAdeolokun } from "../../data/data";
+import players, { IPlayer } from "../../data/data";
 // import DummyPlayer, {NAdeolokun, initialTeam} from "../../data/data";
-import Button from "../../components/Button";
+// import Button from "../../components/Button";
 
 
-import submitSvg from "./assets/images/Icons/enter-arrow.svg";
+// import submitSvg from "./assets/images/Icons/enter-arrow.svg";
 import close from "../../assets/images/Icons/cancel.svg";
 import UpArrow from "../../assets/images/Icons/up-chevron.svg"
-import DownArrow from "../../assets/images/Icons/down-chevron.svg"
+// import DownArrow from "../../assets/images/Icons/down-chevron.svg"
 
 // import Accordion from "./components/Accordion";
 
@@ -239,7 +239,16 @@ const SelectTeamPage: React.FC = () => {
         <div className={styles.scoreModalDiv}>
           <p>Team Score</p>
           <img className={styles.scoreModalArrow} src={UpArrow} alt="Close Speech Bubble" onClick={() => {toggleScoreModal(true)}}/>
-
+        </div>
+        <div className={styles.desktopScorePercentages}>
+          <p>Defense: {getTeamScoreJsx("defending")} %</p> 
+          <p>Tackling: {getTeamScoreJsx("tackling")} %</p>
+          <p>Strength: {getTeamScoreJsx("strength")} %</p>
+          <p>Fitness: {getTeamScoreJsx("fitness")} %</p>
+          <p>Speed: {getTeamScoreJsx("speed")} %</p>
+          <p>Passing: {getTeamScoreJsx("passing")} %</p>
+          <p>Attack: {getTeamScoreJsx("attacking")} %</p>
+          <p>Experience: {getTeamScoreJsx("experience")} %</p>
         </div>
 
         {scoreModal ? ( 

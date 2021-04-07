@@ -677,6 +677,27 @@
           }
         }
       }
+
+      .scoreModalDiv { 
+        display: none;
+      }
+
+      .desktopScorePercentages { 
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: 5vh;
+        width: 100%;
+        background-color: $navy;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p { 
+          margin: 0 20px;
+        }
+      }
     }
   }
 }

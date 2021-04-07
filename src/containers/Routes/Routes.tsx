@@ -12,9 +12,9 @@ import provider from "../../firebase";
 
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  // Switch,
+  // Route,
+  // Link
 } from "react-router-dom";
 
 const Routes: React.FC = ({}) => {
