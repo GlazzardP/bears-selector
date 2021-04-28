@@ -90,7 +90,6 @@ const SelectTeamPage: React.FC = () => {
   // }
 
     const getAvailablePlayers = () => {
-  //   // const teamPlayers = players;
 
     const availablePlayers = players.map((player) => {
       if (
@@ -103,7 +102,6 @@ const SelectTeamPage: React.FC = () => {
             player={player}
             setPlayer={setPlayer}
           />
-          // console.log('foo')
         );
 
       } else if (
@@ -256,9 +254,3 @@ const SelectTeamPage: React.FC = () => {
 };
 
 export default SelectTeamPage;
-
-
-
-
-
-
