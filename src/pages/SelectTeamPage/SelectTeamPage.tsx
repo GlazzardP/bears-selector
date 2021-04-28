@@ -69,28 +69,21 @@ const SelectTeamPage: React.FC = () => {
     // else (
     //   console.log(currentTeam.length + 1)
     // )
-    } 
-    // else if (
-      // currentTeam.length + 1 !== player.positionNum[0] &&
-      // currentTeam.length + 1 !== player.positionNum[1] &&
-      // currentTeam.length + 1 !== player.positionNum[2] &&
-      // currentTeam.length + 1 !== player.positionNum[3] &&
-      // currentTeam.length + 1 !== player.positionNum[4]) {
-
+    } else if (player.positionNum.includes(currentTeam.length + 1)) { 
       addPlayerToTeam([...currentTeam, player]);
-      // alert(`${currentTeam.length + 1} and ${player.positionNum[0]}, ${player.positionNum[1]}, ${player.positionNum[2]}, ${player.positionNum[3]}, ${player.positionNum[4]  }`)
-    // } else (
+    } else { 
+      alert("This player cannot play in this position.")
+    }
 
-    //     alert('wrong position')
-    // )
+
     return currentTeam; // Was working without this return ?? 
   };
 
-    const updateTeam = (playerObj: IPlayer) => {
-    const teamAlreadySelected = [...currentTeam];
-    teamAlreadySelected[playerObj.positionNum[0] - 1] = playerObj;
-    addPlayerToTeam(teamAlreadySelected);
-  };
+  //   const updateTeam = (playerObj: IPlayer) => {
+  //   const teamAlreadySelected = [...currentTeam];
+  //   teamAlreadySelected[playerObj.positionNum[0] - 1] = playerObj;
+  //   addPlayerToTeam(teamAlreadySelected);
+  // };
 
   //   const signIn = (provider: any) => { 
   //   firebase.auth().onAuthStateChanged(provider)
