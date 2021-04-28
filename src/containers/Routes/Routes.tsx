@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Routes.module.scss";
 import Navbar from "../../components/Navbar";
 
@@ -18,17 +18,46 @@ import {
 } from "react-router-dom";
 
 const Routes: React.FC = ({}) => {
+  const [user, setUser] = useState<any>(null);
+
 
   const signIn = (provider: any) => { 
     firebase.auth().onAuthStateChanged(provider)
   }
 
-// const Routes = () => {
+  const getUser = () => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        // redirectTo("/landing-page");
+        setUser(null);
+      }
+    });
+  };
+
+  const signOut = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        setUser(null);
+        alert("You have signed out");
+      })
+      .catch((error) => {
+        alert("Oh no an error :(");
+      });
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
 
 
     <Router>
-    <Navbar signIn={signIn} />
+    <Navbar signIn={signIn} signOut={signOut} />
 
      {/* <Link to="/"> */}
         <SelectTeamPage />

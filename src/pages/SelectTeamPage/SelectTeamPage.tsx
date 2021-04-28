@@ -65,39 +65,39 @@ const SelectTeamPage: React.FC = () => {
       return alert("This player is already selected.");
     } else if (currentTeam.length > 14) {
       alert("You've already got a full team.");
-    // } 
-    // else (
-    //   console.log(currentTeam.length + 1)
-    // )
-    } 
-    // else if (
-      // currentTeam.length + 1 !== player.positionNum[0] &&
-      // currentTeam.length + 1 !== player.positionNum[1] &&
-      // currentTeam.length + 1 !== player.positionNum[2] &&
-      // currentTeam.length + 1 !== player.positionNum[3] &&
-      // currentTeam.length + 1 !== player.positionNum[4]) {
-
+    } else if (player.positionNum.includes(currentTeam.length + 1)) { 
       addPlayerToTeam([...currentTeam, player]);
-      // alert(`${currentTeam.length + 1} and ${player.positionNum[0]}, ${player.positionNum[1]}, ${player.positionNum[2]}, ${player.positionNum[3]}, ${player.positionNum[4]  }`)
-    // } else (
-
-    //     alert('wrong position')
-    // )
+    } else if (!player.positionNum.includes(currentTeam.length)) { 
+      // console.log(player.positionNum);
+      
+      alert('wrong position')
+    }
     return currentTeam; // Was working without this return ?? 
   };
 
-    const updateTeam = (playerObj: IPlayer) => {
-    const teamAlreadySelected = [...currentTeam];
-    teamAlreadySelected[playerObj.positionNum[0] - 1] = playerObj;
-    addPlayerToTeam(teamAlreadySelected);
-  };
+  const checkPosition = (player) =>{ 
+    const allowedPositions = players[0].positionNum;
+    if(allowedPositions.includes(currentTeam.length)){ 
+      addPlayerToTeam([...currentTeam, player]);
+    } else { 
+      alert('Wrong position')
+    }
+  }
+
+  console.log(currentTeam.length);
+  
+
+  //   const updateTeam = (playerObj: IPlayer) => {
+  //   const teamAlreadySelected = [...currentTeam];
+  //   teamAlreadySelected[playerObj.positionNum[0] - 1] = playerObj;
+  //   addPlayerToTeam(teamAlreadySelected);
+  // };
 
   //   const signIn = (provider: any) => { 
   //   firebase.auth().onAuthStateChanged(provider)
   // }
 
     const getAvailablePlayers = () => {
-  //   // const teamPlayers = players;
 
     const availablePlayers = players.map((player) => {
       if (
@@ -110,7 +110,6 @@ const SelectTeamPage: React.FC = () => {
             player={player}
             setPlayer={setPlayer}
           />
-          // console.log('foo')
         );
 
       } else if (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Navbar.module.scss";
 
 
@@ -6,15 +6,56 @@ import InstructionModal from "../../containers/InstructionModal";
 
 import Button from "../Button";
 import CancelSvg from "../../assets/images/Icons/cancel.svg"
+import { provider } from "../../firebase";
+// firestore
+import firebase from "../../firebase"
 
 interface NavbarProps { 
   signIn(provider: any): any;
   // setPlayer: (player: IPlayer) => void;
+  signOut(): any;
 
 }
 
-const Navbar: React.FC<NavbarProps> = ({signIn}) => {
+const Navbar: React.FC<NavbarProps> = ({signIn, signOut}) => {
   const [instrutionModal, toggleInstructionModal] =useState<boolean>(false);
+  // const [user, setUser] = useState<any>(null);
+
+
+    // Authentication
+    // const signIn = () => {
+    //   firebase.auth().signInWithRedirect(provider);
+
+    // };
+  
+    // const getUser = () => {
+    //   firebase.auth().onAuthStateChanged((user) => {
+    //     if (user) {
+    //       setUser(user);
+    //     } else {
+    //       // redirectTo("/landing-page");
+    //       setUser(null);
+    //     }
+    //   });
+    // };
+  
+    // const signOut = () => {
+    //   firebase
+    //     .auth()
+    //     .signOut()
+    //     .then(() => {
+    //       setUser(null);
+    //       alert("You have signed out");
+    //     })
+    //     .catch((error) => {
+    //       alert("Oh no an error :(");
+    //     });
+    // };
+  
+    // useEffect(() => {
+    //   getUser();
+    // }, []);
+
   return (
     <section className={styles.Navbar}>
       <h1>Bristol Bears Team Selector</h1>
@@ -22,8 +63,10 @@ const Navbar: React.FC<NavbarProps> = ({signIn}) => {
         <Button 
         // btnImg={CancelSvg}
          btnText="Log in" 
-         handleClick={signIn} />
-         <div> <hr className={styles.navHR}/></div>
+          handleClick={() => signIn(provider)} />
+        {/* handleClick={() => alert("logged in")} /> */}
+      <div> 
+      <hr className={styles.navHR}/></div>
         <Button 
         // btnImg={CancelSvg}
          btnText="Instructions" 
