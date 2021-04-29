@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./TeamScoreModal.module.scss";
 
-import submitSvg from "./assets/images/Icons/enter-arrow.svg";
-import close from "../../assets/images/Icons/cancel.svg";
-import UpArrow from "../../assets/images/Icons/up-chevron.svg"
+// import submitSvg from "./assets/images/Icons/enter-arrow.svg";
+// import close from "../../assets/images/Icons/cancel.svg";
+// import UpArrow from "../../assets/images/Icons/up-chevron.svg"
 import DownArrow from "../../assets/images/Icons/down-chevron.svg"
 
 

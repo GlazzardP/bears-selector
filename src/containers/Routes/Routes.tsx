@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styles from "./Routes.module.scss";
-import Navbar from "../../components/Navbar";
-
-import SelectTeamPage from "../../pages/SelectTeamPage"
-import * as firebase from 'firebase/app';
-import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not import firestore code
-import provider from "../../firebase";
-
-
-// import { Router, Redirect, Switch, Route, Link } from "react-router-dom";
-
+// import styles from "./Routes.module.scss";
+import firebase, { provider, firestore } from "../../firebase";
 import {
   BrowserRouter as Router,
   // Switch,
@@ -17,12 +8,25 @@ import {
   // Link
 } from "react-router-dom";
 
-const Routes: React.FC = ({}) => {
-  const [user, setUser] = useState<any>(null);
+import Navbar from "../../components/Navbar";
+import SelectTeamPage from "../../pages/SelectTeamPage"
 
+import { IPlayer } from "../../data/data";
+
+
+// interface RoutesProps {
+//   currentTeam: IPlayer[];
+
+// }
+
+
+const Routes: React.FC = () => {
+  const [user, setUser] = useState<any>(null);
+  const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
 
   const signIn = (provider: any) => { 
-    firebase.auth().onAuthStateChanged(provider)
+    // firebase.auth().onAuthStateChanged(provider)
+    firebase.auth().signInWithRedirect(provider);
   }
 
   const getUser = () => {
@@ -53,14 +57,33 @@ const Routes: React.FC = ({}) => {
     getUser();
   }, []);
 
+
+  // Database
+  const addToDb = () => {
+    if (user) {
+      firestore
+        .collection("team")
+        .doc(user.uid)
+        .set({ currentTeam })
+        .catch((err) => {
+          console.log(err);
+        });
+      console.log("Submitted");
+    } else {
+      alert("You are not logged in. Please log in to submit team.");
+    }
+  };
   return (
+// addPlayerToTeam([...currentTeam, player]);
 
 
     <Router>
-    <Navbar signIn={signIn} signOut={signOut} />
+    <Navbar signIn={signIn} signOut={signOut} user={user} />
 
      {/* <Link to="/"> */}
-        <SelectTeamPage />
+        <SelectTeamPage 
+        currentTeam={currentTeam} addPlayerToTeam={addPlayerToTeam}
+         />
      {/* </Link> */}
         {/*
           A <Switch> looks through all its children <Route>

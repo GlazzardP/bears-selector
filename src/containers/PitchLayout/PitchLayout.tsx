@@ -3,7 +3,7 @@ import { IPlayer } from "../../data/data";
 import styles from "./PitchLayout.module.scss";
 
 // styles, images and assets
-import imageee from "../../assets/images/Rugby_union_pitch.svg";
+// import imageee from "../../assets/images/Rugby_union_pitch.svg";
 import close from "../../assets/images/Icons/enter-arrow.svg";
 
 
