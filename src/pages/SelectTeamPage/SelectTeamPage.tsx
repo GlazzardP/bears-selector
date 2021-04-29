@@ -1,35 +1,20 @@
 import React, { useState } from "react";
 import styles from "./SelectTeamPage.module.scss";
 
-// import * as firebase from 'firebase/app';
+
 import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not import firestore code
-// import provider from "../../firebase";
+
 
 
 import PitchLayout from "../../containers/PitchLayout"
-// import TeamScoreModal from "../../containers/TeamScoreModal"
 import Card from "../../components/Card";
 import SelectedPlayers from "../../components/SelectedPlayers";
-// import Navbar from "../../components/Navbar";
-import ScoreModal from "../../containers/TeamScoreModal"
 
 import players, { IPlayer } from "../../data/data";
-// import DummyPlayer, {NAdeolokun, initialTeam} from "../../data/data";
-// import Button from "../../components/Button";
-
-
-// import submitSvg from "./assets/images/Icons/enter-arrow.svg";
 import close from "../../assets/images/Icons/cancel.svg";
 import UpArrow from "../../assets/images/Icons/up-chevron.svg"
 import TeamScoreModal from "../../containers/TeamScoreModal";
-// import DownArrow from "../../assets/images/Icons/down-chevron.svg"
 
-// import Accordion from "./components/Accordion";
-
-
-// interface landingPageProps { 
-
-// }
 
 const SelectTeamPage: React.FC = () => {
 
@@ -48,7 +33,6 @@ const SelectTeamPage: React.FC = () => {
       return playerObj.hasOwnProperty(type);
     });
     let scoreArray = currentTeamArray.map((playerObj: any) => playerObj[type]);
-
     let scoreSum = scoreArray.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
     }, 0);
@@ -65,10 +49,6 @@ const SelectTeamPage: React.FC = () => {
       return alert("This player is already selected.");
     } else if (currentTeam.length > 14) {
       alert("You've already got a full team.");
-    // } 
-    // else (
-    //   console.log(currentTeam.length + 1)
-    // )
     } else if (player.positionNum.includes(currentTeam.length + 1)) { 
       addPlayerToTeam([...currentTeam, player]);
     } else { 
@@ -79,18 +59,7 @@ const SelectTeamPage: React.FC = () => {
     return currentTeam; // Was working without this return ?? 
   };
 
-  //   const updateTeam = (playerObj: IPlayer) => {
-  //   const teamAlreadySelected = [...currentTeam];
-  //   teamAlreadySelected[playerObj.positionNum[0] - 1] = playerObj;
-  //   addPlayerToTeam(teamAlreadySelected);
-  // };
-
-  //   const signIn = (provider: any) => { 
-  //   firebase.auth().onAuthStateChanged(provider)
-  // }
-
     const getAvailablePlayers = () => {
-
     const availablePlayers = players.map((player) => {
       if (
         !currentTeam.includes(player) && 
@@ -105,12 +74,13 @@ const SelectTeamPage: React.FC = () => {
         );
 
       } else if (
-        !currentTeam.includes(player) &&  // They are not in the team
-        Object.entries(playerFilter).length !== 0 && // Any filter has been set
-        playerFilter.position === player.position && // Position is the same  users choice
-        playerFilter.minHeight <= player.playerHeight && // Height is the same or greater than users choice
-        playerFilter.maxHeight >= player.playerHeight && // Height is the less than or equal than users choice
-        playerFilter.defence <= player.defending// Defending is as required
+        !currentTeam.includes(player) 
+        // &&  // They are not in the team
+        // Object.entries(playerFilter).length !== 0 && // Any filter has been set
+        // playerFilter.position === player.position && // Position is the same  users choice
+        // playerFilter.minHeight <= player.playerHeight && // Height is the same or greater than users choice
+        // playerFilter.maxHeight >= player.playerHeight && // Height is the less than or equal than users choice
+        // playerFilter.defence <= player.defending// Defending is as required
         // getFilteredAvailablePlayers()
       ) { 
         return ( 
@@ -131,7 +101,6 @@ const SelectTeamPage: React.FC = () => {
   return (
 
     <section className={styles.App}>
-      {/* <Navbar signIn={signIn} /> */}
       <section className={styles.team}>
         <SelectedPlayers
           currentTeam={currentTeam}
@@ -161,6 +130,8 @@ const SelectTeamPage: React.FC = () => {
 
                 <label>Position</label>
                 <select name="position" id="position" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "position": event.target.value})}}>
+                <option value="" label=""></option>
+
                   <option value="Prop" label="Prop">Prop</option>
                   <option value="Hooker" label="Hooker">Hooker</option>
                   <option value="Second Row" label="Secon Row">Second Row</option>

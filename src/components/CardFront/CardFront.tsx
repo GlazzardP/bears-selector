@@ -29,15 +29,20 @@ interface CardFrontProps {
 const CardFront: React.FC<CardFrontProps> = ({
   player,
   setPlayer,
-  // chosenPosition
-  // updateTeam,
 }) => {
-  // const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
+
 
   const [chosenPosition, setChosenPosition] = useState<number>(player.positionNum[0]);
   const [htmlId] = useId();
 
   // console.log(position);
+
+  const positionJsx = player.positionNum.map((pos) => { 
+    return ( 
+      <p>{pos}, </p>
+    )
+
+  })
 
   const stopEventPropagation = (e: any) => {
     e.stopPropagation();
@@ -89,23 +94,25 @@ const CardFront: React.FC<CardFrontProps> = ({
                   <p className={styles.playersName}>{player.playerName}</p>
                   <p className={styles.playersPosition}>{player.position}</p>
                   <div className={styles.selectDrop} onClick={(e) => stopEventPropagation(e)}>     
-                    <label>Position:</label>
-                      <select
+                    {/* <label>Position:</label>
+                    {positionJsx} */}
+                      {/* <select
                         name="position"
                         id="position"
                         onChange={handleChange}
                         className={styles.positionSelect}
                       >
                         {playerPositionJsx}
-                      </select>         
+                      </select>          */}
 
                 </div>
 
                 </div>
-                <div>
+                <div onClick={(e) => stopEventPropagation(e)}
+>
                   <p>{player.playerHeight}cm</p>
                   <p>{player.weight}kg</p>
-                  <button className={styles.selectButton} onClick={() => setPlayer(player)}>Pick</button>
+                  {/* <button className={styles.selectButton} onClick={() => setPlayer(player)} >Pick</button> */}
 
                 </div>
 
@@ -118,9 +125,7 @@ const CardFront: React.FC<CardFrontProps> = ({
                 className={styles.playerButtons}
                 onClick={(e) => stopEventPropagation(e)}
               >
-                {/* <button onClick={() => alert(`Picked ${chosenPosition}`)}>{chosenPosition} Evidence</button> */}
-                {/* <button className={styles.selectButton} onClick={() => setPlayer(player)}>Pick</button> */}
-                {/* <button onClick={() => updateTeam(playerObj)}>Pick</button> */}
+                  <button className={styles.selectButton} onClick={() => setPlayer(player)} >Pick</button>
               </div>
 
 

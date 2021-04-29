@@ -13,11 +13,9 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({ btnText, btnImg, handleClick}) => {
   return (
     <button
-      // onClick={() => alert("Clicked")}
       className={styles.Button}
       onClick={handleClick}
     >
-      {/* <img src={btnImg} alt="Button Icon" /> */}
       {btnText}
     </button>
   );

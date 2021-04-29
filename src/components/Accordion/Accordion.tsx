@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import styles from "./Accordion.module.scss";
 
-
-
   interface AccordionProps {
     title: string;
     children: any;
   }
 
 const Accordion: React.FC<AccordionProps> = ({title, children} ) => {
-
   const [isOpen, setOpen] = useState(false);
 
   return (
