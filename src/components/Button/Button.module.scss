@@ -7,11 +7,10 @@
   //   min-width: fit-content;
   //   min-width: calc(fit-content + 100px);
 
-  padding: 10px 0;
-  margin: 10px;
+  padding: 10px;
+  // margin: 10px;
   font-size: 15px;
   border-radius: 10px;
-
   
 
   img { 
@@ -23,9 +22,7 @@
   }
 }
 
-.Button:hover {
-
-  background-color: rgb(56, 103, 242);
+.Button:hover { 
+  background-color: rgb(111, 111, 224);
   cursor: pointer;
-
 }

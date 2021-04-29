@@ -3,7 +3,7 @@ import styles from "./CardFront.module.scss";
 import bearsLogo from "../../assets/images/1200px-Bristol_Bears_logo.svg.png";
 import { useId } from "react-id-generator";
 
-import Button from "../../components/Button";
+// import Button from "../../components/Button";
 
 import { IPlayer } from "../../data/data";
 // impor {ButtonProps} from "../../"
@@ -29,15 +29,20 @@ interface CardFrontProps {
 const CardFront: React.FC<CardFrontProps> = ({
   player,
   setPlayer,
-  // chosenPosition
-  // updateTeam,
 }) => {
-  const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
+
 
   const [chosenPosition, setChosenPosition] = useState<number>(player.positionNum[0]);
   const [htmlId] = useId();
 
   // console.log(position);
+
+  const positionJsx = player.positionNum.map((pos) => { 
+    return ( 
+      <p>{pos}, </p>
+    )
+
+  })
 
   const stopEventPropagation = (e: any) => {
     e.stopPropagation();
@@ -84,42 +89,46 @@ const CardFront: React.FC<CardFrontProps> = ({
               </div>
             </div>
             <div className={styles.playerDetails}>
-              <div className={styles.playerDetailsName}>
-                <p>{player.playerName}</p>
-                <p>{player.position}</p>
-              </div>
-              <div className={styles.playerDetailsInfo}>
-                <div>
-                  <p>Age</p>
-                  <p>{player.playerAge}</p>
+              <div className={styles.playerDetailsDiv}>
+                <div className={styles.playerNameDiv}>                
+                  <p className={styles.playersName}>{player.playerName}</p>
+                  <p className={styles.playersPosition}>{player.position}</p>
+                  <div className={styles.selectDrop} onClick={(e) => stopEventPropagation(e)}>     
+                    {/* <label>Position:</label>
+                    {positionJsx} */}
+                      {/* <select
+                        name="position"
+                        id="position"
+                        onChange={handleChange}
+                        className={styles.positionSelect}
+                      >
+                        {playerPositionJsx}
+                      </select>          */}
+
                 </div>
-                <div
-                  className={styles.selectDrop}
-                  onClick={(e) => stopEventPropagation(e)}
-                >
-                  <label>Position:</label>
-                  <select
-                    name="position"
-                    id="position"
-                    onChange={handleChange}
-                    className={styles.positionSelect}
-                  >
-                    {playerPositionJsx}
-                  </select>
+
                 </div>
-                <div>
-                  <p>Height</p>
+                <div onClick={(e) => stopEventPropagation(e)}
+>
                   <p>{player.playerHeight}cm</p>
+                  <p>{player.weight}kg</p>
+                  {/* <button className={styles.selectButton} onClick={() => setPlayer(player)} >Pick</button> */}
+
                 </div>
+
+
               </div>
+
+
+
               <div
                 className={styles.playerButtons}
                 onClick={(e) => stopEventPropagation(e)}
               >
-                {/* <button onClick={() => alert(`Picked ${chosenPosition}`)}>{chosenPosition} Evidence</button> */}
-                <button className={styles.selectButton} onClick={() => setPlayer(player)}>Pick</button>
-                {/* <button onClick={() => updateTeam(playerObj)}>Pick</button> */}
+                  <button className={styles.selectButton} onClick={() => setPlayer(player)} >Pick</button>
               </div>
+
+
             </div>
           </div>
         </div>

@@ -15,25 +15,13 @@ interface PitchLayoutProps {
 }
 const PitchLayout: React.FC<PitchLayoutProps> = ({currentTeam, getSurname}) => {
   const [loginRecommendationModal, setLoginRecommendation] = useState<boolean>(true);
-
   const [noSubmitBubble, setSubmitBubble] = useState<boolean>(false);
-
-  // const submitBubbleCheck = () => { 
-  //   if (currentTeam.length = 4){ 
-  //     // setSubmitBubble(!noSubmitBubble)
-  //     alert('bingo')
-  //   }
-  // }
 
   const submissionBubble = () => { 
     if (currentTeam.length > 14) { 
     return setSubmitBubble(!noSubmitBubble)
-    // console.log('foo');
-    
   } else { 
-    // console.log(`${currentTeam.length}`)
     console.log('bar');
-    
   }
 }
 
