@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SelectTeamPage.module.scss";
 
-
 import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not import firestore code
-
-
 
 import PitchLayout from "../../containers/PitchLayout"
 import Card from "../../components/Card";
@@ -14,19 +11,25 @@ import players, { IPlayer } from "../../data/data";
 import close from "../../assets/images/Icons/cancel.svg";
 import UpArrow from "../../assets/images/Icons/up-chevron.svg"
 import TeamScoreModal from "../../containers/TeamScoreModal";
+import Button from "../../components/Button";
+// import { createExternalModuleReference } from "typescript";
 
+interface SelectPageProps { 
+  addPlayerToTeam: (currentTeam: any) => any;
+  currentTeam: IPlayer[];
+  addToDb: () => any;
+  user: any;
+}
 
-const SelectTeamPage: React.FC = () => {
-
+const SelectTeamPage: React.FC<SelectPageProps> = ({addPlayerToTeam, currentTeam, addToDb, user}) => {
   const [isOpen, setOpen] = useState<boolean>(false); // Player filter accordion
   const [teamScoreOpen, setTeamScoreOpen] = useState<boolean>(false); // Team score accordion, footer of page
-
   const [playerFilter, setPlayerFilterChoices] = useState<any>({})
-  const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
+  // const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
   const [loginRecommendationModal, setLoginRecommendation] = useState<boolean>(true);
   const [scoreModal, toggleScoreModal]= useState<boolean>(false);
+  const [availablePlayers, setAvailablePlayers]=useState<any>([])
 
-  console.log(teamScoreOpen);
 
   const getTeamScoreJsx = (type: any) => {
     const currentTeamArray = currentTeam.filter((playerObj) => {
@@ -54,9 +57,7 @@ const SelectTeamPage: React.FC = () => {
     } else { 
       alert("This player cannot play in this position.")
     }
-
-
-    return currentTeam; // Was working without this return ?? 
+    return currentTeam;
   };
 
     const getAvailablePlayers = () => {
@@ -72,30 +73,29 @@ const SelectTeamPage: React.FC = () => {
             setPlayer={setPlayer}
           />
         );
-
-      } else if (
-        !currentTeam.includes(player) 
-        // &&  // They are not in the team
-        // Object.entries(playerFilter).length !== 0 && // Any filter has been set
-        // playerFilter.position === player.position && // Position is the same  users choice
-        // playerFilter.minHeight <= player.playerHeight && // Height is the same or greater than users choice
-        // playerFilter.maxHeight >= player.playerHeight && // Height is the less than or equal than users choice
-        // playerFilter.defence <= player.defending// Defending is as required
-        // getFilteredAvailablePlayers()
-      ) { 
-        return ( 
-          <Card
-          key={player.playerName}
-          player={player}
-          setPlayer={setPlayer}
-        />
-        )
-      } else if (currentTeam.length >= 14) {
-        console.log("You've already selected 15 players.");
+      } else if (currentTeam.length = 15) {
+        console.log(`team length${currentTeam.length}`);
       }
     });
     return availablePlayers;
   };
+
+// setAvailablePlayers(players.filter(player => !currentTeam.includes(player)))
+
+
+const printAvailablePlayers = () => { 
+  setAvailablePlayers(players.filter((player) => !currentTeam.includes(player)))
+
+}
+
+  useEffect(() => { 
+    printAvailablePlayers()
+  }, [currentTeam])
+// 
+  // console.log(printAvailablePlayers());
+  console.log(currentTeam);
+  console.log(availablePlayers);
+  
 
 
   return (
@@ -115,9 +115,7 @@ const SelectTeamPage: React.FC = () => {
         </div>
         <div className={styles.tempClass}>
           <div className={styles.accordionDivHolder}>
-
           <div className={styles.accordionWrapper}>
-      
             <div
               className={`${styles.accordionTitle} ${isOpen ? styles.open : ""}`}
               onClick={() => setOpen(!isOpen)}
@@ -155,49 +153,53 @@ const SelectTeamPage: React.FC = () => {
 
               <div>
 
-              <div>
-                <label>Defence</label>
-                <input type="number" id="defence" name="defence" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "defence": event.target.value})}}/>
+                <div>
+                  <label>Defence</label>
+                  <input type="number" id="defence" name="defence" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "defence": event.target.value})}}/>
+                </div>
 
-              </div>
+                <div>
+                  <label>Attack</label>
+                  <input type="number" id="attack" name="attack" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "attack": event.target.value})}}/>
+                </div>
 
-              <div>
-                <label>Attack</label>
-                <input type="number" id="attack" name="attack" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "attack": event.target.value})}}/>
+                <div>
+                  <label>Fitness</label>
+                  <input type="number" id="fitness" name="fitness" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "fitness": event.target.value})}}/>
 
-              </div>
+                </div>
 
-              <div>
-                <label>Fitness</label>
-                <input type="number" id="fitness" name="fitness" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "fitness": event.target.value})}}/>
+                <div>
+                  <label>Kicking</label>
+                  <input type="number" id="kicking" name="kicking" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "kicking": event.target.value})}}/>
 
-              </div>
+                </div>
 
-              <div>
-                <label>Kicking</label>
-                <input type="number" id="kicking" name="kicking" min="0" max="100" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "kicking": event.target.value})}}/>
+                {/* <button onClick={() => {getAvailablePlayers()}}>Update Players</button> */}
 
-              </div>
-
-              <button onClick={() => {getAvailablePlayers()}}>Update Players</button>
-
-              </div>
+                </div>
               </div>
             </div>
           </div>   
-
-
           </div>
 
         </div>
         <section className={styles.allCards}>
+          {/* {getAvailablePlayers()} */}
+          {availablePlayers.map((player) => {
+            return (
+              <Card
+              key={player.playerName}
+              player={player}
+              setPlayer={setPlayer}
+            />
+            )
 
-          {getAvailablePlayers()}
+          })}
 
         </section>
 
         <PitchLayout currentTeam={currentTeam} getSurname={getSurname} />
-
 
         <div className={styles.scoreModalDiv}>
           <p>Team Score</p>
@@ -212,13 +214,12 @@ const SelectTeamPage: React.FC = () => {
           <p>Passing: {getTeamScoreJsx("passing")} %</p>
           <p>Attack: {getTeamScoreJsx("attacking")} %</p>
           <p>Experience: {getTeamScoreJsx("experience")} %</p>
+          <Button btnText="DB" handleClick={() => addToDb()} />
         </div>
 
           {scoreModal ? ( 
               <TeamScoreModal toggleScoreModal={toggleScoreModal} scoreModal={scoreModal} getTeamScoreJsx={getTeamScoreJsx} />
            ) : null}
-
-
       </section>
     </section>
   );
