@@ -27,7 +27,7 @@ const PitchLayout: React.FC<PitchLayoutProps> = ({currentTeam, getSurname}) => {
 
 useEffect(() => { 
   submissionBubble()
-})
+}, currentTeam)
     
 
 

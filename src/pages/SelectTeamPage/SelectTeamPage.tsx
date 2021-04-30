@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SelectTeamPage.module.scss";
 
 import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not import firestore code
@@ -11,32 +11,24 @@ import players, { IPlayer } from "../../data/data";
 import close from "../../assets/images/Icons/cancel.svg";
 import UpArrow from "../../assets/images/Icons/up-chevron.svg"
 import TeamScoreModal from "../../containers/TeamScoreModal";
-
-
-// interface NavbarProps { 
-//   signIn(provider: any): any;
-//   // setPlayer: (player: IPlayer) => void;
-//   signOut(): any;
-//   user: any;
-//   // provider: any;
-// }
+import Button from "../../components/Button";
+// import { createExternalModuleReference } from "typescript";
 
 interface SelectPageProps { 
-
   addPlayerToTeam: (currentTeam: any) => any;
   currentTeam: IPlayer[];
-
+  addToDb: () => any;
+  user: any;
 }
 
-const SelectTeamPage: React.FC<SelectPageProps> = ({addPlayerToTeam, currentTeam}) => {
-
+const SelectTeamPage: React.FC<SelectPageProps> = ({addPlayerToTeam, currentTeam, addToDb, user}) => {
   const [isOpen, setOpen] = useState<boolean>(false); // Player filter accordion
   const [teamScoreOpen, setTeamScoreOpen] = useState<boolean>(false); // Team score accordion, footer of page
-
   const [playerFilter, setPlayerFilterChoices] = useState<any>({})
   // const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
   const [loginRecommendationModal, setLoginRecommendation] = useState<boolean>(true);
   const [scoreModal, toggleScoreModal]= useState<boolean>(false);
+  const [availablePlayers, setAvailablePlayers]=useState<any>([])
 
 
   const getTeamScoreJsx = (type: any) => {
@@ -81,30 +73,29 @@ const SelectTeamPage: React.FC<SelectPageProps> = ({addPlayerToTeam, currentTeam
             setPlayer={setPlayer}
           />
         );
-
-      } else if (
-        !currentTeam.includes(player) 
-        // &&  // They are not in the team
-        // Object.entries(playerFilter).length !== 0 && // Any filter has been set
-        // playerFilter.position === player.position && // Position is the same  users choice
-        // playerFilter.minHeight <= player.playerHeight && // Height is the same or greater than users choice
-        // playerFilter.maxHeight >= player.playerHeight && // Height is the less than or equal than users choice
-        // playerFilter.defence <= player.defending// Defending is as required
-        // getFilteredAvailablePlayers()
-      ) { 
-        return ( 
-          <Card
-          key={player.playerName}
-          player={player}
-          setPlayer={setPlayer}
-        />
-        )
-      } else if (currentTeam.length >= 14) {
-        console.log("You've already selected 15 players.");
+      } else if (currentTeam.length = 15) {
+        console.log(`team length${currentTeam.length}`);
       }
     });
     return availablePlayers;
   };
+
+// setAvailablePlayers(players.filter(player => !currentTeam.includes(player)))
+
+
+const printAvailablePlayers = () => { 
+  setAvailablePlayers(players.filter((player) => !currentTeam.includes(player)))
+
+}
+
+  useEffect(() => { 
+    printAvailablePlayers()
+  }, [currentTeam])
+// 
+  // console.log(printAvailablePlayers());
+  console.log(currentTeam);
+  console.log(availablePlayers);
+  
 
 
   return (
@@ -184,7 +175,7 @@ const SelectTeamPage: React.FC<SelectPageProps> = ({addPlayerToTeam, currentTeam
 
                 </div>
 
-                <button onClick={() => {getAvailablePlayers()}}>Update Players</button>
+                {/* <button onClick={() => {getAvailablePlayers()}}>Update Players</button> */}
 
                 </div>
               </div>
@@ -194,7 +185,18 @@ const SelectTeamPage: React.FC<SelectPageProps> = ({addPlayerToTeam, currentTeam
 
         </div>
         <section className={styles.allCards}>
-          {getAvailablePlayers()}
+          {/* {getAvailablePlayers()} */}
+          {availablePlayers.map((player) => {
+            return (
+              <Card
+              key={player.playerName}
+              player={player}
+              setPlayer={setPlayer}
+            />
+            )
+
+          })}
+
         </section>
 
         <PitchLayout currentTeam={currentTeam} getSurname={getSurname} />
@@ -212,6 +214,7 @@ const SelectTeamPage: React.FC<SelectPageProps> = ({addPlayerToTeam, currentTeam
           <p>Passing: {getTeamScoreJsx("passing")} %</p>
           <p>Attack: {getTeamScoreJsx("attacking")} %</p>
           <p>Experience: {getTeamScoreJsx("experience")} %</p>
+          <Button btnText="DB" handleClick={() => addToDb()} />
         </div>
 
           {scoreModal ? ( 

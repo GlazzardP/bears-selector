@@ -2,7 +2,7 @@
 import styles from "./SelectedPlayers.module.scss";
 
 import close from "../../assets/images/Icons/cancel.svg";
-import { IPlayer } from "../../data/data";
+import players, { IPlayer } from "../../data/data";
 // import { ListFormat } from "typescript";
 
 // import IPlayer from "../../data/data";

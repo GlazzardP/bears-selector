@@ -14,12 +14,6 @@ import SelectTeamPage from "../../pages/SelectTeamPage"
 import { IPlayer } from "../../data/data";
 
 
-// interface RoutesProps {
-//   currentTeam: IPlayer[];
-
-// }
-
-
 const Routes: React.FC = () => {
   const [user, setUser] = useState<any>(null);
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
@@ -73,16 +67,16 @@ const Routes: React.FC = () => {
       alert("You are not logged in. Please log in to submit team.");
     }
   };
-  return (
-// addPlayerToTeam([...currentTeam, player]);
 
+
+  return (
 
     <Router>
     <Navbar signIn={signIn} signOut={signOut} user={user} />
 
      {/* <Link to="/"> */}
         <SelectTeamPage 
-        currentTeam={currentTeam} addPlayerToTeam={addPlayerToTeam}
+        currentTeam={currentTeam} addPlayerToTeam={addPlayerToTeam} addToDb={addToDb} user={user}
          />
      {/* </Link> */}
         {/*
