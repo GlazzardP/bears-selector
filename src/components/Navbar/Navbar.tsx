@@ -38,13 +38,6 @@ const Navbar: React.FC<NavbarProps> = ({signIn, signOut, user}) => {
       <h1>Bristol Bears Team Selector</h1>
       <div>
         {signInOutJsx}
-        {/* <Button 
-         btnText="Log in" handleClick={() => signIn(provider)} /> */}
-                  {/* <Button 
-         btnText="Log out" 
-        //  handleClick={() => alert("Sign in")}
-          handleClick={() => signOut()} 
-          /> */}
       <div> 
       <hr className={styles.navHR}/></div>
         <Button 
