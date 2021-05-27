@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 import Navbar from "../../components/Navbar";
-import SelectTeamPage from "../../pages/SelectTeamPage"
+import SelectTeamPage from "../SelectTeamPage"
 
 import { IPlayer } from "../../data/data";
 

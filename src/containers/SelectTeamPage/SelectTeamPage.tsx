@@ -3,14 +3,14 @@ import styles from "./SelectTeamPage.module.scss";
 
 import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not import firestore code
 
-import PitchLayout from "../../containers/PitchLayout"
+import PitchLayout from "../PitchLayout"
 import Card from "../../components/Card";
 import SelectedPlayers from "../../components/SelectedPlayers";
 
 import players, { IPlayer } from "../../data/data";
 import close from "../../assets/images/Icons/cancel.svg";
 import UpArrow from "../../assets/images/Icons/up-chevron.svg"
-import TeamScoreModal from "../../containers/TeamScoreModal";
+import TeamScoreModal from "../TeamScoreModal";
 import Button from "../../components/Button";
 // import { createExternalModuleReference } from "typescript";
 
@@ -95,6 +95,16 @@ const printAvailablePlayers = () => {
   // console.log(printAvailablePlayers());
   console.log(currentTeam);
   console.log(availablePlayers);
+
+  const watchLoginModal = () => { 
+    if (user) { 
+      setLoginRecommendation(!loginRecommendationModal)
+    }
+  }
+
+  useEffect(() => { 
+    watchLoginModal()
+  }, [user])
   
 
 
