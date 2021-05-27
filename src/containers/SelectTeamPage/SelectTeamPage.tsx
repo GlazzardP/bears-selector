@@ -30,6 +30,7 @@ const SelectTeamPage: React.FC<SelectPageProps> = ({addPlayerToTeam, currentTeam
   const [scoreModal, toggleScoreModal]= useState<boolean>(false);
   const [availablePlayers, setAvailablePlayers]=useState<any>([])
 
+console.log(playerFilter);
 
   const getTeamScoreJsx = (type: any) => {
     const currentTeamArray = currentTeam.filter((playerObj) => {
@@ -60,41 +61,64 @@ const SelectTeamPage: React.FC<SelectPageProps> = ({addPlayerToTeam, currentTeam
     return currentTeam;
   };
 
-    const getAvailablePlayers = () => {
-    const availablePlayers = players.map((player) => {
-      if (
-        !currentTeam.includes(player) && 
-      Object.entries(playerFilter).length === 0
-      ) {
-        return (
-          <Card
-            key={player.playerName}
-            player={player}
-            setPlayer={setPlayer}
-          />
-        );
-      } else if (currentTeam.length = 15) {
-        console.log(`team length${currentTeam.length}`);
-      }
-    });
-    return availablePlayers;
-  };
+  // const searchForTutorials = () => {
+  //   const sortedUserTags = userTags.sort();
+  //   const matchingVideos = allVideos.filter(video => {
+  //     const sortedVideoTags = video.tags.sort();
+  //     return checkTagArrays(sortedUserTags, sortedVideoTags)
+  //   })
+  //   setRenderVideos(matchingVideos)
+  // }
+
+  // getTutorialsWithSomeTags(allVideos.filter(element => element.tags.some(el => userTags.includes(el))))
+
+
+  // const searchForMatchingPlayers = () => { 
+  //   for (const [key, value] of Object.entries(playerFilter)) {
+  //     console.log(`${key}: ${value}`);
+  //   }
+    
+  // }
+
+
+// console.log(searchForMatchingPlayers());
+
+
+
+  //   const getAvailablePlayers = () => {
+  //   const availablePlayers = players.map((player) => {
+  //     if (
+  //       !currentTeam.includes(player) && 
+  //     Object.entries(playerFilter).length === 0
+  //     ) {
+  //       return (
+  //         <Card
+  //           key={player.playerName}
+  //           player={player}
+  //           setPlayer={setPlayer}
+  //         />
+  //       );
+  //     } else if (currentTeam.length = 15) {
+  //       console.log(`team length${currentTeam.length}`);
+  //     }
+  //   });
+  //   return availablePlayers;
+  // };
 
 // setAvailablePlayers(players.filter(player => !currentTeam.includes(player)))
 
 
 const printAvailablePlayers = () => { 
-  setAvailablePlayers(players.filter((player) => !currentTeam.includes(player)))
-
+  if (playerFilter.position == undefined){ 
+    setAvailablePlayers(players.filter((player) => !currentTeam.includes(player)))
+  } else if (playerFilter.position !== "") { 
+    setAvailablePlayers(players.filter((player) => !currentTeam.includes(player) && player.position === playerFilter.position))
+  }
 }
 
   useEffect(() => { 
     printAvailablePlayers()
-  }, [currentTeam])
-// 
-  // console.log(printAvailablePlayers());
-  console.log(currentTeam);
-  console.log(availablePlayers);
+  }, [currentTeam, playerFilter])
 
   const watchLoginModal = () => { 
     if (user) { 
@@ -106,7 +130,6 @@ const printAvailablePlayers = () => {
     watchLoginModal()
   }, [user])
   
-
 
   return (
 
@@ -143,7 +166,7 @@ const printAvailablePlayers = () => {
                   <option value="Prop" label="Prop">Prop</option>
                   <option value="Hooker" label="Hooker">Hooker</option>
                   <option value="Second Row" label="Secon Row">Second Row</option>
-                  <option value="Back Row" label="Back Row">Back Row</option>
+                  <option value="Flanker" label="Flanker">Back Row</option>
                   <option value="Number 8" label="Number 8">Number 8</option>
                   <option value="Scrum Half" label="Scrum Half">Scrum Half</option>
                   <option value="Fly Half" label="Fly Half">Fly Half</option>
@@ -154,7 +177,7 @@ const printAvailablePlayers = () => {
               </div>
 
 
-              <div>
+              {/* <div>
                 <label>Min-height </label>
                 <input type="number" id="height" name="height" min="50" max="210" placeholder="cm" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "minHeight": event.target.value})}}/>
                 <label>Max-height </label>
@@ -185,9 +208,9 @@ const printAvailablePlayers = () => {
 
                 </div>
 
-                {/* <button onClick={() => {getAvailablePlayers()}}>Update Players</button> */}
 
-                </div>
+
+                </div> */}
               </div>
             </div>
           </div>   
