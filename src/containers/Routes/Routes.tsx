@@ -68,8 +68,6 @@ const Routes: React.FC = () => {
     }
   };
 
-console.log(currentTeam);
-console.log(user);
 
 
   return (

@@ -35,7 +35,6 @@ const CardFront: React.FC<CardFrontProps> = ({
   const [chosenPosition, setChosenPosition] = useState<number>(player.positionNum[0]);
   const [htmlId] = useId();
 
-  // console.log(position);
 
   const positionJsx = player.positionNum.map((pos) => { 
     return ( 
@@ -48,26 +47,24 @@ const CardFront: React.FC<CardFrontProps> = ({
     e.stopPropagation();
   };
 
-  const handleChange = (e: any) => {
-    setChosenPosition(e.target.value);
-  };
+  // const handleChange = (e: any) => {
+  //   setChosenPosition(e.target.value);
+  // };
 
   const totalScoreJsx = player.attacking + player.defending + player.experience + player.fitness + player.passing + player.speed + player.strength;
   const averageScoreJsx = totalScoreJsx/7; 
+  // const playerPositionJsx = player.positionNum.map((number) => {
 
-  const playerPositionJsx = player.positionNum.map((number) => {
-    // console.log(player.playerName);
-
-    return (
-      <option
-        key={htmlId + number}
-        value={number}
-        className={styles.selectOption}
-      >
-        {number}
-      </option>
-    );
-  });
+  //   return (
+  //     <option
+  //       key={htmlId + number}
+  //       value={number}
+  //       className={styles.selectOption}
+  //     >
+  //       {number}
+  //     </option>
+  //   );
+  // });
 
   return (
     <div className={styles.cardFront}>
@@ -94,16 +91,6 @@ const CardFront: React.FC<CardFrontProps> = ({
                   <p className={styles.playersName}>{player.playerName}</p>
                   <p className={styles.playersPosition}>{player.position}</p>
                   <div className={styles.selectDrop} onClick={(e) => stopEventPropagation(e)}>     
-                    {/* <label>Position:</label>
-                    {positionJsx} */}
-                      {/* <select
-                        name="position"
-                        id="position"
-                        onChange={handleChange}
-                        className={styles.positionSelect}
-                      >
-                        {playerPositionJsx}
-                      </select>          */}
 
                 </div>
 
@@ -112,7 +99,6 @@ const CardFront: React.FC<CardFrontProps> = ({
 >
                   <p>{player.playerHeight}cm</p>
                   <p>{player.weight}kg</p>
-                  {/* <button className={styles.selectButton} onClick={() => setPlayer(player)} >Pick</button> */}
 
                 </div>
 

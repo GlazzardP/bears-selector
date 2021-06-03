@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Navbar.module.scss";
-import firebase, { provider } from "../../firebase";
+import { provider } from "../../firebase";
 
 
 import InstructionModal from "../../containers/InstructionModal";
@@ -29,8 +29,6 @@ const Navbar: React.FC<NavbarProps> = ({signIn, signOut, user}) => {
         <Button btnText="Log in" handleClick={() => signIn(provider)} />
     </div>
   );
-
-  console.log(user);
   
 
   return (

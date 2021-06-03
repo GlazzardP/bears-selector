@@ -20,8 +20,6 @@ const PitchLayout: React.FC<PitchLayoutProps> = ({currentTeam, getSurname}) => {
   const submissionBubble = () => { 
     if (currentTeam.length > 14) { 
     return setSubmitBubble(!noSubmitBubble)
-  } else { 
-    console.log('bar');
   }
 }
 

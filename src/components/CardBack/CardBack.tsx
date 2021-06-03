@@ -12,9 +12,9 @@ interface CardBackProps {
 }
 
 const CardBack: React.FC<CardBackProps> = ({ player, setPlayer }) => {
-  // console.log(player);
 
-  // const CardBack = () => {
+
+
   const stopEventPropagation = (e: any) => {
     e.stopPropagation();
   };
