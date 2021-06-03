@@ -129,6 +129,19 @@ const printAvailablePlayers = () => {
   useEffect(() => { 
     watchLoginModal()
   }, [user])
+
+  const sortPlayersByWeight = () => { 
+      availablePlayers.sort((a, b) => {
+      return b.weight - a.weight;
+  });
+    // return availablePlayers.sort((a, b) => a.weight - b.weight)
+    // console.log("weight search");
+    
+  }
+console.log(availablePlayers);
+
+
+  // <select name="sort" id="sort" onChange={(event) => {availablePlayers.sort((a, b) => a.weight - b.weight)}}>
   
 
   return (
@@ -176,6 +189,19 @@ const printAvailablePlayers = () => {
                 </select>
               </div>
 
+              {/* objs.sort((a, b) => a.last_nom.localeCompare(b.last_nom)); */}
+              <div>
+                <label>Sort</label>
+                {/* <select name="position" id="position" onChange={(event) => {setPlayerFilterChoices({...playerFilter, "position": event.target.value})}}> */}
+                <select name="sort" id="sort" onChange={() => sortPlayersByWeight()}>
+                <option value="" label=""></option>
+
+                  <option value="Weight" label="Heaviest">Heaviest</option>
+                  {/* <option value="Weight" label="Lightest">Lightest</option> */}
+                  <option value="Height" label="Tallest ">Tallest</option>
+                  {/* <option value="Shortest" label="Shortest">Shortest</option> */}
+                </select>             
+              </div>
 
               {/* <div>
                 <label>Min-height </label>
@@ -239,15 +265,15 @@ const printAvailablePlayers = () => {
           <img className={styles.scoreModalArrow} src={UpArrow} alt="Close Speech Bubble" onClick={() => {toggleScoreModal(true)}}/>
         </div>
         <div className={styles.desktopScorePercentages}>
-          <p>Defense: {getTeamScoreJsx("defending")} %</p> 
-          <p>Tackling: {getTeamScoreJsx("tackling")} %</p>
-          <p>Strength: {getTeamScoreJsx("strength")} %</p>
-          <p>Fitness: {getTeamScoreJsx("fitness")} %</p>
-          <p>Speed: {getTeamScoreJsx("speed")} %</p>
-          <p>Passing: {getTeamScoreJsx("passing")} %</p>
-          <p>Attack: {getTeamScoreJsx("attacking")} %</p>
-          <p>Experience: {getTeamScoreJsx("experience")} %</p>
-          <Button btnText="DB" handleClick={() => addToDb()} />
+          <p>Defense: {getTeamScoreJsx("defending")}%</p> 
+          <p>Tackling: {getTeamScoreJsx("tackling")}%</p>
+          <p>Strength: {getTeamScoreJsx("strength")}%</p>
+          <p>Fitness: {getTeamScoreJsx("fitness")}%</p>
+          <p>Speed: {getTeamScoreJsx("speed")}%</p>
+          <p>Passing: {getTeamScoreJsx("passing")}%</p>
+          <p>Attack: {getTeamScoreJsx("attacking")}%</p>
+          <p>Experience: {getTeamScoreJsx("experience")}%</p>
+          <Button btnText="Submit" handleClick={() => addToDb()} />
         </div>
 
           {scoreModal ? ( 

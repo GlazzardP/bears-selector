@@ -39,7 +39,7 @@ const CardFront: React.FC<CardFrontProps> = ({
 
   const positionJsx = player.positionNum.map((pos) => { 
     return ( 
-      <p>{pos}, </p>
+      <p key={htmlId + pos}>{pos}, </p>
     )
 
   })

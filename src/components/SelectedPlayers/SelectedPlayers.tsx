@@ -26,7 +26,7 @@ const SelectedPlayer: React.FC<ISelectedPlayerProps> = ({ currentTeam }) => {
       {/* {printSelectedPlayers()} */}
       {currentTeam.map((playerObj) => {
         return (
-          <div className={styles.SelectedPlayer}>
+          <div className={styles.SelectedPlayer} key={playerObj.playerName}>
             <img src={close} alt="Unselect Player" />
             <p>{playerObj.positionNum[0]}</p>
             <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(playerObj)}`}</p>

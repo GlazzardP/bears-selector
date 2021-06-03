@@ -59,7 +59,7 @@ const Routes: React.FC = () => {
         .collection("team")
         .doc(user.uid)
         .set({ currentTeam })
-        .catch((err) => {
+        .catch((err: any) => {
           console.log(err);
         });
       console.log("Submitted");
@@ -67,6 +67,9 @@ const Routes: React.FC = () => {
       alert("You are not logged in. Please log in to submit team.");
     }
   };
+
+console.log(currentTeam);
+console.log(user);
 
 
   return (

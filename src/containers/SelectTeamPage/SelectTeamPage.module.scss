@@ -200,10 +200,8 @@
       .desktopScorePercentages { 
         p{ 
           border: solid 2px red;
-
-        }
       }
-
+    }
     }
 
   }
@@ -694,7 +692,7 @@
         position: fixed;
         bottom: 0;
         left: 0;
-        height: 5vh;
+        height: 7vh;
         width: 100%;
         background-color: $navy;
         color: white;

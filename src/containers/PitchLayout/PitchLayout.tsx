@@ -49,9 +49,9 @@ useEffect(() => {
               ))}
             </div>
 
-            <div className={styles.secondRow}>
+            <div className={styles.secondRow} >
               {currentTeam.slice(3, 5).map((playerObj) => (
-                <div className={styles.ShirtPlayer}>
+                <div className={styles.ShirtPlayer} >
                  <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
 
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
@@ -64,7 +64,7 @@ useEffect(() => {
             <div className={styles.backRow}>
               <div>              
                 {currentTeam.slice(5, 6).map((playerObj) => (
-                <div className={styles.ShirtPlayer}>
+                <div className={styles.ShirtPlayer} key={playerObj.playerName}>
                   <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
 
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
@@ -76,7 +76,7 @@ useEffect(() => {
 
               <div>              
                 {currentTeam.slice(6, 7).map((playerObj) => (
-                <div className={styles.ShirtPlayer}>
+                <div className={styles.ShirtPlayer} key={playerObj.playerName}>
                   <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
 
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
@@ -90,7 +90,7 @@ useEffect(() => {
 
             <div className={styles.numberEight}>
               {currentTeam.slice(7, 8).map((playerObj) => (
-                <div className={styles.ShirtPlayer}>
+                <div className={styles.ShirtPlayer} key={playerObj.playerName}>
                   <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
 
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
@@ -102,7 +102,7 @@ useEffect(() => {
 
             <div className={styles.scrumHalf}>
               {currentTeam.slice(8, 9).map((playerObj) => (
-                <div className={styles.ShirtPlayer}>
+                <div className={styles.ShirtPlayer} key={playerObj.playerName}>
                   <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
                     playerObj
@@ -112,7 +112,7 @@ useEffect(() => {
             </div>
             <div className={styles.flyHalf}>
               {currentTeam.slice(9, 10).map((playerObj) => (
-                <div className={styles.ShirtPlayer}>
+                <div className={styles.ShirtPlayer} key={playerObj.playerName}>
                   <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
 
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
@@ -124,7 +124,7 @@ useEffect(() => {
             
             <div className={styles.centre}>
               {currentTeam.slice(11, 13).map((playerObj) => (
-                <div className={styles.ShirtPlayer}>
+                <div className={styles.ShirtPlayer} key={playerObj.playerName}>
                  <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
 
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
@@ -138,7 +138,7 @@ useEffect(() => {
 
                 <div className={styles.leftWing}>
                 {currentTeam.slice(10, 11).map((playerObj) => (
-                  <div className={styles.ShirtPlayer}>
+                  <div className={styles.ShirtPlayer} key={playerObj.playerName}>
                    <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
 
                     <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
@@ -149,7 +149,7 @@ useEffect(() => {
               </div>
               <div className={styles.rightWing}>
                   {currentTeam.slice(13, 14).map((playerObj) => (
-                    <div className={styles.ShirtPlayer}>
+                    <div className={styles.ShirtPlayer} key={playerObj.playerName}>
                        <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
 
                       <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
@@ -163,7 +163,7 @@ useEffect(() => {
 
             <div className={styles.fullBack}>
                   {currentTeam.slice(14, 15).map((playerObj) => (
-                    <div className={styles.ShirtPlayer}>
+                    <div className={styles.ShirtPlayer} key={playerObj.playerName}>
                        <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
 
                       <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(
