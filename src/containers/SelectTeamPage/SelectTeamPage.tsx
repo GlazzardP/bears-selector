@@ -24,7 +24,7 @@ interface SelectPageProps {
 
 const SelectTeamPage: React.FC<SelectPageProps> = ({addPlayerToTeam, currentTeam, addToDb, user}) => {
   const [isOpen, setOpen] = useState<boolean>(false); // Player filter accordion
-  const [teamScoreOpen, setTeamScoreOpen] = useState<boolean>(false); // Team score accordion, footer of page
+  // const [teamScoreOpen, setTeamScoreOpen] = useState<boolean>(false); // Team score accordion, footer of page
   const [playerFilter, setPlayerFilterChoices] = useState<any>({})
   // const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
   const [loginRecommendationModal, setLoginRecommendation] = useState<boolean>(true);
@@ -84,7 +84,7 @@ const printAvailablePlayers = () => {
 
   useEffect(() => { 
     watchLoginModal()
-  }, [user, watchLoginModal])
+  }, [user])
 
   const sortPlayersByWeight = () => { 
       availablePlayers.sort((a, b) => {

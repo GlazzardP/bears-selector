@@ -3,7 +3,7 @@ import { IPlayer } from "../../data/data";
 import styles from "./PitchLayout.module.scss";
 
 // styles, images and assets
-import imageee from "../../assets/images/Rugby_union_pitch.svg";
+// import imageee from "../../assets/images/Rugby_union_pitch.svg";
 import close from "../../assets/images/Icons/enter-arrow.svg";
 
 
@@ -14,7 +14,7 @@ interface PitchLayoutProps {
 
 }
 const PitchLayout: React.FC<PitchLayoutProps> = ({currentTeam, getSurname}) => {
-  const [loginRecommendationModal, setLoginRecommendation] = useState<boolean>(true);
+  // const [loginRecommendationModal, setLoginRecommendation] = useState<boolean>(true);
   const [noSubmitBubble, setSubmitBubble] = useState<boolean>(false);
 
   const submissionBubble = () => { 
@@ -49,7 +49,7 @@ useEffect(() => {
 
             <div className={styles.secondRow} >
               {currentTeam.slice(3, 5).map((playerObj) => (
-                <div className={styles.ShirtPlayer} >
+                <div className={styles.ShirtPlayer} key={playerObj.playerName}>
                  <p className={styles.shirtNumber}>{currentTeam.indexOf(playerObj) + 1}</p>
 
                   <p>{`${playerObj.playerName.charAt(0)}. ${getSurname(

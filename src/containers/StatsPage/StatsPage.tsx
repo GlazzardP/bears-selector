@@ -42,7 +42,7 @@ const StatsPage: React.FC = () => {
       {
         submittedTeams.map((player) => { 
           return ( 
-          <p>{player.playerName}</p>
+          <p key={player.playerName}>{player.playerName}</p>
           )
         })
 
