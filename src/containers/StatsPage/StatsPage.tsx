@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import styles from "./StatsPage.module.scss";
+import styles from "./StatsPage.module.scss";
 import 'firebase/firestore'; // import {firestore} from 'firebase/app'; does not import firestore code
 import { firestore } from "../../firebase";
 import { IPlayer } from "../../data/data";
@@ -37,7 +37,7 @@ const StatsPage: React.FC = () => {
   }, [])
 
   return (
-    <>
+    <section className={styles.statsPage}>
       <p>StatsPage works</p>
       {
         submittedTeams.map((player) => { 
@@ -47,7 +47,7 @@ const StatsPage: React.FC = () => {
         })
 
       }
-    </>
+    </section>
   );
 };
 

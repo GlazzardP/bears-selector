@@ -197,12 +197,19 @@
       }
 
 
-      .desktopScorePercentages { 
-        p{ 
-          border: solid 2px red;
-      }
+    //   .desktopScorePercentages { 
+    //     p{ 
+    //       border: solid 2px red;
+    //   }
+    // }
     }
-    }
+
+    .desktopScorePercentages { 
+      display: none;
+      // p { 
+        // border: solid 2px red;
+    // }
+  }
 
   }
 }

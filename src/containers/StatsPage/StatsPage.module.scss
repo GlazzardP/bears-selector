@@ -1,0 +1,17 @@
+@import "../../assets/variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+
+.statsPage { 
+    border: solid black 3px;
+    top: 10vh;
+    width: 100vw;
+    position: absolute;
+
+}

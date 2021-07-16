@@ -10,12 +10,17 @@ import {
 
 import Navbar from "../../components/Navbar";
 import SelectTeamPage from "../SelectTeamPage"
-
+import LoginPage from "../LoginPage";
 import { IPlayer } from "../../data/data";
+import { Stats } from "fs";
+import StatsPage from "../StatsPage";
 
 
 const Routes: React.FC = () => {
   const [user, setUser] = useState<any>(null);
+  const [pitchPage, setPitchPage] = useState<boolean>(true);
+  const [loginPage, setLoginPage] = useState<boolean>(false);
+
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
 
   const signIn = (provider: any) => { 
@@ -68,36 +73,38 @@ const Routes: React.FC = () => {
     }
   };
 
-
+  console.log(loginPage);
+  
+const fun = () => { 
+  {
+    if (loginPage === true) { 
+        return ( 
+          <LoginPage signIn={signIn} signOut={signOut} user={user} setLoginPage={setLoginPage} />
+        )
+      } else if (pitchPage === true) { 
+        return (
+          <SelectTeamPage currentTeam={currentTeam} addPlayerToTeam={addPlayerToTeam} addToDb={addToDb} user={user}/>
+        )
+      } else { 
+        return ( 
+          <StatsPage />
+        )
+      }
+    }
+}
 
   return (
 
     <Router>
-    <Navbar signIn={signIn} signOut={signOut} user={user} />
+    <Navbar signIn={signIn} signOut={signOut} user={user} setLoginPage={setLoginPage}/>
 
-     {/* <Link to="/"> */}
-        <SelectTeamPage 
-        currentTeam={currentTeam} addPlayerToTeam={addPlayerToTeam} addToDb={addToDb} user={user}
-         />
-     {/* </Link> */}
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
-        {/* <Switch>
-          <Route exact path="/">
+    {
+      fun()
+    }
+    {/* {
+      pitchPage ? (<SelectTeamPage currentTeam={currentTeam} addPlayerToTeam={addPlayerToTeam} addToDb={addToDb} user={user}/>) : (<StatsPage />)
+    } */}
 
-          </Route>
-          <Route path="/about">
-
-          </Route>
-          <Route path="/dashboard">
-
-          </Route>
-        </Switch> */}
     </Router>   
   );
 };

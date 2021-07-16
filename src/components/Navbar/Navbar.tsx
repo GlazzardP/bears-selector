@@ -6,17 +6,26 @@ import { provider } from "../../firebase";
 import InstructionModal from "../../containers/InstructionModal";
 import Button from "../Button";
 // import SignInPage from "../../containers/SignInPage";
+import StatsPage from "../../containers/StatsPage";
 
+import {
+  BrowserRouter as Router,
+  // Switch,
+  // Route,
+  Link
+} from "react-router-dom";
 
 interface NavbarProps { 
   signIn(provider: any): any;
   // setPlayer: (player: IPlayer) => void;
   signOut(): any;
   user: any;
+  setLoginPage(any): any;
   // provider: any;
+  // setPitchPage(): any;
 }
 
-const Navbar: React.FC<NavbarProps> = ({signIn, signOut, user}) => {
+const Navbar: React.FC<NavbarProps> = ({signIn, signOut, user, setLoginPage}) => {
   const [instrutionModal, toggleInstructionModal] =useState<boolean>(false);
 
 
@@ -26,7 +35,8 @@ const Navbar: React.FC<NavbarProps> = ({signIn, signOut, user}) => {
     </div>
   ) : (
     <div className={styles.authButtons}>
-        <Button btnText="Log in" handleClick={() => signIn(provider)} />
+        {/* <Button btnText="Log in" handleClick={() => signIn(provider)} /> */}
+        <Button btnText="Log In" handleClick={() => setLoginPage(true)} />
     </div>
   );
   
@@ -34,6 +44,9 @@ const Navbar: React.FC<NavbarProps> = ({signIn, signOut, user}) => {
   return (
     <section className={styles.Navbar}>
       <h1>Bristol Bears Team Selector</h1>
+      {/* <Link to="stats">
+        <StatsPage />
+      </Link> */}
       <div>
         {signInOutJsx}
       <div> 
@@ -41,11 +54,14 @@ const Navbar: React.FC<NavbarProps> = ({signIn, signOut, user}) => {
         <Button 
          btnText="Instructions" 
          handleClick={() => {toggleInstructionModal(true)}} />
-        {/* //  handleClick={() => alert("Here are you instructions: 1. Log in. This means you can submit your team. 2. Pick your best Bears. 3. Submit 4. Check out who's been picked the most & share your tam with your mates.")} /> */}
 
          {instrutionModal ? ( 
             <InstructionModal toggleInstructionModal={toggleInstructionModal} instructionModal={instrutionModal} />
          ) : null}
+         
+
+
+    
       </div>
 
     </section>

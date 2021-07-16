@@ -95,8 +95,12 @@ const printAvailablePlayers = () => {
   }
 
   const addToDatabaseandConModal = () => {
-    addToDb()
-    toggleConfModal(true);
+      if (currentTeam.length > 14) {
+        addToDb()
+      } else  {
+        console.log("Not enough team members");
+      }
+      toggleConfModal(true);
   }
 
   // <select name="sort" id="sort" onChange={(event) => {availablePlayers.sort((a, b) => a.weight - b.weight)}}>
@@ -188,16 +192,21 @@ const printAvailablePlayers = () => {
           <Button btnText="Submit" handleClick={() => addToDatabaseandConModal()} />
         </div>
 
-          {scoreModal ? ( 
+          {
+            scoreModal ? ( 
               <TeamScoreModal toggleScoreModal={toggleScoreModal} scoreModal={scoreModal} getTeamScoreJsx={getTeamScoreJsx} />
-           ) : null}
+           ) : null
+          }
       </section>
-      {confModal ? (
-        <ConfModal
-          toggleConfModal={toggleConfModal}
-          togglePitchPage={togglePitchPage}
-        />
-      ) : null}
+      {
+          confModal ? (
+          <ConfModal
+            toggleConfModal={toggleConfModal}
+            togglePitchPage={togglePitchPage}
+          />
+        ) : null
+      }
+
     </section> : <StatsPage  />
     }
 
