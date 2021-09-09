@@ -20,7 +20,6 @@ const Routes: React.FC = () => {
   const [user, setUser] = useState<any>(null);
   const [pitchPage, setPitchPage] = useState<boolean>(true);
   const [loginPage, setLoginPage] = useState<boolean>(false);
-
   const [currentTeam, addPlayerToTeam] = useState<IPlayer[]>([]);
 
   const signIn = (provider: any) => { 
